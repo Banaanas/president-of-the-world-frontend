@@ -1,0 +1,69 @@
+{
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:cypress/recommended",
+    "plugin:eslint-comments/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react/recommended",
+    "prettier"
+  ],
+  "parser": "babel-eslint",
+  "plugins": [
+    "cypress",
+    "import",
+    "jest",
+    "jest-formatting",
+    "prettier",
+    "testing-library"
+  ],
+  "rules": {
+    "comma-dangle": [
+      "error",
+      {
+        // Comma-dangle for all MULTILINE Arrays, Objects
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        // Comma-dangle for all MULTILINE Imports, Exports
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        // Comma-dangle for functions only when the developer decides
+        "functions": "only-multiline"
+      }
+    ],
+    // Next.js Link
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["hrefLeft", "hrefRight"],
+        "aspects": ["invalidHref", "preferButton"]
+      }
+    ],
+    "prettier/prettier": "error",
+    // Authorize double-quote use
+    "quotes": [
+      1,
+      "double",
+      {
+        "avoidEscape": true
+      }
+    ],
+    // Disable forbid-prop-types rule
+    "react/prop-types": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "react/jsx-pascal-case": [
+      1,
+      {
+        "allowAllCaps": false
+      }
+    ],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
+  }
+}
