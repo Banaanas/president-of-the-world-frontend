@@ -2,14 +2,16 @@ import Head from "next/head";
 import { useQuery } from "@apollo/client";
 import { addApolloState, initializeApollo } from "../lib/apolloClient";
 import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
-import { ALL_CANDIDATES } from "../lib/queries/queries";
+import { ALL_CANDIDATES, LOGGED_IN_USER } from "../lib/queries/queries";
 import HeroBannerSection from "../Components/HomePage/HeroBannerSection";
 import CounterSection from "../Components/HomePage/CounterSection/CounterSection";
 
 const Home = () => {
   const { data, error, loading } = useQuery(ALL_CANDIDATES);
+  const { dataLIU, errorLIU, loadingLIU } = useQuery(LOGGED_IN_USER);
+  console.log(data, errorLIU, loadingLIU);
 
-  console.log(data);
+  console.log(dataLIU);
   return (
     <>
       <Head>
