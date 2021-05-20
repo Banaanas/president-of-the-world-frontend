@@ -96,7 +96,7 @@ const MyCandidateForm = () => {
     >
       {({ isValid, errors, touched, isSubmitting }) => (
         <StyledForm>
-          <FormHeading heading="Chose a Candidate 10" />
+          <FormHeading heading="Chose a Candidate 100" />
           <Field name="lastName">
             {({ field }) => (
               <ChakraFormControl
