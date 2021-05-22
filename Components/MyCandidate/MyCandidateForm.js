@@ -12,6 +12,7 @@ import {
   SubmitButton,
 } from "../Form/StyledFormComponents";
 import { ADD_CANDIDATE } from "../../lib/queries/queries";
+import { useRouter } from "next/router";
 
 // Form Validation Schema - Yup
 const ValidationSchemaYup = object().shape({
@@ -31,6 +32,9 @@ const ValidationSchemaYup = object().shape({
 });
 
 const MyCandidateForm = () => {
+  // Next Router
+  const router = useRouter();
+
   // Chakra-UI Toast
   const toast = useToast();
 
@@ -45,6 +49,9 @@ const MyCandidateForm = () => {
         duration: 9000,
         isClosable: true,
       });
+
+      // Redirect to Home
+      router.push("/");
     },
     onError: (error) => {
       // Display Error Toast
@@ -96,7 +103,7 @@ const MyCandidateForm = () => {
     >
       {({ isValid, errors, touched, isSubmitting }) => (
         <StyledForm>
-          <FormHeading heading="Chose a Candidate - Bleu" />
+          <FormHeading heading="Chose a Candidate" />
           <Field name="lastName">
             {({ field }) => (
               <ChakraFormControl

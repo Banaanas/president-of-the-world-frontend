@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styled from "@emotion/styled";
 import appTheme from "../../styles/appTheme";
+import { formHeadingStyle } from "../../styles/css-composition";
 
 const Container = styled.div`
   display: flex;
@@ -11,13 +12,7 @@ const Container = styled.div`
 `;
 
 const FormTitle = styled.div`
-  width: 180px;
-  margin-bottom: 16px;
-  font-weight: ${appTheme.fontWeight.bold};
-  font-size: ${appTheme.fontSize.xl2};
-  text-align: center;
-  text-transform: uppercase;
-  border: ${appTheme.colors.primary.default};
+  ${formHeadingStyle}
 `;
 
 const SubHeadingContainer = styled.div`

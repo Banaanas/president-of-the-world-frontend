@@ -1,22 +1,21 @@
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { useQuery } from "@apollo/client";
 import Loader from "react-loader-spinner";
 import styled from "@emotion/styled";
-import { useQuery } from "@apollo/client";
-import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
 import { LOGGED_IN_USER } from "../lib/queries/queries";
+import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
+import StyledH1 from "../Components/StyledComponents/StyledH1";
 import MyCandidateIllustration from "../Components/Illustrations/MyCandidatellustration";
 import MyCandidateForm from "../Components/MyCandidate/MyCandidateForm";
-import MyCandidateProfile from "../Components/MyCandidate/MyCandidateProfile";
-import StyledH1 from "../Components/StyledComponents/StyledH1";
 
 const Container = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   width: 100%;
 
   /*  Hide Illustration */
@@ -34,15 +33,7 @@ const Container = styled.div`
   }
 `;
 
-/* Because of Next.js SSR, Redux useSelector was always used on an EMPTY store on Page Reload.
-/* Then the MyCandidate Component always had the isAuthenticated === false during the
-/* Page Refresh. So the Redirection was automatic, even if the User was authenticated.
-/* That's why an isMounted State has been used here : isAuthenticated is only used
-/* after the Component has been mounted, ie. when the Store has been initialized on Client Side
-/* (not the Server).
-*/
-
-const MyCandidate = () => {
+const SubmitCandidate = () => {
   // Next Router
   const router = useRouter();
 
@@ -54,7 +45,10 @@ const MyCandidate = () => {
   const [isMounted, setIsMounted] = useState(false);
   useEffect(() => {
     setIsMounted(true);
-  }, []);
+    console.log("IS MOUNTED");
+  }, [isMounted]);
+
+  console.log("IS MOUNTED :", isMounted);
 
   // if MOUNTED && NOT AUTHENTICATED, Redirect
   useEffect(() => {
@@ -63,26 +57,7 @@ const MyCandidate = () => {
     }
   }, [isAuthenticated, isMounted]);
 
-  const { data, error, loading } = useQuery(LOGGED_IN_USER, {
-    pollInterval: 1,
-  });
-
-  // if MOUNTED && AUTHENTICATED && ALREADY ONE CANDIDATE, Update Candidate Form
-  if (
-    isMounted &&
-    isAuthenticated &&
-    !loading &&
-    data?.loggedInUser?.candidate
-  ) {
-    return (
-      <StyledPageMain>
-        <Container>
-          <StyledH1>My Candidate</StyledH1>
-          <MyCandidateProfile />
-        </Container>
-      </StyledPageMain>
-    );
-  }
+  const { data, error, loading } = useQuery(LOGGED_IN_USER);
 
   // if MOUNTED && AUTHENTICATED && NO CANDIDATE YET, Candidate Form
   if (
@@ -94,6 +69,8 @@ const MyCandidate = () => {
     return (
       <StyledPageMain>
         <Container>
+          <StyledH1>My Candidate</StyledH1>
+
           <MyCandidateIllustration />
           <MyCandidateForm />
         </Container>
@@ -109,4 +86,4 @@ const MyCandidate = () => {
   );
 };
 
-export default MyCandidate;
+export default SubmitCandidate;

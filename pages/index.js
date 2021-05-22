@@ -7,11 +7,9 @@ import HeroBannerSection from "../Components/HomePage/HeroBannerSection";
 import CounterSection from "../Components/HomePage/CounterSection/CounterSection";
 
 const Home = () => {
-  const { data, error, loading } = useQuery(ALL_CANDIDATES);
-  const { dataLIU, errorLIU, loadingLIU } = useQuery(LOGGED_IN_USER);
-  console.log(data, errorLIU, loadingLIU);
+  // const { data, error, loading } = useQuery(ALL_CANDIDATES);
+  const { data, error, loading } = useQuery(LOGGED_IN_USER);
 
-  console.log(dataLIU);
   return (
     <>
       <Head>

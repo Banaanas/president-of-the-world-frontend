@@ -105,7 +105,10 @@ const Header = () => {
             </Link>
           </StyledLi>
           <StyledLi>
-            <Link href={isAuthenticated ? "/my-candidate" : "/login"} passHref>
+            <Link
+              href={isAuthenticated ? "/submit-candidate" : "/login"}
+              passHref
+            >
               <StyledLink>Chose your Candidate</StyledLink>
             </Link>
           </StyledLi>

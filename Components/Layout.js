@@ -10,6 +10,7 @@ import { getAuthenticatedUser } from "../store/slices/authenticationSlice";
 /* isAuthenticated is used here, because redux hooks can only be used inside
  * the Redux Provider, set up in the _app.js file, parent of Layout.js
  *  */
+
 // Persistent Layout
 const Layout = ({ children }) => {
   // useDispatch - Redux State
@@ -17,6 +18,7 @@ const Layout = ({ children }) => {
 
   // useEffect - Set localStorage - Redux State
   useEffect(() => {
+    console.log("RENDER");
     const authenticatedUser = window.localStorage.getItem("authenticatedUser");
     // If User not Authenticated, Return
     if (!authenticatedUser) return;

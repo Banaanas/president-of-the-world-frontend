@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import styled from "@emotion/styled";
 import Loader from "react-loader-spinner";
 import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
-import LoginIllustration from "../Components/Illustrations/LoginIllustration";
 import SignUpForm from "../Components/SignUpPage/SignUpForm";
 import SignUpIllustration from "../Components/Illustrations/SignUpIllustration";
 
@@ -30,7 +29,7 @@ const Container = styled.div`
   }
 `;
 
-const LoginPage = () => {
+const SignUpPage = () => {
   // Next Router
   const router = useRouter();
 
@@ -66,4 +65,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignUpPage;

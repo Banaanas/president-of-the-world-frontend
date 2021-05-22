@@ -8,31 +8,14 @@ import {
 } from "@chakra-ui/react";
 import { Form } from "formik";
 import appTheme from "../../styles/appTheme";
+import { formStyle, submitButtonStyle } from "../../styles/css-composition";
 
 const StyledForm = styled(Form)`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  min-width: 300px;
-  padding: 24px;
-  color: ${appTheme.colors.secondary.default};
-  background-color: ${appTheme.colors.primary.default};
-  border-radius: 10px;
-  box-shadow: ${appTheme.elevation.xl};
+  ${formStyle}
 `;
 
 const SubmitButton = styled.button`
-  width: 100%;
-  margin-top: 8px;
-  padding: 8px;
-  font-weight: ${appTheme.fontWeight.bold};
-  background: ${appTheme.colors.warning.default};
-  border-radius: 8px;
-  transition: filter 500ms ease;
-
-  &:hover {
-    filter: drop-shadow(0 0 2px ${appTheme.colors.secondary.default});
-  }
+  ${submitButtonStyle}
 `;
 
 const ChakraFormControl = styled(FormControl)`

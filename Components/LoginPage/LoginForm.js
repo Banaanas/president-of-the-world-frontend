@@ -13,6 +13,7 @@ import {
   ChakraLabel,
 } from "../Form/StyledFormComponents";
 import { LOGIN } from "../../lib/queries/queries";
+import { submitButtonStyle } from "../../styles/css-composition";
 
 const StyledForm = styled.form`
   display: flex;
@@ -27,17 +28,7 @@ const StyledForm = styled.form`
 `;
 
 const SubmitButton = styled.button`
-  width: 100%;
-  margin-top: 8px;
-  padding: 8px;
-  font-weight: ${appTheme.fontWeight.bold};
-  background: ${appTheme.colors.warning.default};
-  border-radius: 8px;
-  transition: filter 500ms ease;
-
-  &:hover {
-    filter: drop-shadow(0 0 2px ${appTheme.colors.secondary.default});
-  }
+  ${submitButtonStyle};
 `;
 
 const LoginForm = () => {
@@ -132,7 +123,7 @@ const LoginForm = () => {
           onChange={handlePasswordChange}
         />
       </ChakraFormControl>
-      <SubmitButton type="submit">LOGIN</SubmitButton>
+      <SubmitButton type="submit">Login</SubmitButton>
     </StyledForm>
   );
 };
