@@ -2,17 +2,17 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useMutation } from "@apollo/client";
 import { useToast } from "@chakra-ui/react";
-import { localStorageValue } from "../../lib/apolloClient";
-import { getAuthenticatedUser } from "../../store/slices/authenticationSlice";
-import FormHeading from "../Form/FormHeading";
+import { localStorageValue } from "../../../lib/apolloClient";
+import { getAuthenticatedUser } from "../../../store/slices/authenticationSlice";
+import FormHeading from "../../Form/FormHeading";
 import {
   ChakraFormControl,
   ChakraInput,
   ChakraLabel,
   StyledForm,
   SubmitButton,
-} from "../Form/StyledFormComponents";
-import { LOGIN } from "../../lib/queries/queries";
+} from "../../Form/StyledFormComponents";
+import { LOGIN } from "../../../lib/queries/queries";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("Cyrilo");
