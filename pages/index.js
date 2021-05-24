@@ -3,8 +3,8 @@ import { useQuery } from "@apollo/client";
 import { addApolloState, initializeApollo } from "../lib/apolloClient";
 import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
 import { ALL_CANDIDATES, LOGGED_IN_USER } from "../lib/queries/queries";
-import HeroBannerSection from "../Components/HomePage/HeroBannerSection";
-import CounterSection from "../Components/HomePage/CounterSection/CounterSection";
+import HeroBannerSection from "../Components/_Pages/HomePage/HeroBannerSection";
+import CounterSection from "../Components/_Pages/HomePage/CounterSection/CounterSection";
 
 const Home = () => {
   // const { data, error, loading } = useQuery(ALL_CANDIDATES);

@@ -3,7 +3,7 @@ import { useMutation } from "@apollo/client";
 import { useToast } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import { object, string } from "yup";
-import FormHeading from "../Form/FormHeading";
+import FormHeading from "../../Form/FormHeading";
 import {
   ChakraErrorMessage,
   ChakraFormControl,
@@ -11,8 +11,8 @@ import {
   ChakraLabel,
   StyledFormikForm,
   SubmitButton,
-} from "../Form/StyledFormComponents";
-import { ADD_CANDIDATE } from "../../lib/queries/queries";
+} from "../../Form/StyledFormComponents";
+import { ADD_CANDIDATE } from "../../../lib/queries/queries";
 
 // Form Validation Schema - Yup
 const ValidationSchemaYup = object().shape({
@@ -55,11 +55,8 @@ const SubmitCandidateForm = () => {
     },
     onError: (error) => {
       // Display Error Toast
-      // Should NOT be displayed, because the password is supposed to be the
-      // exact same one as the one used of the Sign Up Process, so no Error
-      // should occur.
       toast({
-        title: "😓 Something Wrong Happened 🔥",
+        title: "❌ Something Wrong Happened ⚠️",
         description: error.message,
         status: "error",
         duration: 9000,

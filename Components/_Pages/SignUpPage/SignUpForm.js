@@ -4,9 +4,9 @@ import { useMutation } from "@apollo/client";
 import { useToast } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import { object, ref, string } from "yup";
-import { localStorageValue } from "../../lib/apolloClient";
-import { getAuthenticatedUser } from "../../store/slices/authenticationSlice";
-import FormHeading from "../Form/FormHeading";
+import { localStorageValue } from "../../../lib/apolloClient";
+import { getAuthenticatedUser } from "../../../store/slices/authenticationSlice";
+import FormHeading from "../../Form/FormHeading";
 import {
   ChakraErrorMessage,
   ChakraFormControl,
@@ -14,8 +14,8 @@ import {
   ChakraLabel,
   StyledFormikForm,
   SubmitButton,
-} from "../Form/StyledFormComponents";
-import { CREATE_USER, LOGIN } from "../../lib/queries/queries";
+} from "../../Form/StyledFormComponents";
+import { CREATE_USER, LOGIN } from "../../../lib/queries/queries";
 
 // Form Validation Schema - Yup
 const ValidationSchemaYup = object().shape({
@@ -92,7 +92,7 @@ const SignUpForm = () => {
     onError: (error) => {
       // Display Error Toast
       toast({
-        title: "😓 Something Wrong Happened 🔥",
+        title: "❌ Something Wrong Happened ⚠️",
         description: error.message,
         status: "error",
         duration: 9000,

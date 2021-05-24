@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import Loader from "react-loader-spinner";
-import appTheme from "../../../styles/appTheme";
-import countdown from "../../../utils/countdown-function";
+import appTheme from "../../../../styles/appTheme";
+import countdown from "../../../../utils/countdown-function";
+
 
 const Container = styled.div`
   display: flex;

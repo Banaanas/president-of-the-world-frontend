@@ -5,7 +5,7 @@ import Loader from "react-loader-spinner";
 import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
 import SignUpForm from "../Components/SignUpPage/SignUpForm";
 import FormPage from "../Components/Form/FormPage";
-import LoginIllustration from "../Components/Illustrations/LoginIllustration";
+import SignUpIllustration from "../Components/Illustrations/SignUpIllustration";
 
 const SignUpPage = () => {
   // Next Router
@@ -35,8 +35,9 @@ const SignUpPage = () => {
   // If Not Authenticated, Return Sign Up Page
   return (
     <FormPage
-      illustrationComponent={<LoginIllustration />}
+      illustrationComponent={<SignUpIllustration />}
       formComponent={<SignUpForm />}
+      rowReverse
     />
   );
 };

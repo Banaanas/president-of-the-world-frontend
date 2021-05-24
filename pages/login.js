@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 import Loader from "react-loader-spinner";
 import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
 import LoginIllustration from "../Components/Illustrations/LoginIllustration";
-import LoginForm from "../Components/LoginPage/LoginForm";
 import FormPage from "../Components/Form/FormPage";
+import LoginForm from "../Components/_Pages/LoginPage/LoginForm";
 
 const LoginPage = () => {
   // Next Router

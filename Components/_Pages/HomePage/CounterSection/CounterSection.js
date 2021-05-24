@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import Counter from "./Counter";
-import appTheme from "../../../styles/appTheme";
+import appTheme from "../../../../styles/appTheme";
 
 const StyledSection = styled.section`
   display: flex;
