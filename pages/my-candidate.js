@@ -5,10 +5,10 @@ import Loader from "react-loader-spinner";
 import { useQuery } from "@apollo/client";
 import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
 import { LOGGED_IN_USER } from "../lib/queries/queries";
-import SubmitCandidateForm from "../Components/MyCandidatePage/SubmitCandidateForm";
-import MyCandidateProfile from "../Components/MyCandidatePage/MyCandidateProfile";
 import FormPage from "../Components/Form/FormPage";
-import LoginIllustration from "../Components/Illustrations/LoginIllustration";
+import SubmitCandidateIllustration from "../Components/Illustrations/SubmitCandidateIllustration";
+import CandidateProfileIllustration from "../Components/Illustrations/CandidateProfileIllustration";
+import CandidateProfile from "../Components/_Pages/MyCandidatePage/CandidateProfile";
 
 /* Because of Next.js SSR, Redux useSelector was always used on an EMPTY store on Page Reload.
 /* Then the MyCandidatePage Component always had the isAuthenticated === false during the
@@ -53,8 +53,9 @@ const MyCandidate = () => {
     return (
       <FormPage
         pageHeading="My Candidate"
-        illustrationComponent={<LoginIllustration />}
-        formComponent={<MyCandidateProfile />}
+        illustrationComponent={<CandidateProfileIllustration />}
+        formComponent={<CandidateProfile />}
+        rowReverse
       />
     );
   }
@@ -69,7 +70,7 @@ const MyCandidate = () => {
     return (
       <FormPage
         pageHeading="My Candidate"
-        illustrationComponent={<LoginIllustration />}
+        illustrationComponent={<SubmitCandidateIllustration />}
         formComponent={<SubmitCandidateForm />}
       />
     );

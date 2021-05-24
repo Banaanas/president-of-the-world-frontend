@@ -6,10 +6,10 @@ import {
   formHeadingStyle,
   formStyle,
   submitButtonStyle,
-} from "../../styles/css-composition";
-import appTheme from "../../styles/appTheme";
-import { DELETE_CANDIDATE, LOGGED_IN_USER } from "../../lib/queries/queries";
-import DetailContainer from "../Form/DetailsContainer";
+} from "../../../styles/css-composition";
+import appTheme from "../../../styles/appTheme";
+import { DELETE_CANDIDATE, LOGGED_IN_USER } from "../../../lib/queries/queries";
+import DetailContainer from "../../Form/DetailsContainer";
 
 const ProfileContainer = styled.div`
   ${formStyle}
@@ -39,7 +39,7 @@ const DeleteButton = styled(UpdateLink)`
   background-color: ${appTheme.colors.error.default};
 `;
 
-const MyCandidateProfile = () => {
+const CandidateProfile = () => {
   const { data, error, loading } = useQuery(LOGGED_IN_USER);
 
   // Chakra-UI Toast
@@ -112,4 +112,4 @@ const MyCandidateProfile = () => {
   );
 };
 
-export default MyCandidateProfile;
+export default CandidateProfile;
