@@ -1,13 +1,14 @@
 import FormPage from "../Components/Form/FormPage";
-import LoginIllustration from "../Components/Illustrations/LoginIllustration";
-import UpdateCandidateForm from "../Components/UpdateCandidatePage/UpdateCandidateForm";
+import UpdateCandidateForm from "../Components/_Pages/UpdateCandidatePage/UpdateCandidateForm";
+import UpdateCandidateIllustration from "../Components/Illustrations/UpdateCandidateIllustration";
 
 const UpdateCandidate = () => {
   return (
     <FormPage
       pageHeading="My Candidate"
-      illustrationComponent={<LoginIllustration />}
+      illustrationComponent={<UpdateCandidateIllustration />}
       formComponent={<UpdateCandidateForm />}
+      rowReverse
     />
   );
 };

@@ -1,8 +1,7 @@
 import styled from "@emotion/styled";
-import appTheme from "../../styles/appTheme";
-import HomeIllustration from "../Illustrations/HomeIllustration";
-import LinkButton from "../LinkButton";
-import StyledH1 from "../StyledComponents/StyledH1";
+import StyledH1 from "../../StyledComponents/StyledH1";
+import HomeIllustration from "../../Illustrations/HomeIllustration";
+import LinkButton from "../../LinkButton";
 
 const StyledSection = styled.section`
   display: flex;

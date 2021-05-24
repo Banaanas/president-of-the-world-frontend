@@ -3,7 +3,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { useToast } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import { object, string } from "yup";
-import FormHeading from "../../Components/Form/FormHeading";
+import FormHeading from "../../Form/FormHeading";
 import {
   ChakraErrorMessage,
   ChakraFormControl,
@@ -11,9 +11,9 @@ import {
   ChakraLabel,
   StyledFormikForm,
   SubmitButton,
-} from "../Form/StyledFormComponents";
-import { LOGGED_IN_USER, UPDATE_CANDIDATE } from "../../lib/queries/queries";
-import DetailContainer from "../Form/DetailsContainer";
+} from "../../Form/StyledFormComponents";
+import { LOGGED_IN_USER, UPDATE_CANDIDATE } from "../../../lib/queries/queries";
+import DetailContainer from "../../Form/DetailsContainer";
 
 // Form Validation Schema - Yup
 const ValidationSchemaYup = object().shape({
@@ -38,8 +38,8 @@ const MyCandidateForm = () => {
       onCompleted: () => {
         // Display Success Toast
         toast({
-          title: "🙂 Login Successful 🏠",
-          description: "You are connected to the Application.",
+          title: "🙂 Candidate Updated 🌠",
+          description: "Your Candidate has been successfully updated.",
           status: "success",
           duration: 9000,
           isClosable: true,
@@ -50,11 +50,8 @@ const MyCandidateForm = () => {
       },
       onError: (error) => {
         // Display Error Toast
-        // Should NOT be displayed, because the password is supposed to be the
-        // exact same one as the one used of the Sign Up Process, so no Error
-        // should occur.
         toast({
-          title: "Wrong Credentials",
+          title: "❌ Something Wrong Happened ⚠️",
           description: error.message,
           status: "error",
           duration: 9000,
@@ -99,7 +96,7 @@ const MyCandidateForm = () => {
     >
       {({ isValid, errors, touched, isSubmitting }) => (
         <StyledFormikForm>
-          <FormHeading heading="Chose a Candidate" />
+          <FormHeading heading="Update your Candidate" />
 
           <DetailContainer>
             <div>Last Name</div>

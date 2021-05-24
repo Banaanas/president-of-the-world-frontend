@@ -39,7 +39,7 @@ const LoginForm = () => {
     onError: () => {
       // Display Error Toast
       toast({
-        title: "😓 Wrong Credentials 🔥",
+        title: "❌ Wrong Credentials ⚠️",
         description: "Invalid Username or Password",
         status: "error",
         duration: 9000,

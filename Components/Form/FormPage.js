@@ -9,12 +9,17 @@ const Container = styled.div`
   gap: 128px;
   width: 100%;
 `;
-const FormPage = ({ pageHeading, illustrationComponent, formComponent }) => {
+const FormPage = ({
+  pageHeading,
+  illustrationComponent,
+  formComponent,
+  rowReverse,
+}) => {
   return (
     <StyledPageMain>
       <Container>
         {pageHeading ? <StyledH1>{pageHeading}</StyledH1> : null}
-        <FormAndIllustrationContainer>
+        <FormAndIllustrationContainer rowReverse={rowReverse}>
           {illustrationComponent}
           {formComponent}
         </FormAndIllustrationContainer>
