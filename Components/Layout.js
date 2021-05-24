@@ -18,8 +18,8 @@ const Layout = ({ children }) => {
 
   // useEffect - Set localStorage - Redux State
   useEffect(() => {
-    console.log("RENDER");
     const authenticatedUser = window.localStorage.getItem("authenticatedUser");
+
     // If User not Authenticated, Return
     if (!authenticatedUser) return;
 

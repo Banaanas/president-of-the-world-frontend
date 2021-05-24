@@ -1,37 +1,37 @@
+import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import { useToast } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import { object, string } from "yup";
-import FormHeading from "../../Components/Form/FormHeading";
+import FormHeading from "../Form/FormHeading";
 import {
   ChakraErrorMessage,
   ChakraFormControl,
   ChakraInput,
   ChakraLabel,
-  StyledForm,
+  StyledFormikForm,
   SubmitButton,
 } from "../Form/StyledFormComponents";
 import { ADD_CANDIDATE } from "../../lib/queries/queries";
-import { useRouter } from "next/router";
 
 // Form Validation Schema - Yup
 const ValidationSchemaYup = object().shape({
   lastName: string()
-    .min(5, "Last Name must be at least 5 characters long")
+    .min(3, "Last Name must be at least 3 characters long")
     .max(15, "Last Name can't exceed 15 characters")
     .required("Last Name is Required"),
   firstName: string()
-    .min(5, "First Name must be at least 5 characters long")
+    .min(3, "First Name must be at least 3 characters long")
     .max(15, "First Name can't exceed 15 characters")
     .required("First Name is Required"),
   country: string()
-    .min(5, "Country must be at least 5 characters long")
-    .max(15, "Country can't exceed 10 characters")
+    .min(4, "Country must be at least 4 characters long")
+    .max(15, "Country can't exceed 15 characters")
     .required("Country is Required"),
-  politicalOrientation: string().required("Political Leaning is Required"),
+  politicalOrientation: string().required("Political Orientation is Required"),
 });
 
-const MyCandidateForm = () => {
+const SubmitCandidateForm = () => {
   // Next Router
   const router = useRouter();
 
@@ -43,8 +43,8 @@ const MyCandidateForm = () => {
     onCompleted: () => {
       // Display Success Toast
       toast({
-        title: "🙂 Login Successful 🏠",
-        description: "You are connected to the Application.",
+        title: "🙂 Candidate Submitted 🌠",
+        description: "People can now vote for your Candidate.",
         status: "success",
         duration: 9000,
         isClosable: true,
@@ -59,7 +59,7 @@ const MyCandidateForm = () => {
       // exact same one as the one used of the Sign Up Process, so no Error
       // should occur.
       toast({
-        title: "Wrong Credentials",
+        title: "😓 Something Wrong Happened 🔥",
         description: error.message,
         status: "error",
         duration: 9000,
@@ -95,14 +95,14 @@ const MyCandidateForm = () => {
       validationSchema={ValidationSchemaYup}
       validateOnMount /* Boolean - Run (also) validation when Formik Component mounts - This way, Submit is disabled on mount */
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        // Create User
+        // Create Candidate
         handleCreateCandidate(values);
         setSubmitting(false); // Set Submitting to false - Submit Chakra UI Button (isLoading)
         resetForm(formikInitialValues); // Reset Form Initial Values
       }}
     >
       {({ isValid, errors, touched, isSubmitting }) => (
-        <StyledForm>
+        <StyledFormikForm>
           <FormHeading heading="Chose a Candidate" />
           <Field name="lastName">
             {({ field }) => (
@@ -163,7 +163,7 @@ const MyCandidateForm = () => {
             )}
           </Field>
           <ChakraLabel htmlFor="politicalOrientation">
-            Political Leaning
+            Political Orientation
           </ChakraLabel>
           {/* The Select Tag is Rendered by Formik with an "as='select'" prop.
           The HTML Select element can not have DIV for children. That is why
@@ -177,11 +177,11 @@ const MyCandidateForm = () => {
           {errors.politicalOrientation && touched.politicalOrientation ? (
             <div>{errors.politicalOrientation}</div>
           ) : null}
-          <SubmitButton type="submit">SIGN UP</SubmitButton>
-        </StyledForm>
+          <SubmitButton type="submit">Submit</SubmitButton>
+        </StyledFormikForm>
       )}
     </Formik>
   );
 };
 
-export default MyCandidateForm;
+export default SubmitCandidateForm;

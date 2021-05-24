@@ -1,39 +1,25 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useMutation } from "@apollo/client";
-import styled from "@emotion/styled";
 import { useToast } from "@chakra-ui/react";
 import { localStorageValue } from "../../lib/apolloClient";
-import store from "../../store/store";
 import { getAuthenticatedUser } from "../../store/slices/authenticationSlice";
-import appTheme from "../../styles/appTheme";
-import FormHeading from "../../Components/Form/FormHeading";
+import FormHeading from "../Form/FormHeading";
 import {
   ChakraFormControl,
   ChakraInput,
   ChakraLabel,
+  StyledForm,
+  SubmitButton,
 } from "../Form/StyledFormComponents";
 import { LOGIN } from "../../lib/queries/queries";
-import { submitButtonStyle } from "../../styles/css-composition";
-
-const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  min-width: 300px;
-  padding: 24px;
-  color: ${appTheme.colors.secondary.default};
-  background-color: ${appTheme.colors.primary.default};
-  border-radius: 10px;
-  box-shadow: ${appTheme.elevation.xl};
-`;
-
-const SubmitButton = styled.button`
-  ${submitButtonStyle};
-`;
 
 const LoginForm = () => {
   const [username, setUsername] = useState("Cyrilo");
   const [password, setPassword] = useState("jocaste");
+
+  // useDispatch - Redux State
+  const dispatch = useDispatch();
 
   // Chakra-UI Toast
   const toast = useToast();
@@ -53,7 +39,7 @@ const LoginForm = () => {
     onError: () => {
       // Display Error Toast
       toast({
-        title: "Wrong Credentials",
+        title: "😓 Wrong Credentials 🔥",
         description: "Invalid Username or Password",
         status: "error",
         duration: 9000,
@@ -71,7 +57,7 @@ const LoginForm = () => {
       // Set localStorage
       localStorage.setItem(localStorageValue, token);
       // Get Authenticated User - Dispatch - Redux State
-      store.dispatch(getAuthenticatedUser(resultLogin.data));
+      dispatch(getAuthenticatedUser(resultLogin.data));
     }
   }, [resultLogin.data]);
 
@@ -81,17 +67,17 @@ const LoginForm = () => {
     // Login - useMutation
     await login({ variables: { username, password } });
 
-    // Reinitialize Inputs (Before userLogin() - Component Unmount)
+    // Reinitialize Inputs (Before Component Unmount)
     setUsername("");
     setPassword("");
   };
 
-  // SET USERNAME LOGIN - FUNCTION
+  // Set Username Login
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
   };
 
-  // SET PASSWORD LOGIN - FUNCTION
+  // Set Password Login
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
@@ -100,7 +86,7 @@ const LoginForm = () => {
     <StyledForm onSubmit={handleLogin}>
       <FormHeading
         heading="Sign In to your Account"
-        subHeading="You don't have an account ?"
+        subHeading="Don't have an account yet ?"
         linkText="Sign Up"
         link="/sign-up"
       />

@@ -23,7 +23,5 @@ const authenticationSlice = createSlice({
 });
 
 export default authenticationSlice.reducer;
-export const {
-  getAuthenticatedUser,
-  resetAuthenticatedUser,
-} = authenticationSlice.actions;
+export const { getAuthenticatedUser, resetAuthenticatedUser } =
+  authenticationSlice.actions;

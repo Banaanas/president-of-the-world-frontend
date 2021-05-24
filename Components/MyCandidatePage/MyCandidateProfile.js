@@ -1,22 +1,15 @@
+import Link from "next/link";
 import styled from "@emotion/styled";
 import { useMutation, useQuery } from "@apollo/client";
+import { useToast } from "@chakra-ui/react";
 import {
   formHeadingStyle,
   formStyle,
   submitButtonStyle,
 } from "../../styles/css-composition";
 import appTheme from "../../styles/appTheme";
-import {
-  DELETE_CANDIDATE,
-  LOGGED_IN_USER,
-  LOGIN,
-} from "../../lib/queries/queries";
-import store from "../../store/store";
-import {
-  displayNotification,
-  hideNotification,
-} from "../../store/slices/notificationSlice";
-import { useToast } from "@chakra-ui/react";
+import { DELETE_CANDIDATE, LOGGED_IN_USER } from "../../lib/queries/queries";
+import DetailContainer from "../Form/DetailsContainer";
 
 const ProfileContainer = styled.div`
   ${formStyle}
@@ -31,29 +24,17 @@ const ButtonsContainer = styled.div`
   width: 100%;
 `;
 
-const DetailContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-
-  & div:nth-of-type(2) {
-    align-self: flex-end;
-    padding: 8px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    background: ${appTheme.colors.tertiary.light};
-    border-radius: 4px;
-  }
-`;
-
 const marginButtons = "2px";
 
-const SubmitButton = styled.button`
+const UpdateLink = styled.a`
+  ${submitButtonStyle};
+
   margin-right: ${marginButtons};
-  ${submitButtonStyle}
 `;
 
-const DeleteButton = styled(SubmitButton)`
+const DeleteButton = styled(UpdateLink)`
+  ${submitButtonStyle};
+
   margin-left: ${marginButtons};
   background-color: ${appTheme.colors.error.default};
 `;
@@ -91,15 +72,14 @@ const MyCandidateProfile = () => {
     },
   );
 
-  const handleDeleteCandidate = async(id) => {
+  const handleDeleteCandidate = async (id) => {
     // Delete Blog - useMutation
     await deleteCandidate({ variables: { id } });
   };
-  console.log(data);
 
   return (
     <ProfileContainer>
-      <ProfileHeading>Details</ProfileHeading>
+      <ProfileHeading>Profile Details</ProfileHeading>
       <DetailContainer>
         <div>Last Name</div>
         <div> {data?.loggedInUser?.candidate?.lastName}</div>
@@ -117,7 +97,9 @@ const MyCandidateProfile = () => {
         <div> {data?.loggedInUser?.candidate?.politicalOrientation}</div>
       </DetailContainer>
       <ButtonsContainer>
-        <SubmitButton>Update</SubmitButton>
+        <Link href="/update-candidate">
+          <UpdateLink>Update</UpdateLink>
+        </Link>
         <DeleteButton
           onClick={() =>
             handleDeleteCandidate(data?.loggedInUser?.candidate?.id)

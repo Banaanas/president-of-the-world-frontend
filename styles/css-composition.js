@@ -15,7 +15,7 @@ const formStyle = css`
 `;
 
 const formHeadingStyle = css`
-  width: 180px;
+  width: 200px; /* Fix width to break Heading when too long */
   margin-bottom: 16px;
   font-weight: ${appTheme.fontWeight.bold};
   font-size: ${appTheme.fontSize.xl2};
@@ -29,9 +29,11 @@ const submitButtonStyle = css`
   margin-top: 8px;
   padding: 8px;
   font-weight: ${appTheme.fontWeight.bold};
+  text-align: center;
   text-transform: uppercase;
   background: ${appTheme.colors.warning.default};
   border-radius: 8px;
+  cursor: pointer;
   transition: filter 500ms ease;
 
   &:hover {

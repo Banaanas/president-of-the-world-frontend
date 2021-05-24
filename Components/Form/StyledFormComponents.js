@@ -10,8 +10,13 @@ import { Form } from "formik";
 import appTheme from "../../styles/appTheme";
 import { formStyle, submitButtonStyle } from "../../styles/css-composition";
 
-const StyledForm = styled(Form)`
+const StyledFormikForm = styled(Form)`
   ${formStyle}
+`;
+
+// For LoginForm - Without Formik
+const StyledForm = styled.form`
+  ${formStyle};
 `;
 
 const SubmitButton = styled.button`
@@ -41,6 +46,7 @@ const ChakraErrorMessage = styled(FormErrorMessage)`
 `;
 
 export {
+  StyledFormikForm,
   StyledForm,
   SubmitButton,
   ChakraFormControl,

@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useMutation } from "@apollo/client";
 import { useToast } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import { object, ref, string } from "yup";
 import { localStorageValue } from "../../lib/apolloClient";
-import store from "../../store/store";
 import { getAuthenticatedUser } from "../../store/slices/authenticationSlice";
-import FormHeading from "../../Components/Form/FormHeading";
+import FormHeading from "../Form/FormHeading";
 import {
   ChakraErrorMessage,
   ChakraFormControl,
   ChakraInput,
   ChakraLabel,
-  StyledForm,
+  StyledFormikForm,
   SubmitButton,
 } from "../Form/StyledFormComponents";
 import { CREATE_USER, LOGIN } from "../../lib/queries/queries";
@@ -32,7 +32,7 @@ const ValidationSchemaYup = object().shape({
     .required("Password Confirmation is Required"),
 });
 
-const LoginForm = () => {
+const SignUpForm = () => {
   // Normally, useState is not used with Formik (values).
   // But after the Sign Up process, username and password
   // were needed to complete the Login process, during the
@@ -40,10 +40,14 @@ const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  // useDispatch - Redux State
+  const dispatch = useDispatch();
+
   // Chakra-UI Toast
   const toast = useToast();
 
   // Login - useMutation
+  // Login is used here, just after the Sign Up Process
   const [login, resultLogin] = useMutation(LOGIN, {
     onCompleted: () => {
       // Display Success Toast
@@ -88,7 +92,7 @@ const LoginForm = () => {
     onError: (error) => {
       // Display Error Toast
       toast({
-        title: "Wrong Process",
+        title: "😓 Something Wrong Happened 🔥",
         description: error.message,
         status: "error",
         duration: 9000,
@@ -106,7 +110,7 @@ const LoginForm = () => {
       // Set localStorage
       localStorage.setItem(localStorageValue, token);
       // Get Authenticated User - Dispatch - Redux State
-      store.dispatch(getAuthenticatedUser(resultLogin.data));
+      dispatch(getAuthenticatedUser(resultLogin.data));
     }
   }, [resultLogin.data]);
 
@@ -123,9 +127,9 @@ const LoginForm = () => {
   };
 
   const formikInitialValues = {
-    username: "Cyrilo",
-    password: "jocaste",
-    passwordConfirmation: "jocaste",
+    username: "",
+    password: "",
+    passwordConfirmation: "",
   };
 
   return (
@@ -148,7 +152,7 @@ const LoginForm = () => {
       }}
     >
       {({ isValid, errors, touched, isSubmitting }) => (
-        <StyledForm>
+        <StyledFormikForm>
           <FormHeading
             heading="Create your Account"
             subHeading="Already have an account ?"
@@ -158,6 +162,7 @@ const LoginForm = () => {
           <Field name="username">
             {({ field }) => (
               <ChakraFormControl
+                isRequired
                 isInvalid={errors.username && touched.username}
               >
                 <ChakraLabel htmlFor="username">Username</ChakraLabel>
@@ -178,6 +183,7 @@ const LoginForm = () => {
           <Field name="password">
             {({ field }) => (
               <ChakraFormControl
+                isRequired
                 isInvalid={errors.password && touched.password}
               >
                 <ChakraLabel htmlFor="password">Password</ChakraLabel>
@@ -198,6 +204,7 @@ const LoginForm = () => {
           <Field name="passwordConfirmation">
             {({ field }) => (
               <ChakraFormControl
+                isRequired
                 isInvalid={
                   errors.passwordConfirmation && touched.passwordConfirmation
                 }
@@ -222,10 +229,10 @@ const LoginForm = () => {
             )}
           </Field>
           <SubmitButton type="submit">SIGN UP</SubmitButton>
-        </StyledForm>
+        </StyledFormikForm>
       )}
     </Formik>
   );
 };
 
-export default LoginForm;
+export default SignUpForm;

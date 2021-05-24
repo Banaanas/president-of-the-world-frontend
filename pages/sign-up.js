@@ -1,33 +1,11 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
-import styled from "@emotion/styled";
 import Loader from "react-loader-spinner";
 import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
 import SignUpForm from "../Components/SignUpPage/SignUpForm";
-import SignUpIllustration from "../Components/Illustrations/SignUpIllustration";
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-
-  /*  Hide Illustration */
-  svg {
-    display: none;
-  }
-
-  @media (min-width: 850px) {
-    flex-direction: row;
-
-    /*  Display Illustration */
-    svg {
-      display: block;
-    }
-  }
-`;
+import FormPage from "../Components/Form/FormPage";
+import LoginIllustration from "../Components/Illustrations/LoginIllustration";
 
 const SignUpPage = () => {
   // Next Router
@@ -56,12 +34,10 @@ const SignUpPage = () => {
 
   // If Not Authenticated, Return Sign Up Page
   return (
-    <StyledPageMain>
-      <Container>
-        <SignUpIllustration />
-        <SignUpForm />
-      </Container>
-    </StyledPageMain>
+    <FormPage
+      illustrationComponent={<LoginIllustration />}
+      formComponent={<SignUpForm />}
+    />
   );
 };
 

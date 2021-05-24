@@ -1,10 +1,9 @@
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { useApolloClient } from "@apollo/client";
 import styled from "@emotion/styled";
 import LogoIcon from "./Illustrations/LogoIcon";
 import appTheme from "../styles/appTheme";
-import { useSelector } from "react-redux";
-import { useApolloClient } from "@apollo/client";
-import store from "../store/store";
 import { resetAuthenticatedUser } from "../store/slices/authenticationSlice";
 
 const HeaderContainer = styled.header`
@@ -76,6 +75,9 @@ const Header = () => {
     (state) => state.userAuthentication.isAuthenticated,
   );
 
+  // useDispatch - Redux State
+  const dispatch = useDispatch();
+
   const client = useApolloClient();
 
   // Logout - Function
@@ -85,7 +87,7 @@ const Header = () => {
     // Reset Apollo Store / Token
     client.resetStore();
     // Reset Authenticated User - Dispatch - Redux State
-    store.dispatch(resetAuthenticatedUser());
+    dispatch(resetAuthenticatedUser());
   };
 
   return (
