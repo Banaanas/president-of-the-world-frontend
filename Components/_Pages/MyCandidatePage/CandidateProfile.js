@@ -10,6 +10,8 @@ import {
 import appTheme from "../../../styles/appTheme";
 import { DELETE_CANDIDATE, LOGGED_IN_USER } from "../../../lib/queries/queries";
 import DetailContainer from "../../Form/DetailsContainer";
+import { useRef, useState } from "react";
+import DeleteAlertDialog from "./DeleteAlertDialog";
 
 const ProfileContainer = styled.div`
   ${formStyle}
@@ -28,13 +30,11 @@ const marginButtons = "2px";
 
 const UpdateLink = styled.a`
   ${submitButtonStyle};
-
   margin-right: ${marginButtons};
 `;
 
 const DeleteButton = styled(UpdateLink)`
   ${submitButtonStyle};
-
   margin-left: ${marginButtons};
   background-color: ${appTheme.colors.error.default};
 `;
@@ -42,35 +42,9 @@ const DeleteButton = styled(UpdateLink)`
 const CandidateProfile = () => {
   const { data, error, loading } = useQuery(LOGGED_IN_USER);
 
-  // Chakra-UI Toast
-  const toast = useToast();
-
-  // Delete - useMutation
-  const [deleteCandidate, resultDeleteCandidate] = useMutation(
-    DELETE_CANDIDATE,
-    {
-      onCompleted: () => {
-        // Display Success Toast
-        toast({
-          title: "🙂 Candidate Deleted 🏠",
-          description: "You are connected to the Application.",
-          status: "success",
-          duration: 9000,
-          isClosable: true,
-        });
-      },
-      onError: () => {
-        // Display Error Toast
-        toast({
-          title: "Wrong Credentials",
-          description: "Invalid Username or Password",
-          status: "error",
-          duration: 9000,
-          isClosable: true,
-        });
-      },
-    },
-  );
+  const [isOpen, setIsOpen] = useState(false);
+  const onCloseAlertDialog = () => setIsOpen(false);
+  const cancelRef = useRef();
 
   const handleDeleteCandidate = async (id) => {
     // Delete Blog - useMutation
@@ -100,16 +74,20 @@ const CandidateProfile = () => {
         <Link href="/update-candidate">
           <UpdateLink>Update</UpdateLink>
         </Link>
-        <DeleteButton
-          onClick={() =>
-            handleDeleteCandidate(data?.loggedInUser?.candidate?.id)
-          }
-        >
-          Delete
-        </DeleteButton>
+        <DeleteButton onClick={() => setIsOpen(true)}>Delete</DeleteButton>
       </ButtonsContainer>
+      <DeleteAlertDialog
+        isOpen={isOpen}
+        cancelRef={cancelRef}
+        onCloseAlertDialog={onCloseAlertDialog}
+        candidateID={data?.loggedInUser?.candidate?.id}
+      />
     </ProfileContainer>
   );
 };
 
 export default CandidateProfile;
+
+/*  onClick={() =>
+            handleDeleteCandidate(data?.loggedInUser?.candidate?.id)
+          }*/

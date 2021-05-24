@@ -28,7 +28,7 @@ const StyledAlertDialogHeader = styled(AlertDialogHeader)`
   text-align: center;
 `;
 
-const DeleteAlertDialog = ({ isOpen, onClose, cancelRef, candidateID }) => {
+const DeleteAlertDialog = ({ isOpen, onCloseAlertDialog, cancelRef, candidateID }) => {
   // Chakra-UI Toast
   const toast = useToast();
 
@@ -47,7 +47,7 @@ const DeleteAlertDialog = ({ isOpen, onClose, cancelRef, candidateID }) => {
         });
 
         // Close Alert Dialog
-        onClose();
+        onCloseAlertDialog();
       },
       onError: (error) => {
         // Display Error Toast
@@ -71,7 +71,7 @@ const DeleteAlertDialog = ({ isOpen, onClose, cancelRef, candidateID }) => {
     <AlertDialog
       isOpen={isOpen}
       leastDestructiveRef={cancelRef}
-      onClose={onClose}
+      onCloseAlertDialog={onCloseAlertDialog}
       isCentered
     >
       <AlertDialogOverlay>
@@ -85,7 +85,7 @@ const DeleteAlertDialog = ({ isOpen, onClose, cancelRef, candidateID }) => {
           <AlertDialogFooter>
             <Button
               ref={cancelRef}
-              onClick={onClose}
+              onClick={onCloseAlertDialog}
               color={appTheme.colors.secondary.default}
             >
               Cancel
