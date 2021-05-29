@@ -4,7 +4,6 @@ import Loader from "react-loader-spinner";
 import appTheme from "../../../../styles/appTheme";
 import countdown from "../../../../utils/countdown-function";
 
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -54,7 +53,7 @@ const Counter = () => {
     return () => clearTimeout(intervalID);
   });
 
-  // Return Null if timeUnit is undefined
+  // Return Null if timeUnit is undefined - SSR
   if (
     !timeToMidnight?.days &&
     !timeToMidnight?.hours &&

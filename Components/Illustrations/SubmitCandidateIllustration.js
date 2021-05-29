@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
 
-const SubmitCandidateIllustration = () => {
-  const StyledSVG = styled.svg`
-    width: clamp(320px, 65%, 400px);
-  `;
+const StyledSVG = styled.svg`
+  width: clamp(320px, 65%, 400px);
+`;
 
+const SubmitCandidateIllustration = () => {
   return (
     <StyledSVG
       viewBox="0 0 640 480"

@@ -12,7 +12,7 @@ import {
   StyledForm,
   SubmitButton,
 } from "../../Form/StyledFormComponents";
-import { LOGIN } from "../../../lib/queries/queries";
+import { LOGGED_IN_USER, LOGIN } from "../../../lib/queries/queries";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("Cyrilo");
@@ -26,6 +26,7 @@ const LoginForm = () => {
 
   // Login - useMutation
   const [login, resultLogin] = useMutation(LOGIN, {
+    refetchQueries: { query: LOGGED_IN_USER, fetchPolicy: "network-only" },
     onCompleted: () => {
       // Display Success Toast
       toast({

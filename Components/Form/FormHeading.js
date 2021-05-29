@@ -35,14 +35,16 @@ const FormHeading = ({ heading, subHeading, linkText, link }) => {
   return (
     <Container>
       <FormTitle>{heading}</FormTitle>
-      <SubHeadingContainer>
-        <span>{subHeading}</span>
-        {link ? (
-          <Link href={link}>
-            <a>{linkText}</a>
-          </Link>
-        ) : null}
-      </SubHeadingContainer>
+      {subHeading ? (
+        <SubHeadingContainer>
+          <span>{subHeading}</span>
+          {link ? (
+            <Link href={link}>
+              <a>{linkText}</a>
+            </Link>
+          ) : null}
+        </SubHeadingContainer>
+      ) : null}
     </Container>
   );
 };

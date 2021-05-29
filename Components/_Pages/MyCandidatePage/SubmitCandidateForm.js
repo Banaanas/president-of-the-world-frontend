@@ -1,6 +1,12 @@
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
-import { useToast } from "@chakra-ui/react";
+import {
+  FormHelperText,
+  HStack,
+  Radio,
+  RadioGroup,
+  useToast,
+} from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import { object, string } from "yup";
 import FormHeading from "../../Form/FormHeading";
@@ -12,7 +18,7 @@ import {
   StyledFormikForm,
   SubmitButton,
 } from "../../Form/StyledFormComponents";
-import { ADD_CANDIDATE } from "../../../lib/queries/queries";
+import { ADD_CANDIDATE, LOGGED_IN_USER } from "../../../lib/queries/queries";
 
 // Form Validation Schema - Yup
 const ValidationSchemaYup = object().shape({
@@ -28,7 +34,9 @@ const ValidationSchemaYup = object().shape({
     .min(4, "Country must be at least 4 characters long")
     .max(15, "Country can't exceed 15 characters")
     .required("Country is Required"),
+  /*
   politicalOrientation: string().required("Political Orientation is Required"),
+*/
 });
 
 const SubmitCandidateForm = () => {
@@ -40,6 +48,7 @@ const SubmitCandidateForm = () => {
 
   // Login - useMutation
   const [createCandidate, resultCreateCandidate] = useMutation(ADD_CANDIDATE, {
+    refetchQueries: [{ query: LOGGED_IN_USER }],
     onCompleted: () => {
       // Display Success Toast
       toast({
@@ -51,7 +60,7 @@ const SubmitCandidateForm = () => {
       });
 
       // Redirect to Home
-      router.push("/");
+      // router.push("/");
     },
     onError: (error) => {
       // Display Error Toast
@@ -92,6 +101,7 @@ const SubmitCandidateForm = () => {
       validationSchema={ValidationSchemaYup}
       validateOnMount /* Boolean - Run (also) validation when Formik Component mounts - This way, Submit is disabled on mount */
       onSubmit={(values, { setSubmitting, resetForm }) => {
+        console.log(values);
         // Create Candidate
         handleCreateCandidate(values);
         setSubmitting(false); // Set Submitting to false - Submit Chakra UI Button (isLoading)
@@ -159,12 +169,12 @@ const SubmitCandidateForm = () => {
               </ChakraFormControl>
             )}
           </Field>
-          <ChakraLabel htmlFor="politicalOrientation">
+          {/*   <ChakraLabel htmlFor="politicalOrientation">
             Political Orientation
           </ChakraLabel>
-          {/* The Select Tag is Rendered by Formik with an "as='select'" prop.
+           The Select Tag is Rendered by Formik with an "as='select'" prop.
           The HTML Select element can not have DIV for children. That is why
-          ChakraFormControl and ChakraErrorMessage have NOT been used here. */}
+          ChakraFormControl and ChakraErrorMessage have NOT been used here.
           <Field as="select" name="politicalOrientation">
             <option value="">-- Choose an Option --</option>
             <option value="left">Left</option>
@@ -173,7 +183,43 @@ const SubmitCandidateForm = () => {
           </Field>
           {errors.politicalOrientation && touched.politicalOrientation ? (
             <div>{errors.politicalOrientation}</div>
-          ) : null}
+          ) : null}*/}
+
+          <Field name="politicalOrientation">
+            {({ field }) => {
+              const { onChange, ...rest } = field;
+              return (
+                <ChakraFormControl
+                  id="politicalOrientation"
+                  isInvalid={
+                    errors.politicalOrientation && touched.politicalOrientation
+                  }
+                >
+                  <ChakraLabel htmlFor="politicalOrientation">
+                    Political Orientation
+                  </ChakraLabel>
+                  <RadioGroup
+                    id="politicalOrientation"
+                    {...rest}
+                    defaultValue="left"
+                  >
+                    <HStack spacing="24px">
+                      <Radio onChange={onChange} value="left">
+                        Left
+                      </Radio>
+                      <Radio onChange={onChange} value="center">
+                        Center
+                      </Radio>
+                      <Radio onChange={onChange} value="right">
+                        Right
+                      </Radio>
+                    </HStack>
+                  </RadioGroup>
+                </ChakraFormControl>
+              );
+            }}
+          </Field>
+
           <SubmitButton type="submit">Submit</SubmitButton>
         </StyledFormikForm>
       )}

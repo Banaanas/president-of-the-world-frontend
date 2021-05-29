@@ -2,6 +2,7 @@ import Link from "next/link";
 import styled from "@emotion/styled";
 import { useMutation, useQuery } from "@apollo/client";
 import { useToast } from "@chakra-ui/react";
+import { useRef, useState } from "react";
 import {
   formHeadingStyle,
   formStyle,
@@ -10,8 +11,8 @@ import {
 import appTheme from "../../../styles/appTheme";
 import { DELETE_CANDIDATE, LOGGED_IN_USER } from "../../../lib/queries/queries";
 import DetailContainer from "../../Form/DetailsContainer";
-import { useRef, useState } from "react";
 import DeleteAlertDialog from "./DeleteAlertDialog";
+import { ButtonsContainer } from "../../Form/StyledFormComponents";
 
 const ProfileContainer = styled.div`
   ${formStyle}
@@ -21,20 +22,15 @@ const ProfileHeading = styled.div`
   ${formHeadingStyle}
 `;
 
-const ButtonsContainer = styled.div`
-  display: flex;
-  width: 100%;
-`;
-
-const marginButtons = "2px";
+const marginButtons = "6px";
 
 const UpdateLink = styled.a`
   ${submitButtonStyle};
-  margin-right: ${marginButtons};
 `;
 
 const DeleteButton = styled(UpdateLink)`
   ${submitButtonStyle};
+
   margin-left: ${marginButtons};
   background-color: ${appTheme.colors.error.default};
 `;
@@ -45,11 +41,6 @@ const CandidateProfile = () => {
   const [isOpen, setIsOpen] = useState(false);
   const onCloseAlertDialog = () => setIsOpen(false);
   const cancelRef = useRef();
-
-  const handleDeleteCandidate = async (id) => {
-    // Delete Blog - useMutation
-    await deleteCandidate({ variables: { id } });
-  };
 
   return (
     <ProfileContainer>
@@ -87,7 +78,3 @@ const CandidateProfile = () => {
 };
 
 export default CandidateProfile;
-
-/*  onClick={() =>
-            handleDeleteCandidate(data?.loggedInUser?.candidate?.id)
-          }*/

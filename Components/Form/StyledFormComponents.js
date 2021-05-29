@@ -45,6 +45,11 @@ const ChakraErrorMessage = styled(FormErrorMessage)`
   font-weight: ${appTheme.fontWeight.bold};
 `;
 
+const ButtonsContainer = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
 export {
   StyledFormikForm,
   StyledForm,
@@ -54,4 +59,5 @@ export {
   ChakraInput,
   ChakraErrorMessage,
   ChakraSelect,
+  ButtonsContainer,
 };

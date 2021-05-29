@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import Loader from "react-loader-spinner";
 import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
-import SignUpForm from "../Components/SignUpPage/SignUpForm";
+import SignUpForm from "../Components/_Pages/SignUpPage/SignUpForm";
 import FormPage from "../Components/Form/FormPage";
 import SignUpIllustration from "../Components/Illustrations/SignUpIllustration";
 
@@ -16,7 +16,7 @@ const SignUpPage = () => {
     (state) => state.userAuthentication.isAuthenticated,
   );
 
-  // if ALREADY authenticated, Redirect - With Spinner
+  // if ALREADY authenticated, Redirect
   useEffect(() => {
     if (isAuthenticated) {
       router.push("/");

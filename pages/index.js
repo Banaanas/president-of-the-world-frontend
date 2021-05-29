@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import Head from "next/head";
 import { useQuery } from "@apollo/client";
 import { addApolloState, initializeApollo } from "../lib/apolloClient";
@@ -5,10 +6,14 @@ import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
 import { ALL_CANDIDATES, LOGGED_IN_USER } from "../lib/queries/queries";
 import HeroBannerSection from "../Components/_Pages/HomePage/HeroBannerSection";
 import CounterSection from "../Components/_Pages/HomePage/CounterSection/CounterSection";
+import pageVariants from "../styles/animations";
 
 const Home = () => {
   // const { data, error, loading } = useQuery(ALL_CANDIDATES);
   const { data, error, loading } = useQuery(LOGGED_IN_USER);
+
+  // AnimatePresence Key
+  const router = useRouter();
 
   return (
     <>
@@ -16,7 +21,13 @@ const Home = () => {
         <title key="title">President of the World</title>
         <meta name="description" content="Application made by Cyrilo" />
       </Head>
-      <StyledPageMain>
+      <StyledPageMain
+        variants={pageVariants}
+        initial="initial"
+        animate="animate"
+        exit="initial"
+        key={router} /* AnimatePresence Key */
+      >
         <HeroBannerSection />
         <CounterSection />
       </StyledPageMain>

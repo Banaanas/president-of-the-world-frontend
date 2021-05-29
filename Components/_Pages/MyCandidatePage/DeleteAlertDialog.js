@@ -11,7 +11,7 @@ import {
 import { useMutation } from "@apollo/client";
 import styled from "@emotion/styled";
 import appTheme from "../../../styles/appTheme";
-import { DELETE_CANDIDATE } from "../../../lib/queries/queries";
+import { DELETE_CANDIDATE, LOGGED_IN_USER } from "../../../lib/queries/queries";
 
 const StyledAlertDialogContent = styled(AlertDialogContent)`
   width: calc(${appTheme.globalMinWidth} - 20px);
@@ -28,7 +28,12 @@ const StyledAlertDialogHeader = styled(AlertDialogHeader)`
   text-align: center;
 `;
 
-const DeleteAlertDialog = ({ isOpen, onCloseAlertDialog, cancelRef, candidateID }) => {
+const DeleteAlertDialog = ({
+  isOpen,
+  onCloseAlertDialog,
+  cancelRef,
+  candidateID,
+}) => {
   // Chakra-UI Toast
   const toast = useToast();
 
@@ -36,6 +41,7 @@ const DeleteAlertDialog = ({ isOpen, onCloseAlertDialog, cancelRef, candidateID 
   const [deleteCandidate, resultDeleteCandidate] = useMutation(
     DELETE_CANDIDATE,
     {
+      refetchQueries: [{ query: LOGGED_IN_USER }],
       onCompleted: () => {
         // Display Success Toast
         toast({
