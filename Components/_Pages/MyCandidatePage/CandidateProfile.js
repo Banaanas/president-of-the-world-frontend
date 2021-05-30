@@ -1,7 +1,6 @@
 import Link from "next/link";
 import styled from "@emotion/styled";
-import { useMutation, useQuery } from "@apollo/client";
-import { useToast } from "@chakra-ui/react";
+import { useQuery } from "@apollo/client";
 import { useRef, useState } from "react";
 import {
   formHeadingStyle,
@@ -9,7 +8,7 @@ import {
   submitButtonStyle,
 } from "../../../styles/css-composition";
 import appTheme from "../../../styles/appTheme";
-import { DELETE_CANDIDATE, LOGGED_IN_USER } from "../../../lib/queries/queries";
+import { LOGGED_IN_USER } from "../../../lib/queries/queries";
 import DetailContainer from "../../Form/DetailsContainer";
 import DeleteAlertDialog from "./DeleteAlertDialog";
 import { ButtonsContainer } from "../../Form/StyledFormComponents";

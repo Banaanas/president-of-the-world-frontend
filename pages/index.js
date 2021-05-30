@@ -7,6 +7,7 @@ import { ALL_CANDIDATES, LOGGED_IN_USER } from "../lib/queries/queries";
 import HeroBannerSection from "../Components/_Pages/HomePage/HeroBannerSection";
 import CounterSection from "../Components/_Pages/HomePage/CounterSection/CounterSection";
 import pageVariants from "../styles/animations";
+import CandidatesRankingSection from "../Components/_Pages/HomePage/CandidatesRankingSection/CandidatesRankingSection";
 
 const Home = () => {
   // const { data, error, loading } = useQuery(ALL_CANDIDATES);
@@ -30,6 +31,7 @@ const Home = () => {
       >
         <HeroBannerSection />
         <CounterSection />
+        <CandidatesRankingSection />
       </StyledPageMain>
     </>
   );

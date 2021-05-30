@@ -48,7 +48,7 @@ const DeleteAlertDialog = ({
           title: "✔️ Candidate Deleted ❎",
           description: "Your Candidate will no longer appear.",
           status: "success",
-          duration: 9000,
+          duration: 5000,
           isClosable: true,
         });
 
@@ -61,7 +61,7 @@ const DeleteAlertDialog = ({
           title: "❌ Something Wrong Happened ⚠️",
           description: error.message,
           status: "error",
-          duration: 9000,
+          duration: 5000,
           isClosable: true,
         });
       },

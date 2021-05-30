@@ -1,12 +1,6 @@
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
-import {
-  FormHelperText,
-  HStack,
-  Radio,
-  RadioGroup,
-  useToast,
-} from "@chakra-ui/react";
+import { HStack, Radio, RadioGroup, useToast } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import { object, string } from "yup";
 import FormHeading from "../../Form/FormHeading";
@@ -34,9 +28,7 @@ const ValidationSchemaYup = object().shape({
     .min(4, "Country must be at least 4 characters long")
     .max(15, "Country can't exceed 15 characters")
     .required("Country is Required"),
-  /*
   politicalOrientation: string().required("Political Orientation is Required"),
-*/
 });
 
 const SubmitCandidateForm = () => {
@@ -55,7 +47,7 @@ const SubmitCandidateForm = () => {
         title: "🙂 Candidate Submitted 🌠",
         description: "People can now vote for your Candidate.",
         status: "success",
-        duration: 9000,
+        duration: 5000,
         isClosable: true,
       });
 
@@ -68,7 +60,7 @@ const SubmitCandidateForm = () => {
         title: "❌ Something Wrong Happened ⚠️",
         description: error.message,
         status: "error",
-        duration: 9000,
+        duration: 5000,
         isClosable: true,
       });
     },
@@ -169,22 +161,6 @@ const SubmitCandidateForm = () => {
               </ChakraFormControl>
             )}
           </Field>
-          {/*   <ChakraLabel htmlFor="politicalOrientation">
-            Political Orientation
-          </ChakraLabel>
-           The Select Tag is Rendered by Formik with an "as='select'" prop.
-          The HTML Select element can not have DIV for children. That is why
-          ChakraFormControl and ChakraErrorMessage have NOT been used here.
-          <Field as="select" name="politicalOrientation">
-            <option value="">-- Choose an Option --</option>
-            <option value="left">Left</option>
-            <option value="center">Center</option>
-            <option value="right">Right</option>
-          </Field>
-          {errors.politicalOrientation && touched.politicalOrientation ? (
-            <div>{errors.politicalOrientation}</div>
-          ) : null}*/}
-
           <Field name="politicalOrientation">
             {({ field }) => {
               const { onChange, ...rest } = field;
@@ -201,20 +177,28 @@ const SubmitCandidateForm = () => {
                   <RadioGroup
                     id="politicalOrientation"
                     {...rest}
-                    defaultValue="left"
+                    defaultValue="Left"
                   >
                     <HStack spacing="24px">
-                      <Radio onChange={onChange} value="left">
+                      <Radio onChange={onChange} value="Left">
                         Left
                       </Radio>
-                      <Radio onChange={onChange} value="center">
+                      <Radio onChange={onChange} value="Center">
                         Center
                       </Radio>
-                      <Radio onChange={onChange} value="right">
+                      <Radio onChange={onChange} value="Right">
                         Right
                       </Radio>
                     </HStack>
                   </RadioGroup>
+                  {/* If this field has been touched, and it contains an error,
+                display it */}
+                  {errors.politicalOrientation &&
+                  touched.politicalOrientation ? (
+                    <ChakraErrorMessage>
+                      {errors.politicalOrientation}
+                    </ChakraErrorMessage>
+                  ) : null}
                 </ChakraFormControl>
               );
             }}

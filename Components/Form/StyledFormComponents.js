@@ -24,7 +24,7 @@ const SubmitButton = styled.button`
 `;
 
 const ChakraFormControl = styled(FormControl)`
-  margin-bottom: 4px;
+  margin-bottom: 16px;
 `;
 
 const ChakraLabel = styled(FormLabel)`
@@ -42,12 +42,14 @@ const ChakraInput = styled(Input)`
 `;
 
 const ChakraErrorMessage = styled(FormErrorMessage)`
+  width: 250px; /* To maintain the Form width */
   font-weight: ${appTheme.fontWeight.bold};
 `;
 
 const ButtonsContainer = styled.div`
   display: flex;
   width: 100%;
+  margin-top: 16px;
 `;
 
 export {

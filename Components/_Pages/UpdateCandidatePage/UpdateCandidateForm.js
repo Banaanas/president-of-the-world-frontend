@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useMutation, useQuery } from "@apollo/client";
-import { useToast } from "@chakra-ui/react";
+import { HStack, Radio, RadioGroup, useToast } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import { object, string } from "yup";
 import styled from "@emotion/styled";
@@ -30,12 +30,6 @@ const CancelLink = styled.a`
 
   margin-left: ${marginButtons};
   background-color: ${appTheme.colors.error.default};
-`;
-
-const SelectContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
 `;
 
 /* The Select Tag is Rendered by Formik with an "as='select'" prop.
@@ -82,7 +76,7 @@ const MyCandidateForm = () => {
           title: "🙂 Candidate Updated 🌠",
           description: "Your Candidate has been successfully updated.",
           status: "success",
-          duration: 9000,
+          duration: 5000,
           isClosable: true,
         });
 
@@ -95,7 +89,7 @@ const MyCandidateForm = () => {
           title: "❌ Something Wrong Happened ⚠️",
           description: error.message,
           status: "error",
-          duration: 9000,
+          duration: 5000,
           isClosable: true,
         });
       },
@@ -104,8 +98,8 @@ const MyCandidateForm = () => {
 
   // Update Candidate - Function
   const handleUpdateCandidate = async (updatedCandidate) => {
-    // updateCandidate - useMutation
 
+    // updateCandidate - useMutation
     await updateCandidate({
       variables: {
         id: data?.loggedInUser?.candidate?.id,
@@ -119,7 +113,7 @@ const MyCandidateForm = () => {
 
   const formikInitialValues = {
     country: "Colombia",
-    politicalOrientation: "left",
+    politicalOrientation: "Left",
   };
 
   return (
@@ -132,7 +126,6 @@ const MyCandidateForm = () => {
         // Update Candidate
         handleUpdateCandidate(values);
         setSubmitting(false); // Set Submitting to false - Submit Chakra UI Button (isLoading)
-        resetForm(formikInitialValues); // Reset Form Initial Values
       }}
     >
       {({ isValid, errors, touched, isSubmitting }) => (
@@ -166,23 +159,48 @@ const MyCandidateForm = () => {
               </ChakraFormControl>
             )}
           </Field>
-          <SelectContainer>
-            <ChakraLabel htmlFor="politicalOrientation">
-              Political Orientation
-            </ChakraLabel>
-            {/* The Select Tag is Rendered by Formik with an "as='select'" prop.
-          The HTML Select element can not have DIV for children. That is why
-          ChakraFormControl and ChakraErrorMessage have NOT been used here. */}
-            <SelectField as="select" name="politicalOrientation">
-              <option value="">-- Choose an Option --</option>
-              <option value="left">Left</option>
-              <option value="center">Center</option>
-              <option value="right">Right</option>
-            </SelectField>
-          </SelectContainer>
-          {errors.politicalOrientation && touched.politicalOrientation ? (
-            <div>{errors.politicalOrientation}</div>
-          ) : null}
+          <Field name="politicalOrientation">
+            {({ field }) => {
+              const { onChange, ...rest } = field;
+              return (
+                <ChakraFormControl
+                  id="politicalOrientation"
+                  isInvalid={
+                    errors.politicalOrientation && touched.politicalOrientation
+                  }
+                >
+                  <ChakraLabel htmlFor="politicalOrientation">
+                    Political Orientation
+                  </ChakraLabel>
+                  <RadioGroup
+                    id="politicalOrientation"
+                    {...rest}
+                    defaultValue="Left"
+                  >
+                    <HStack spacing="24px">
+                      <Radio onChange={onChange} value="Left">
+                        Left
+                      </Radio>
+                      <Radio onChange={onChange} value="Center">
+                        Center
+                      </Radio>
+                      <Radio onChange={onChange} value="Right">
+                        Right
+                      </Radio>
+                    </HStack>
+                  </RadioGroup>
+                  {/* If this field has been touched, and it contains an error,
+                display it */}
+                  {errors.politicalOrientation &&
+                  touched.politicalOrientation ? (
+                    <ChakraErrorMessage>
+                      {errors.politicalOrientation}
+                    </ChakraErrorMessage>
+                  ) : null}
+                </ChakraFormControl>
+              );
+            }}
+          </Field>
           <ButtonsContainer>
             <UpdateButton type="submit">SUBMIT</UpdateButton>
             <Link href="/my-candidate">

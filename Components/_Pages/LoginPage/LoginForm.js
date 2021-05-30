@@ -33,7 +33,7 @@ const LoginForm = () => {
         title: "🙂 Login Successful 🏠",
         description: "You are connected to the Application.",
         status: "success",
-        duration: 9000,
+        duration: 5000,
         isClosable: true,
       });
     },
@@ -43,7 +43,7 @@ const LoginForm = () => {
         title: "❌ Wrong Credentials ⚠️",
         description: "Invalid Username or Password",
         status: "error",
-        duration: 9000,
+        duration: 5000,
         isClosable: true,
       });
     },

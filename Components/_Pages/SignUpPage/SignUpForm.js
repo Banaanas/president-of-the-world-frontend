@@ -55,7 +55,7 @@ const SignUpForm = () => {
         title: "🙂 Login Successful 🏠",
         description: "You are connected to the Application.",
         status: "success",
-        duration: 9000,
+        duration: 5000,
         isClosable: true,
       });
     },
@@ -68,7 +68,7 @@ const SignUpForm = () => {
         title: "Wrong Credentials",
         description: "Invalid Username or Password",
         status: "error",
-        duration: 9000,
+        duration: 5000,
         isClosable: true,
       });
     },
@@ -82,7 +82,7 @@ const SignUpForm = () => {
         title: "🌠 Account Created ✨",
         description: "You successfully created your Account.",
         status: "success",
-        duration: 9000,
+        duration: 5000,
         isClosable: true,
       });
 
@@ -95,7 +95,7 @@ const SignUpForm = () => {
         title: "❌ Something Wrong Happened ⚠️",
         description: error.message,
         status: "error",
-        duration: 9000,
+        duration: 5000,
         isClosable: true,
       });
     },
