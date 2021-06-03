@@ -93,7 +93,6 @@ const SubmitCandidateForm = () => {
       validationSchema={ValidationSchemaYup}
       validateOnMount /* Boolean - Run (also) validation when Formik Component mounts - This way, Submit is disabled on mount */
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        console.log(values);
         // Create Candidate
         handleCreateCandidate(values);
         setSubmitting(false); // Set Submitting to false - Submit Chakra UI Button (isLoading)

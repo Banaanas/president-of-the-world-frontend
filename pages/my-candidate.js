@@ -43,7 +43,7 @@ const MyCandidate = () => {
         <FormPage
           pageHeading="My Candidate"
           illustrationComponent={<CandidateProfileIllustration />}
-          formComponent={<CandidateProfile />}
+          formComponent={<CandidateProfile loggedInUser={data?.loggedInUser} />}
           rowReverse
         />
       );

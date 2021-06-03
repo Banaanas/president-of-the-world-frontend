@@ -1,14 +1,10 @@
-import { useMutation, useQuery } from "@apollo/client";
 import styled from "@emotion/styled";
-import { Tooltip, useToast } from "@chakra-ui/react";
+import { Tooltip } from "@chakra-ui/react";
 import { AiFillStar as StarIcon } from "react-icons/ai";
 import appTheme from "../../../../styles/appTheme";
-import {
-  ALL_CANDIDATES,
-  VOTE_CANDIDATE,
-} from "../../../../lib/queries/queries";
 import numberWithSpaces from "../../../../utils/number-with-spaces";
-import { submitButtonStyle } from "../../../../styles/css-composition";
+import sortCandidatesFunction from "../../../../utils/sort-candidates-function";
+import VoteButton from "./VoteButton";
 
 const tableWidths = {
   rank: "100px",
@@ -19,22 +15,39 @@ const tableWidths = {
 };
 
 const candidateDetailsPadding = "0 4px";
+const tableBorderRadius = "4px";
 
 const CandidatesTable = styled.div`
   display: flex;
   flex-direction: column;
   width: clamp(300px, 75%, 100%);
-  overflow: hidden;
-  border-radius: 8px;
+  overflow-x: auto;
+  border-radius: ${tableBorderRadius};
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 16px;
+    background-color: ${appTheme.colors.primary.default};
+    border-bottom-right-radius: ${tableBorderRadius};
+    border-bottom-left-radius: ${tableBorderRadius};
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${appTheme.colors.tertiary.default};
+    border: solid 1px ${appTheme.colors.tertiary.darker};
+    border-radius: ${tableBorderRadius};
+    border-radius: ${tableBorderRadius};
+  }
 `;
 
 // Candidate Details Row
 const CandidateRow = styled.div`
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  padding: 16px;
+  justify-content: space-around;
+  width: 100%;
+  min-width: 600px;
+  padding: 16px 0;
   color: ${appTheme.colors.secondary.default};
   background-color: ${appTheme.colors.primary.default};
   background-color: ${({ secondary }) =>
@@ -45,20 +58,12 @@ const CandidateRow = styled.div`
   border-top-right-radius: 0;
 `;
 
-const Container = styled.div`
-  display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: space-around;
-  padding: 16px 0;
-`;
-
 // Candidate Details - CandidateRank's Style applies to all Candidate Details
 const CandidateRank = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: ${tableWidths.rank};
+  min-width: ${tableWidths.rank};
   padding: ${candidateDetailsPadding};
   text-align: center;
   word-break: break-word;
@@ -81,7 +86,7 @@ const CandidateCountry = styled(CandidateRank)`
   width: ${tableWidths.country};
 `;
 
-const CandidatePoliticalOrientation = styled(CandidateRank)`
+export const CandidatePoliticalOrientation = styled(CandidateRank)`
   width: ${tableWidths.politicalOrientation};
 
   /* Political Orientation Span */
@@ -116,115 +121,63 @@ const CandidatePoliticalOrientation = styled(CandidateRank)`
 
 const CandidateVotes = styled(CandidateRank)`
   display: flex;
-  justify-content: flex-start;
-  justify-self: flex-end;
+  justify-content: flex-end;
   width: ${tableWidths.votes};
+  margin-bottom: 16px;
 
   & svg {
     margin-right: 4px;
   }
 `;
 
-const VoteButton = styled.button`
-  ${submitButtonStyle};
-
-  width: fit-content;
-  margin-top: 0; /* Cancel CSS Composition */
-  color: ${appTheme.colors.textDefault};
-  text-transform: none;
-  background: ${appTheme.colors.tertiary.default};
+const ButtonAndVotesNumberContainer = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
-const CandidatesRanking = () => {
-  const { data, error, loading } = useQuery(ALL_CANDIDATES, {
-    pollInterval: 100,
-  });
-
-  // Chakra-UI Toast
-  const toast = useToast();
-
-  // Sort Candidates in function of Votes Number
-  const sortCandidatesFunction = (arr) => {
-    const sortedArr = [...arr];
-
-    // Reverse Array to first display
-    sortedArr.reverse(); //
-    sortedArr.sort((a, b) => (a.votes < b.votes ? 1 : -1));
-    return sortedArr;
-  };
-
-  const sortedCandidates = sortCandidatesFunction(data.allCandidates);
-
-  // Login - useMutation
-  const [voteCandidate, resultVoteCandidate] = useMutation(VOTE_CANDIDATE, {
-    onCompleted: () => {
-      // Display Success Toast
-      toast({
-        title: "🗳️ Successful Vote 🌠",
-        description: "One more Vote for this candidate.",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
-    },
-    onError: (error) => {
-      // Display Error Toast
-      toast({
-        title: "❌ Something Wrong Happened ⚠️",
-        description: error.message,
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
-    },
-  });
-
-  // Update Candidate - Function
-  const handleUpdateCandidate = async (candidateID) => {
-    // updateCandidate - useMutation
-    await voteCandidate({
-      variables: {
-        id: candidateID,
-      },
-    });
-  };
+const CandidatesRanking = ({ candidatesArray, handleUpdateCandidate }) => {
+  // Candidates List by Votes Number
+  const sortedCandidates = sortCandidatesFunction(candidatesArray);
 
   return (
     <CandidatesTable>
-      {sortedCandidates.map((candidate, index) => (
-        <CandidateRow key={candidate.id} secondary={index % 2}>
-          <Container>
+      {sortedCandidates.map((candidate, index) =>
+        // Display Candidates List from the second one
+        // The Leading Candidate is displayed in its own card
+        index >= 1 ? (
+          <CandidateRow key={candidate.id} secondary={index % 2}>
             <CandidateRank>{index + 1}</CandidateRank>
-            <VoteButton
-              type="button"
-              onClick={() => handleUpdateCandidate(candidate.id)}
-            >
-              Vote for Me
-            </VoteButton>
+            <ButtonAndVotesNumberContainer>
+              <Tooltip
+                label={`${numberWithSpaces(candidate.votes)} votes`}
+                aria-label={`${numberWithSpaces(candidate.votes)} votes`}
+              >
+                <CandidateVotes>
+                  <StarIcon />
+                  {numberWithSpaces(candidate.votes)}
+                </CandidateVotes>
+              </Tooltip>
+              <VoteButton
+                type="button"
+                onClick={() => handleUpdateCandidate(candidate.id)}
+              >
+                Vote for Me
+              </VoteButton>
+            </ButtonAndVotesNumberContainer>
             <CandidateNameContainer>
               <span>{candidate.lastName}</span>
               {candidate.firstName}
             </CandidateNameContainer>
-          </Container>
-          <Container>
+
             <CandidateCountry>{candidate.country}</CandidateCountry>
             <CandidatePoliticalOrientation
               politicalOrientation={candidate.politicalOrientation}
             >
               <span>{candidate.politicalOrientation}</span>
             </CandidatePoliticalOrientation>
-            <Tooltip
-              label={`${numberWithSpaces(candidate.votes)} votes`}
-              aria-label={`${numberWithSpaces(candidate.votes)} votes`}
-            >
-              <CandidateVotes>
-                <StarIcon />
-                {numberWithSpaces(candidate.votes)}
-              </CandidateVotes>
-            </Tooltip>
-          </Container>
-        </CandidateRow>
-      ))}
+          </CandidateRow>
+        ) : null,
+      )}
     </CandidatesTable>
   );
 };

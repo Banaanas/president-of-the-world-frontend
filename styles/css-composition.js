@@ -5,7 +5,7 @@ const formStyle = css`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   min-width: 300px;
   padding: 24px;
   color: ${appTheme.colors.secondary.default};
