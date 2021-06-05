@@ -26,15 +26,15 @@ const CandidatesTable = styled.div`
 
   &::-webkit-scrollbar {
     width: 8px;
-    height: 16px;
-    background-color: ${appTheme.colors.primary.default};
+    height: 10px;
+    background-color: ${appTheme.colors.primary.darker};
     border-bottom-right-radius: ${tableBorderRadius};
     border-bottom-left-radius: ${tableBorderRadius};
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: ${appTheme.colors.tertiary.default};
-    border: solid 1px ${appTheme.colors.tertiary.darker};
+    background-color: ${appTheme.colors.tertiary.darker};
+    border: solid 1px ${appTheme.colors.tertiary.default};
     border-radius: ${tableBorderRadius};
     border-radius: ${tableBorderRadius};
   }
