@@ -14,8 +14,7 @@ const FormAndIllustrationContainer = styled.div`
   }
 
   @media (min-width: 850px) {
-    flex-direction: ${({ rowReverse }) => (rowReverse ? "row-reverse" : "row")};
-
+²
     /*  Display Illustration */
     svg {
       display: block;

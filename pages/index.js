@@ -7,6 +7,7 @@ import { ALL_CANDIDATES } from "../lib/queries/queries";
 import HeroBannerSection from "../Components/_Pages/HomePage/HeroBannerSection";
 import CounterSection from "../Components/_Pages/HomePage/CounterSection/CounterSection";
 import CandidatesRankingSection from "../Components/_Pages/HomePage/CandidatesRankingSection/CandidatesRankingSection";
+import StyledHR from "../Components/StyledHR";
 import pageVariants from "../styles/animations";
 
 const Home = () => {
@@ -29,8 +30,10 @@ const Home = () => {
         key={router} /* AnimatePresence Key */
       >
         <HeroBannerSection />
-        <CounterSection />
+        <CounterSection width="90%" />
+        <StyledHR />
         <CandidatesRankingSection allCandidates={data?.allCandidates} />
+        <StyledHR width="50%" />
       </StyledPageMain>
     </>
   );
