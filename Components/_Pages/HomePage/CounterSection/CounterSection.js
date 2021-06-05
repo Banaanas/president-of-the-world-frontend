@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "@emotion/styled";
 import Counter from "./Counter";
 import appTheme from "../../../../styles/appTheme";
@@ -16,7 +17,9 @@ const Container = styled.div`
   }
 `;
 
-const Link = styled.a`
+const StyledLink = styled.a`
+  position: relative;
+  z-index: 1;
   width: 136px;
   margin-top: 36px;
   padding: 4px 8px;
@@ -26,6 +29,25 @@ const Link = styled.a`
   border: 4px solid ${appTheme.colors.tertiary.lighter};
   border-radius: 8px;
   cursor: pointer;
+
+  /* ::before opacity changes onHover */
+  ::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    background: ${appTheme.colors.secondary.default};
+    opacity: 0;
+    transition: opacity 2500ms ease;
+    content: "";
+  }
+
+  :hover::before {
+    opacity: 1;
+  }
 `;
 
 const CounterSection = () => {
@@ -33,7 +55,9 @@ const CounterSection = () => {
     <StyledSection>
       <Container>
         <Counter />
-        <Link>Chose Your Own Candidate</Link>
+        <Link href="/my-candidate" passHref>
+          <StyledLink>Chose Your Own Candidate</StyledLink>
+        </Link>
       </Container>
     </StyledSection>
   );
