@@ -20,12 +20,12 @@ const LeadingCandidateCard = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: 16px 0;
+  margin: 16px 4px;
   padding: 8px 16px;
   background: ${appTheme.colors.tertiary.darker};
   border-radius: 8px;
 
-  *:not(:first-of-type) *:not(:last-of-type) {
+  *:not(:first-child) *:not(:last-child) {
     margin: 16px;
   }
 `;
@@ -40,18 +40,25 @@ const NumberContainer = styled.div`
   border-radius: 4px;
 `;
 
-const NameContainer = styled.div`
+const BaseContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
 
+const NameContainer = styled(BaseContainer)`
   /* Space between lastName and firstName */
   span:nth-of-type(1) {
     margin-right: 4px;
+    text-transform: uppercase;
+  }
+
+  span:nth-of-type(2) {
+    text-transform: capitalize;
   }
 `;
 
-const VoteContainer = styled(NameContainer)`
+const VoteContainer = styled(BaseContainer)`
   align-items: center;
   justify-content: center;
 
