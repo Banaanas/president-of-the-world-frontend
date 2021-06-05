@@ -59,6 +59,10 @@ const CandidateProfile = ({ loggedInUser }) => {
         <div>Political Orientation</div>
         <div> {loggedInUser?.candidate?.politicalOrientation}</div>
       </DetailContainer>
+      <DetailContainer>
+        <div>Votes</div>
+        <div> {loggedInUser?.candidate?.votes}</div>
+      </DetailContainer>
       <ButtonsContainer>
         <Link href="/update-candidate">
           <UpdateLink>Update</UpdateLink>

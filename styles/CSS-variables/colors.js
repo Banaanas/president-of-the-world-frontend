@@ -73,12 +73,9 @@ const colors = css`
   /* Text Color */
   --color-text-default: var(--color-primary-default);
 
-  /* Gradients */
-  --gradient-1: linear-gradient(
-    180deg,
-    var(--color-primary-default) 0%,
-    var(--color-secondary-default) 100%
-  );
+  /* Selection */
+  --color-selection: var(--color-secondary-lightest-2);
+  --color-selection-background: var(--color-primary-darker);
 `;
 
 export default colors;

@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { AiFillStar as StarIcon } from "react-icons/ai";
 import { HiOutlineLocationMarker as LocationIcon } from "react-icons/hi";
+import { keyframes } from "@emotion/react";
 import sortCandidatesFunction from "../../../../utils/sort-candidates-function";
 import numberWithSpaces from "../../../../utils/number-with-spaces";
 import appTheme from "../../../../styles/appTheme";
@@ -34,7 +35,7 @@ const NumberContainer = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0 8px;
-  color: ${appTheme.colors.tertiary.darker};
+  color: ${appTheme.colors.tertiary.default};
   background: ${appTheme.colors.primary.default};
   border-radius: 4px;
 `;
@@ -71,12 +72,43 @@ const VoteContainer = styled(NameContainer)`
   }
 `;
 
+// Common Animation Properties for buttonAnimation and afterAnimation
+const coordinatedAnimation = "2000ms ease infinite alternate-reverse";
+
+// Vote for Me Button Animation
+const buttonAnimation = keyframes`
+  0% {
+      transform:rotate(15deg);
+    } 
+  50% {
+      transform:  rotate(0deg);
+    }
+  100% {
+      transform:rotate(-15deg);
+    }
+`;
+
+// Vote for Me Button ::after Animation
+const afterAnimation = keyframes`
+  0% {
+      opacity: 0;
+    } 
+  50% {
+      opacity: 1;
+    }
+  100% {
+      opacity: 0;
+    }
+`;
+
 const StyledVoteButton = styled(VoteButton)`
   overflow: hidden;
   color: ${appTheme.colors.primary.default};
   background: ${appTheme.colors.secondary.default};
   border: 3px solid ${appTheme.colors.primary.default};
+  animation: ${buttonAnimation} ${coordinatedAnimation};
 
+  /* ::before opacity changes onHover */
   ::before {
     position: absolute;
     top: 0;
@@ -88,6 +120,21 @@ const StyledVoteButton = styled(VoteButton)`
     background: ${appTheme.colors.tertiary.darker};
     opacity: 0;
     transition: opacity 250ms ease;
+    content: "";
+  }
+
+  /* ::after opacity changes on afterAnimation */
+  ::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    background: ${appTheme.colors.tertiary.darker};
+    opacity: 1;
+    animation: ${afterAnimation} ${coordinatedAnimation};
     content: "";
   }
 

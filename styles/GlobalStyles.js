@@ -108,8 +108,8 @@ const GlobalStyles = () => (
 
       /* Scrollbar and Selection styles */
       ::selection {
-        color: white;
-        background-color: var(--color-secondary-default);
+        color: var(--color-selection);
+        background-color: var(--color-selection-background);
       }
 
       @media (orientation: landscape) {
