@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { HStack, Radio, RadioGroup, useToast } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import { object, string } from "yup";
@@ -12,9 +12,9 @@ import {
   ChakraFormControl,
   ChakraInput,
   ChakraLabel,
-  StyledFormikForm,
+  StyledFormikForm
 } from "../../Form/StyledFormComponents";
-import { LOGGED_IN_USER, UPDATE_CANDIDATE } from "../../../lib/queries/queries";
+import { UPDATE_CANDIDATE } from "../../../lib/queries/queries";
 import DetailContainer from "../../Form/DetailsContainer";
 import { submitButtonStyle } from "../../../styles/css-composition";
 import appTheme from "../../../styles/appTheme";
@@ -59,7 +59,8 @@ const ValidationSchemaYup = object().shape({
   politicalOrientation: string().required("Political Orientation is Required"),
 });
 
-const MyCandidateForm = () => {
+const MyCandidateForm = ({ loggedInUser }) => {
+
   // Next Router
   const router = useRouter();
 
@@ -98,22 +99,19 @@ const MyCandidateForm = () => {
 
   // Update Candidate - Function
   const handleUpdateCandidate = async (updatedCandidate) => {
-
     // updateCandidate - useMutation
     await updateCandidate({
       variables: {
-        id: data?.loggedInUser?.candidate?.id,
+        id: loggedInUser?.candidate?.id,
         country: updatedCandidate.country,
         politicalOrientation: updatedCandidate.politicalOrientation,
       },
     });
   };
 
-  const { data, error, loading } = useQuery(LOGGED_IN_USER);
-
   const formikInitialValues = {
-    country: "Colombia",
-    politicalOrientation: "Left",
+    country: loggedInUser?.candidate?.country,
+    politicalOrientation: loggedInUser?.candidate?.politicalOrientation,
   };
 
   return (
@@ -134,11 +132,11 @@ const MyCandidateForm = () => {
 
           <DetailContainer>
             <div>Last Name</div>
-            <div> {data?.loggedInUser?.candidate?.lastName}</div>
+            <div> {loggedInUser?.candidate?.lastName}</div>
           </DetailContainer>
           <DetailContainer>
             <div>First Name</div>
-            <div> {data?.loggedInUser?.candidate?.firstName}</div>
+            <div> {loggedInUser?.candidate?.firstName}</div>
           </DetailContainer>
 
           <Field name="country">

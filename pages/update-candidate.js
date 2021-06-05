@@ -31,7 +31,9 @@ const UpdateCandidate = () => {
         pageHeading="My Candidate"
         subHeading="My Candidate"
         illustrationComponent={<UpdateCandidateIllustration />}
-        formComponent={<UpdateCandidateForm />}
+        formComponent={
+          <UpdateCandidateForm loggedInUser={data?.loggedInUser} />
+        }
         rowReverse
       />
     );

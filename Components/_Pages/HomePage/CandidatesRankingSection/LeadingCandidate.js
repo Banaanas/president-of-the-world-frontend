@@ -72,9 +72,28 @@ const VoteContainer = styled(NameContainer)`
 `;
 
 const StyledVoteButton = styled(VoteButton)`
+  overflow: hidden;
   color: ${appTheme.colors.primary.default};
   background: ${appTheme.colors.secondary.default};
   border: 3px solid ${appTheme.colors.primary.default};
+
+  ::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    background: ${appTheme.colors.tertiary.darker};
+    opacity: 0;
+    transition: opacity 250ms ease;
+    content: "";
+  }
+
+  :hover::before {
+    opacity: 1;
+  }
 `;
 
 const CountryContainer = styled.div`
@@ -82,7 +101,6 @@ const CountryContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin-right: 4px;
-  
 
   /* LocationIcon SVG */
   & svg {
@@ -105,33 +123,33 @@ const StyledCandidatePoliticalOrientation = styled(
 
 const LeadingCandidate = ({ candidatesArray, handleUpdateCandidate }) => {
   // Most Voted Candidate
-  const [firstCandidate] = sortCandidatesFunction(candidatesArray);
+  const [leadingCandidate] = sortCandidatesFunction(candidatesArray);
 
   return (
     <Container>
       <LeadingCandidateCard>
         <NumberContainer>1</NumberContainer>
         <NameContainer>
-          <span>{firstCandidate.firstName}</span>
-          <span>{firstCandidate.lastName}</span>
+          <span>{leadingCandidate.firstName}</span>
+          <span>{leadingCandidate.lastName}</span>
         </NameContainer>
         <CountryContainer>
           <StyledLocationIcon />
-          <span>{firstCandidate.country}</span>
+          <span>{leadingCandidate.country}</span>
         </CountryContainer>
         <StyledCandidatePoliticalOrientation
-          politicalOrientation={firstCandidate.politicalOrientation}
+          politicalOrientation={leadingCandidate.politicalOrientation}
         >
-          <span>{firstCandidate.politicalOrientation}</span>
+          <span>{leadingCandidate.politicalOrientation}</span>
         </StyledCandidatePoliticalOrientation>
       </LeadingCandidateCard>
       <VoteContainer>
         <span>Leading Candidate |</span>
         <span>
-          {numberWithSpaces(firstCandidate.votes)} <StarIcon />
+          {numberWithSpaces(leadingCandidate.votes)} <StarIcon />
         </span>
         <StyledVoteButton
-          onClick={() => handleUpdateCandidate(firstCandidate.id)}
+          onClick={() => handleUpdateCandidate(leadingCandidate.id)}
         >
           Vote for Me
         </StyledVoteButton>
