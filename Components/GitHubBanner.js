@@ -5,7 +5,7 @@ import appTheme from "../styles/appTheme";
 
 const StyledDiv = styled.div`
   position: absolute;
-  top: 5.5rem;
+  top: 0;
   right: 0;
 
   svg {

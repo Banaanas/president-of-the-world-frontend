@@ -16,12 +16,16 @@ const Heading = styled.div`
 
 const CounterContainer = styled.div`
   display: flex;
-  gap: 16px;
+
+  /* TimeUnitContainer - DD/HH/MM/SS */
+  & > div:nth-of-type(2),
+  & > div:nth-of-type(3) {
+    margin: 0 16px;
+  }
 `;
 
 const TimeUnitContainer = styled.div`
   display: flex;
-  gap: 6px;
   align-items: baseline;
   font-size: ${appTheme.fontSize.xl};
 
@@ -31,6 +35,7 @@ const TimeUnitContainer = styled.div`
 `;
 
 const TimeUnit = styled.div`
+  margin-right: 6px;
   font-size: ${appTheme.fontSize.xl2};
 
   @media ${appTheme.queries.tabletAndUp} {

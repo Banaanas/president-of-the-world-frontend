@@ -3,15 +3,14 @@ import Head from "next/head";
 import { useQuery } from "@apollo/client";
 import { addApolloState, initializeApollo } from "../lib/apolloClient";
 import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
-import { ALL_CANDIDATES, LOGGED_IN_USER } from "../lib/queries/queries";
+import { ALL_CANDIDATES } from "../lib/queries/queries";
 import HeroBannerSection from "../Components/_Pages/HomePage/HeroBannerSection";
 import CounterSection from "../Components/_Pages/HomePage/CounterSection/CounterSection";
-import pageVariants from "../styles/animations";
 import CandidatesRankingSection from "../Components/_Pages/HomePage/CandidatesRankingSection/CandidatesRankingSection";
+import pageVariants from "../styles/animations";
 
 const Home = () => {
-  // const { data, error, loading } = useQuery(ALL_CANDIDATES);
-  const { data, error, loading } = useQuery(LOGGED_IN_USER);
+  const { data, error, loading } = useQuery(ALL_CANDIDATES);
 
   // AnimatePresence Key
   const router = useRouter();
@@ -31,7 +30,7 @@ const Home = () => {
       >
         <HeroBannerSection />
         <CounterSection />
-        <CandidatesRankingSection />
+        <CandidatesRankingSection allCandidates={data?.allCandidates} />
       </StyledPageMain>
     </>
   );

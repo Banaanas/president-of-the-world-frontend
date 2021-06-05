@@ -7,7 +7,6 @@ const StyledPageMain = styled(motion.main)`
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 128px;
   align-items: center;
   justify-content: center;
   width: 100%;

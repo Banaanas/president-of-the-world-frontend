@@ -1,7 +1,13 @@
 import styled from "@emotion/styled";
+import StyledSection from "../StyledComponents/StyledSection";
 
 const StyledSVG = styled.svg`
   width: clamp(320px, 65%, 400px);
+
+  ${StyledSection} & {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
 `;
 
 const HomeIllustration = () => {

@@ -13,6 +13,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 16px;
 `;
 
 const LeadingCandidateCard = styled.div`
@@ -25,8 +26,14 @@ const LeadingCandidateCard = styled.div`
   background: ${appTheme.colors.tertiary.darker};
   border-radius: 8px;
 
-  *:not(:first-child) *:not(:last-child) {
+  & > div {
     margin: 16px;
+  }
+
+  /* No margin for First and Last children Div */
+  & > div:first-of-type,
+  & > div:last-of-type {
+    margin: 0;
   }
 `;
 
