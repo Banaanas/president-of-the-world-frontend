@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import appTheme from "../../styles/appTheme";
-import NavBar from "./NavBar";
 import SubFooter from "./SubFooter";
 
 const StyledFooter = styled.footer`
@@ -17,8 +16,6 @@ const StyledFooter = styled.footer`
 const Footer = () => {
   return (
     <StyledFooter>
-      {/* <ContactIcons /> */}
-      <NavBar />
       <SubFooter />
     </StyledFooter>
   );
