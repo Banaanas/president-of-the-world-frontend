@@ -37,11 +37,11 @@ const LoginForm = () => {
         isClosable: true,
       });
     },
-    onError: () => {
+    onError: (error) => {
       // Display Error Toast
       toast({
         title: "❌ Wrong Credentials ⚠️",
-        description: "Invalid Username or Password",
+        description: error.message,
         status: "error",
         duration: 5000,
         isClosable: true,
@@ -54,7 +54,7 @@ const LoginForm = () => {
     // If Login works
     if (resultLogin.data) {
       // Retrieve token from GraphQL mutation
-      const token = resultLogin.data.login.value;
+      const { token } = resultLogin.data.login;
       // Set localStorage
       localStorage.setItem(localStorageValue, token);
       // Get Authenticated User - Dispatch - Redux State
@@ -96,7 +96,7 @@ const LoginForm = () => {
         <ChakraLabel htmlFor="username">Username</ChakraLabel>
         <ChakraInput
           type="text"
-          value={username}
+          value="Cyrilo"
           id="username"
           onChange={handleUsernameChange}
         />
@@ -105,7 +105,7 @@ const LoginForm = () => {
         <ChakraLabel htmlFor="username">Password</ChakraLabel>
         <ChakraInput
           type="password"
-          value={password}
+          value="jocaste10"
           id="password"
           onChange={handlePasswordChange}
         />

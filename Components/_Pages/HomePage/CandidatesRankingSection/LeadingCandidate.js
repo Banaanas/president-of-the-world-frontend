@@ -25,7 +25,7 @@ const LeadingCandidateCard = styled.div`
   background: ${appTheme.colors.tertiary.darker};
   border-radius: 8px;
 
-  *:not(:first-child) *:not(:last-child) {
+  *:not(:first-of-type) *:not(:last-of-type) {
     margin: 16px;
   }
 `;

@@ -7,6 +7,7 @@ import appTheme from "../styles/appTheme";
 import Header from "./Header";
 import { getAuthenticatedUser } from "../store/slices/authenticationSlice";
 import GitHubBanner from "./GitHubBanner";
+import Footer from "./Footer/Footer";
 
 /* isAuthenticated is used here, because redux hooks can only be used inside
  * the Redux Provider, set up in the _app.js file, parent of Layout.js
@@ -35,6 +36,7 @@ const Layout = ({ children }) => {
         <Header />
         <GitHubBanner />
         {children}
+        <Footer />
       </ChakraProvider>
     </EmotionThemeProvider>
   );

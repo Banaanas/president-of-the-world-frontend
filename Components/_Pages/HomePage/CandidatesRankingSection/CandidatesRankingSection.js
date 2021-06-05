@@ -26,7 +26,7 @@ const StyledH2 = styled(StyledH1)`
 
 const CandidatesRankingSection = () => {
   const { data, error, loading } = useQuery(ALL_CANDIDATES, {
-    pollInterval: 100,
+    pollInterval: 1000,
   });
 
   // Render when allCandidates array changes
