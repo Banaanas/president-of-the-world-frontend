@@ -34,7 +34,6 @@ const Home = () => {
         <CounterSection />
         <StyledHR />
         <CandidatesRankingSection allCandidates={data?.allCandidates} />
-        <StyledHR width="50%" />
       </StyledPageMain>
     </>
   );

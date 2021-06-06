@@ -17,11 +17,17 @@ const FormTitle = styled.div`
 
 const SubHeadingContainer = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   color: ${appTheme.colors.secondary.light};
   font-weight: ${appTheme.fontWeight.medium};
   font-size: ${appTheme.fontSize.sm};
+
+  @media ${appTheme.queries.tabletAndUp} {
+    flex-direction: row;
+  }
 
   a {
     margin-left: 8px;

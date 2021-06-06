@@ -12,6 +12,7 @@ const StyledPageMain = styled(motion.main)`
   width: 100%;
   max-width: ${appTheme.globalMaxWidth};
   min-height: 100%;
+  padding: 16px;
   font-weight: bold;
   text-align: justify;
 `;

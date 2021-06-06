@@ -6,7 +6,7 @@ const StyledSection = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin: 64px 0;
+  margin: 48px 0;
 `;
 
 export default StyledSection;

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { useApolloClient } from "@apollo/client";
 import styled from "@emotion/styled";
+import { useToast } from "@chakra-ui/react";
 import LogoIcon from "./Illustrations/LogoIcon";
 import appTheme from "../styles/appTheme";
 import { resetAuthenticatedUser } from "../store/slices/authenticationSlice";
@@ -26,9 +27,7 @@ const Nav = styled.nav`
 const List = styled.ul`
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: ${appTheme.globalMaxWidth};
+  justify-content: space-around;
   padding: 2px;
 `;
 
@@ -40,6 +39,7 @@ const StyledLink = styled.a`
   position: relative;
   z-index: 1;
   display: flex;
+  margin: 0 4px;
   padding: 8px;
   overflow: hidden;
   color: ${appTheme.colors.secondary.default};
@@ -50,6 +50,10 @@ const StyledLink = styled.a`
   border-radius: 8px;
   box-shadow: ${appTheme.elevation.md};
   transition: opacity 250ms ease;
+
+  @media ${appTheme.queries.tabletAndUp} {
+    margin: 0 16px;
+  }
 
   ::before {
     position: absolute;
@@ -79,16 +83,40 @@ const Header = () => {
   // useDispatch - Redux State
   const dispatch = useDispatch();
 
+  // useApolloClient - Apollo Client
   const client = useApolloClient();
+
+  // Chakra-UI Toast
+  const toast = useToast();
 
   // Logout - Function
   const handleLogout = () => {
-    // Clear localStorage
-    localStorage.clear();
-    // Reset Apollo Store / Token
-    client.resetStore();
-    // Reset Authenticated User - Dispatch - Redux State
-    dispatch(resetAuthenticatedUser());
+    try {
+      // Clear localStorage
+      localStorage.clear();
+      // Reset Apollo Store / Token
+      client.resetStore();
+      // Reset Authenticated User - Dispatch - Redux State
+      dispatch(resetAuthenticatedUser());
+
+      // Display Success Toast
+      toast({
+        title: "👋🏽 Logout Successful 🤟🏽",
+        description: "You are not connected to the Application anymore.",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
+    } catch (error) {
+      // Display Error Toast
+      toast({
+        title: "❌ Something Wrong Happened ⚠️",
+        description: error.message,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+    }
   };
 
   return (

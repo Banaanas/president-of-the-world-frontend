@@ -123,8 +123,8 @@ const GlobalStyles = () => (
           border-radius: 3px;
         }
         ::-webkit-scrollbar-thumb {
-          background-color: ${appTheme.colors.tertiary.light};
-          border: 2px solid ${appTheme.colors.tertiary.light};
+          background-color: ${appTheme.colors.tertiary.default};
+          border: 2px solid ${appTheme.colors.tertiary.default};
           border-radius: 10px;
         }
       }

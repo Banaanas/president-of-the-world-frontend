@@ -9,7 +9,7 @@ const StyledFooter = styled.footer`
   justify-content: center;
   width: 100%;
   min-height: 3rem;
-  margin: 16px 0;
+  padding-bottom: 16px;
   background-color: ${appTheme.colors.secondary.main};
   transition: filter, 300ms ease;
 `;
