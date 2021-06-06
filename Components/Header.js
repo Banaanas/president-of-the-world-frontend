@@ -5,11 +5,15 @@ import styled from "@emotion/styled";
 import LogoIcon from "./Illustrations/LogoIcon";
 import appTheme from "../styles/appTheme";
 import { resetAuthenticatedUser } from "../store/slices/authenticationSlice";
+import GitHubBanner from "./GitHubBanner";
 
 const HeaderContainer = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   padding: 16px 16px 0 16px;
-  font-weight: var(--font-weight-bold);
+  font-weight: ${appTheme.fontWeight.bold};
 `;
 
 const Nav = styled.nav`
@@ -24,7 +28,7 @@ const Nav = styled.nav`
 const List = styled.ul`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
   max-width: ${appTheme.globalMaxWidth};
   padding: 2px;
@@ -92,15 +96,15 @@ const Header = () => {
 
   return (
     <HeaderContainer>
+      <StyledLi>
+        <Link href="/">
+          <a>
+            <LogoIcon />
+          </a>
+        </Link>
+      </StyledLi>
       <Nav>
         <List>
-          <StyledLi>
-            <Link href="/">
-              <a>
-                <LogoIcon />
-              </a>
-            </Link>
-          </StyledLi>
           <StyledLi>
             <Link href="/my-candidate" passHref>
               <StyledLink>My Candidate</StyledLink>
@@ -115,6 +119,7 @@ const Header = () => {
           </StyledLi>
         </List>
       </Nav>
+      <GitHubBanner />
     </HeaderContainer>
   );
 };

@@ -191,23 +191,23 @@ const LeadingCandidate = ({ candidatesArray, handleUpdateCandidate }) => {
       <LeadingCandidateCard>
         <NumberContainer>1</NumberContainer>
         <NameContainer>
-          <span>{leadingCandidate.firstName}</span>
-          <span>{leadingCandidate.lastName}</span>
+          <span>{leadingCandidate?.firstName}</span>
+          <span>{leadingCandidate?.lastName}</span>
         </NameContainer>
         <CountryContainer>
           <StyledLocationIcon />
-          <span>{leadingCandidate.country}</span>
+          <span>{leadingCandidate?.country}</span>
         </CountryContainer>
         <StyledCandidatePoliticalOrientation
-          politicalOrientation={leadingCandidate.politicalOrientation}
+          politicalOrientation={leadingCandidate?.politicalOrientation}
         >
-          <span>{leadingCandidate.politicalOrientation}</span>
+          <span>{leadingCandidate?.politicalOrientation}</span>
         </StyledCandidatePoliticalOrientation>
       </LeadingCandidateCard>
       <VoteContainer>
         <span>Leading Candidate |</span>
         <span>
-          {numberWithSpaces(leadingCandidate.votes)} <StarIcon />
+          {numberWithSpaces(leadingCandidate?.votes)} <StarIcon />
         </span>
         <StyledVoteButton
           onClick={() => handleUpdateCandidate(leadingCandidate.id)}

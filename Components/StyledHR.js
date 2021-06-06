@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 import appTheme from "../styles/appTheme";
 
-const StyledHR = styled.div`
+const StyledHR = styled.hr`
+  all: unset;
   width: ${({ width }) => (width ? width : "80%")};
   height: 4px;
   background: ${appTheme.colors.primary.default};

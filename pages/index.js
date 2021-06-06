@@ -30,7 +30,8 @@ const Home = () => {
         key={router} /* AnimatePresence Key */
       >
         <HeroBannerSection />
-        <CounterSection width="90%" />
+        <StyledHR />
+        <CounterSection />
         <StyledHR />
         <CandidatesRankingSection allCandidates={data?.allCandidates} />
         <StyledHR width="50%" />

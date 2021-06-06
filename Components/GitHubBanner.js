@@ -4,17 +4,13 @@ import appTheme from "../styles/appTheme";
 /* Inspired by : https://github.com/tholman/github-corners */
 
 const StyledDiv = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-
   svg {
     position: absolute;
     top: 0;
     right: 0;
     color: ${appTheme.colors.primary.default};
     border: 0;
-    fill: ${appTheme.colors.secondary.default};
+    fill: ${appTheme.colors.tertiary.default};
   }
 
   .octo-arm {

@@ -145,28 +145,28 @@ const CandidatesRanking = ({ candidatesArray, handleUpdateCandidate }) => {
         // Display Candidates List from the second one
         // The Leading Candidate is displayed in its own card
         index >= 1 ? (
-          <CandidateRow key={candidate.id} secondary={index % 2}>
+          <CandidateRow key={candidate?.id} secondary={index % 2}>
             <CandidateRank>{index + 1}</CandidateRank>
             <ButtonAndVotesNumberContainer>
               <Tooltip
-                label={`${numberWithSpaces(candidate.votes)} votes`}
-                aria-label={`${numberWithSpaces(candidate.votes)} votes`}
+                label={`${numberWithSpaces(candidate?.votes)} votes`}
+                aria-label={`${numberWithSpaces(candidate?.votes)} votes`}
               >
                 <CandidateVotes>
                   <StarIcon />
-                  {numberWithSpaces(candidate.votes)}
+                  {numberWithSpaces(candidate?.votes)}
                 </CandidateVotes>
               </Tooltip>
               <VoteButton
                 type="button"
-                onClick={() => handleUpdateCandidate(candidate.id)}
+                onClick={() => handleUpdateCandidate(candidate?.id)}
               >
                 Vote for Me
               </VoteButton>
             </ButtonAndVotesNumberContainer>
             <CandidateNameContainer>
-              <span>{candidate.lastName}</span>
-              {candidate.firstName}
+              <span>{candidate?.lastName}</span>
+              {candidate?.firstName}
             </CandidateNameContainer>
 
             <CandidateCountry>{candidate.country}</CandidateCountry>

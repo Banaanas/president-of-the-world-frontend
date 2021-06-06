@@ -139,6 +139,7 @@ const appTheme = {
   /* OTHERS */
   globalMinWidth: "320px",
   globalMaxWidth: "1100px",
+  headerHeight: "72px",
   queries: QUERIES,
 };
 

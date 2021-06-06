@@ -34,7 +34,6 @@ const Layout = ({ children }) => {
       <ChakraProvider>
         <GlobalStyles />
         <Header />
-        <GitHubBanner />
         {children}
         <Footer />
       </ChakraProvider>
