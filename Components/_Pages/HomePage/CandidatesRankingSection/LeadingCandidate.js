@@ -112,7 +112,7 @@ const VoteContainer = styled(BaseContainer)`
     margin-left: 8px;
   }
 
-  /* Votes Number and Star Icon Container*/
+  /* Votes Number and Star Icon Container */
   & span:nth-of-type(2) {
     margin: 8px;
     color: ${appTheme.colors.warning.default};
@@ -149,6 +149,7 @@ const afterAnimation = keyframes`
 `;
 
 const StyledVoteButton = styled(VoteButton)`
+  position: relative;
   overflow: hidden;
   color: ${appTheme.colors.primary.default};
   background: ${appTheme.colors.secondary.default};
