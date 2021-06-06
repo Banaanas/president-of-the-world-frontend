@@ -16,11 +16,18 @@ const Heading = styled.div`
 
 const CounterContainer = styled.div`
   display: flex;
+  flex-direction: column;
+
+  @media ${appTheme.queries.tabletAndUp} {
+    flex-direction: row;
+  }
 
   /* TimeUnitContainer - DD/HH/MM/SS */
   & > div:nth-of-type(2),
   & > div:nth-of-type(3) {
-    margin: 0 16px;
+    @media ${appTheme.queries.tabletAndUp} {
+      margin: 0 16px;
+    }
   }
 `;
 

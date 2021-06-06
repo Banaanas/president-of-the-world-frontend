@@ -13,7 +13,6 @@ const HeaderContainer = styled.header`
   justify-content: center;
   width: 100%;
   padding: 16px 16px 0 16px;
-  font-weight: ${appTheme.fontWeight.bold};
 `;
 
 const Nav = styled.nav`
@@ -21,14 +20,13 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: center;
   width: 100%;
-  font-weight: var(--font-weight-bold);
   background: transparent;
 `;
 
 const List = styled.ul`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   width: 100%;
   max-width: ${appTheme.globalMaxWidth};
   padding: 2px;
@@ -36,7 +34,6 @@ const List = styled.ul`
 
 const StyledLi = styled.li`
   list-style: none;
-  box-shadow: var(--elevation-2);
 `;
 
 const StyledLink = styled.a`
@@ -46,12 +43,12 @@ const StyledLink = styled.a`
   padding: 8px;
   overflow: hidden;
   color: ${appTheme.colors.secondary.default};
-  font-weight: var(--font-weight-bold);
+  font-weight: ${appTheme.fontWeight.bold};
   text-decoration: none;
   list-style: none;
   background: ${appTheme.colors.primary.default};
   border-radius: 8px;
-  box-shadow: var(--elevation-2);
+  box-shadow: ${appTheme.elevation.md};
   transition: opacity 250ms ease;
 
   ::before {

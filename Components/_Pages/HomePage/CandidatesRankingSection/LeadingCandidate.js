@@ -65,9 +65,41 @@ const NameContainer = styled(BaseContainer)`
   }
 `;
 
-const VoteContainer = styled(BaseContainer)`
+const CountryContainer = styled.div`
+  display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 4px;
+
+  /* LocationIcon SVG */
+  & svg {
+    margin-right: 2px;
+  }
+`;
+
+const StyledLocationIcon = styled(LocationIcon)`
+  background: ${appTheme.colors.tertiary.default};
+  border-radius: 50%;
+`;
+
+const StyledCandidatePoliticalOrientation = styled(
+  CandidatePoliticalOrientation,
+)`
+  /* Reset width values */
+  width: fit-content;
+  min-width: fit-content;
+`;
+
+/* Votes and Button Container */
+const VoteContainer = styled(BaseContainer)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media ${appTheme.queries.tabletAndUp} {
+    flex-direction: row;
+  }
 
   & span {
     display: flex;
@@ -80,8 +112,9 @@ const VoteContainer = styled(BaseContainer)`
     margin-left: 8px;
   }
 
+  /* Votes Number and Star Icon Container*/
   & span:nth-of-type(2) {
-    margin: 0 8px;
+    margin: 8px;
     color: ${appTheme.colors.warning.default};
   }
 `;
@@ -120,7 +153,11 @@ const StyledVoteButton = styled(VoteButton)`
   color: ${appTheme.colors.primary.default};
   background: ${appTheme.colors.secondary.default};
   border: 3px solid ${appTheme.colors.primary.default};
-  animation: ${buttonAnimation} ${coordinatedAnimation};
+
+  /* On small devices, buttonAnimation breaks layout  */
+  @media ${appTheme.queries.tabletAndUp} {
+    animation: ${buttonAnimation} ${coordinatedAnimation};
+  }
 
   /* ::before opacity changes onHover */
   ::before {
@@ -155,31 +192,6 @@ const StyledVoteButton = styled(VoteButton)`
   :hover::before {
     opacity: 1;
   }
-`;
-
-const CountryContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 4px;
-
-  /* LocationIcon SVG */
-  & svg {
-    margin-right: 2px;
-  }
-`;
-
-const StyledLocationIcon = styled(LocationIcon)`
-  background: ${appTheme.colors.tertiary.default};
-  border-radius: 50%;
-`;
-
-const StyledCandidatePoliticalOrientation = styled(
-  CandidatePoliticalOrientation,
-)`
-  /* Reset width values */
-  width: fit-content;
-  min-width: fit-content;
 `;
 
 const LeadingCandidate = ({ candidatesArray, handleUpdateCandidate }) => {

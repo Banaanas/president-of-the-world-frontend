@@ -98,6 +98,8 @@ const appTheme = {
     black: "var(--color-black-default)",
     white: "var(--color-white-default)",
     textDefault: "var(--color-text-default)",
+    selection: "var(--color-selection-background)",
+    selectionBackground: "var(--color-selection-background)",
   },
 
   elevation: {

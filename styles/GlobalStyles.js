@@ -38,7 +38,7 @@ const GlobalStyles = () => (
         min-width: ${appTheme.globalMinWidth};
         height: 100%;
         color: ${appTheme.colors.textDefault};
-        font-family: ${appTheme.fontFamily.roboto},
+        font-family: ${appTheme.fontFamily.openSans},
           ${appTheme.fontFamily.alternativeFonts};
         background-color: ${appTheme.colors.secondary.default};
       }
@@ -59,7 +59,7 @@ const GlobalStyles = () => (
       input,
       select,
       option {
-        font-weight: var(--font-weight-light);
+        font-weight: ${appTheme.fontWeight.light};
       }
 
       h1,
@@ -69,8 +69,9 @@ const GlobalStyles = () => (
       h5,
       h6,
       strong {
-        font-weight: var(--font-weight-bold);
-        font-family: var(--font-family-2), var(--alternative-fonts);
+        font-weight: ${appTheme.fontWeight.bold};
+        font-family: ${appTheme.fontFamily.roboto},
+          ${appTheme.fontFamily.alternativeFonts};
       }
 
       h1,
@@ -93,7 +94,7 @@ const GlobalStyles = () => (
       }
 
       strong {
-        font-weight: var(--font-weight-medium);
+        font-weight: ${appTheme.fontWeight.bold};
       }
 
       /* Images - Alt Attribute Text */
@@ -103,28 +104,27 @@ const GlobalStyles = () => (
       }
 
       a:focus {
-        outline: 5px auto var(--color-primary-default);
+        outline: 5px auto ${appTheme.colors.primary.default};
       }
 
       /* Scrollbar and Selection styles */
       ::selection {
-        color: var(--color-selection);
-        background-color: var(--color-selection-background);
+        color: ${appTheme.colors.selection};
+        background-color: ${appTheme.colors.selectionBackground};
       }
 
       @media (orientation: landscape) {
         ::-webkit-scrollbar {
           width: 9px;
           height: 11px;
-          background-color: transparent;
+          background-color: ${appTheme.colors.secondary.darker};
         }
         ::-webkit-scrollbar-track {
-          background-color: transparent;
           border-radius: 3px;
         }
         ::-webkit-scrollbar-thumb {
-          background-color: var(--color-primary-default);
-          border: 2px solid var(--color-primary-default);
+          background-color: ${appTheme.colors.tertiary.light};
+          border: 2px solid ${appTheme.colors.tertiary.light};
           border-radius: 10px;
         }
       }
