@@ -96,7 +96,7 @@ const LoginForm = () => {
         <ChakraLabel htmlFor="username">Username</ChakraLabel>
         <ChakraInput
           type="text"
-          value="Cyrilo"
+          value={username}
           id="username"
           onChange={handleUsernameChange}
         />
@@ -105,7 +105,7 @@ const LoginForm = () => {
         <ChakraLabel htmlFor="username">Password</ChakraLabel>
         <ChakraInput
           type="password"
-          value="jocaste10"
+          value={password}
           id="password"
           onChange={handlePasswordChange}
         />
