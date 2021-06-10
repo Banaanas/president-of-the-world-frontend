@@ -55,6 +55,14 @@ const CandidatesRankingSection = ({ allCandidates }) => {
     });
   };
 
+  if (allCandidates.length === 0) {
+    return (
+      <StyledSection>
+        Candidates List is empty. Please chose one Candidate.
+      </StyledSection>
+    );
+  }
+
   return (
     <StyledSection>
       <StyledH2>Candidates Ranking</StyledH2>
