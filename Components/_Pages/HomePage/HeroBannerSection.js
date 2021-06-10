@@ -7,7 +7,7 @@ const HeroBannerSection = () => (
   <StyledSection>
     <StyledH1>President of the World</StyledH1>
     <HomeIllustration />
-    <LinkButton>Vote for your Favorite Candidate</LinkButton>
+    <LinkButton>Change the World</LinkButton>
   </StyledSection>
 );
 
