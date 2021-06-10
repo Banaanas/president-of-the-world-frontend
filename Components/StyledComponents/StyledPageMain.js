@@ -8,7 +8,7 @@ const StyledPageMain = styled(motion.main)`
   flex: 1;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   width: 100%;
   max-width: ${appTheme.globalMaxWidth};
   min-height: 100%;
