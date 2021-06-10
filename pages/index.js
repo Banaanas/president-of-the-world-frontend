@@ -11,7 +11,9 @@ import StyledHR from "../Components/StyledHR";
 import pageVariants from "../styles/animations";
 
 const Home = () => {
-  const { data, error, loading } = useQuery(ALL_CANDIDATES);
+  const { data, error, loading } = useQuery(ALL_CANDIDATES, {
+    pollInterval: 500,
+  });
 
   // AnimatePresence Key
   const router = useRouter();
