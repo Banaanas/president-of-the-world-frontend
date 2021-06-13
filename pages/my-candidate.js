@@ -32,7 +32,7 @@ const MyCandidate = () => {
         <meta name="description" content={SEO.myCandidate.description} />
         <link
           rel="canonical"
-          href={`https://cyrilo.dev${router.asPath}`}
+          href={`https://president-of-the-world.cyrilo.app${router.asPath}`}
           key="canonical"
         />
         {/* Open Graph */}

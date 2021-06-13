@@ -15,7 +15,7 @@ const SignUp = () => {
         <meta name="description" content={SEO.signUp.description} />
         <link
           rel="canonical"
-          href={`https://cyrilo.dev${router.asPath}`}
+          href={`https://president-of-the-world.cyrilo.app${router.asPath}`}
           key="canonical"
         />
         {/* Open Graph */}
