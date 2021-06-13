@@ -1,45 +1,35 @@
-import { useEffect } from "react";
+import Head from "next/head";
 import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
-import Loader from "react-loader-spinner";
-import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
-import SignUpForm from "../Components/_Pages/SignUpPage/SignUpForm";
-import FormPage from "../Components/Form/FormPage";
-import SignUpIllustration from "../Components/Illustrations/SignUpIllustration";
+import SEO from "../SEO/seo-data";
+import SignUpPage from "../Components/_Pages/SignUpPage/SignUpPage";
 
-const SignUpPage = () => {
+const SignUp = () => {
   // Next Router
   const router = useRouter();
 
-  // isAuthenticated - Redux State
-  const isAuthenticated = useSelector(
-    (state) => state.userAuthentication.isAuthenticated,
-  );
-
-  // if ALREADY authenticated, Redirect
-  useEffect(() => {
-    if (isAuthenticated) {
-      router.push("/");
-    }
-  }, [isAuthenticated, router]);
-
-  // if ALREADY authenticated, Loader Spinner Rendering
-  if (isAuthenticated) {
-    return (
-      <StyledPageMain>
-        <Loader type="Puff" color="white" height={100} width={100} />
-      </StyledPageMain>
-    );
-  }
-
-  // If Not Authenticated, Return Sign Up Page
   return (
-    <FormPage
-      illustrationComponent={<SignUpIllustration />}
-      formComponent={<SignUpForm />}
-      rowReverse
-    />
+    <>
+      <Head>
+        {/* Primary Meta Tags */}
+        <title key="title">{SEO.signUp.title}</title>
+        <meta name="description" content={SEO.signUp.description} />
+        <link
+          rel="canonical"
+          href={`https://cyrilo.dev${router.asPath}`}
+          key="canonical"
+        />
+        {/* Open Graph */}
+        <meta property="og:title" content={SEO.signUp.title} key="og-title" />
+        <meta
+          property="og:url"
+          content={`https://cyrilo.dev${router.asPath}`}
+          key="og-url"
+        />
+      </Head>
+
+      <SignUpPage />
+    </>
   );
 };
 
-export default SignUpPage;
+export default SignUp;

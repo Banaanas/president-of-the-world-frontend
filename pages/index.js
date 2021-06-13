@@ -9,6 +9,7 @@ import CounterSection from "../Components/_Pages/HomePage/CounterSection/Counter
 import CandidatesRankingSection from "../Components/_Pages/HomePage/CandidatesRankingSection/CandidatesRankingSection";
 import StyledHR from "../Components/StyledHR";
 import pageVariants from "../styles/animations";
+import SEO from "../SEO/seo-data";
 
 const Home = () => {
   const { data, error, loading } = useQuery(ALL_CANDIDATES, {
@@ -21,8 +22,21 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title key="title">President of the World</title>
-        <meta name="description" content="Application made by Cyrilo" />
+        {/* Primary Meta Tags */}
+        <title key="title">{SEO.index.title}</title>
+        <meta name="description" content={SEO.index.description} />
+        <link
+          rel="canonical"
+          href={`https://cyrilo.dev${router.asPath}`}
+          key="canonical"
+        />
+        {/* Open Graph */}
+        <meta property="og:title" content={SEO.index.title} key="og-title" />
+        <meta
+          property="og:url"
+          content={`https://cyrilo.dev${router.asPath}`}
+          key="og-url"
+        />
       </Head>
       <StyledPageMain
         variants={pageVariants}

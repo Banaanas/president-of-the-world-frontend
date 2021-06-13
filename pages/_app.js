@@ -2,7 +2,10 @@ import "../styles/normalize.css"; // Next.js authorizes Materialize.css (Global 
 import { ApolloProvider } from "@apollo/client";
 import { Provider as ReduxProvider } from "react-redux";
 import { AnimatePresence } from "framer-motion";
+import { DefaultSeo } from "next-seo";
 import { useApollo } from "../lib/apolloClient";
+
+import SEO from "../SEO/next-seo.config";
 import Layout from "../Components/Layout";
 import store from "../store/store";
 
@@ -12,6 +15,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <ReduxProvider store={store}>
       <ApolloProvider client={apolloClient}>
+        <DefaultSeo {...SEO} />
         <AnimatePresence initial={false} exitBeforeEnter>
           <Layout>
             <Component {...pageProps} />

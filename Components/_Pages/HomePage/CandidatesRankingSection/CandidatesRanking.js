@@ -124,9 +124,11 @@ const CandidateVotes = styled(CandidateRank)`
   justify-content: flex-end;
   width: ${tableWidths.votes};
   margin-bottom: 16px;
+  overflow-x: auto;
 
   & svg {
-    margin-right: 4px;
+    margin-right: 2px;
+    color: ${appTheme.colors.tertiary.darker};
   }
 `;
 

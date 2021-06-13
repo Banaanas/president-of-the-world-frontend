@@ -8,6 +8,8 @@ import UpdateCandidateIllustration from "../Components/Illustrations/UpdateCandi
 import { addApolloState, initializeApollo } from "../lib/apolloClient";
 import { LOGGED_IN_USER } from "../lib/queries/queries";
 import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
+import MyCandidatePage from "../Components/_Pages/MyCandidatePage/MyCandidatePage";
+import UpdateCandidatePage from "../Components/_Pages/UpdateCandidatePage/UpdateCandidatePage";
 
 const UpdateCandidate = () => {
   // Next Router
@@ -19,31 +21,14 @@ const UpdateCandidate = () => {
     fetchPolicy: "network-only",
   });
 
+  // if ALREADY authenticated, Redirect
   useEffect(() => {
     if (data?.loggedInUser === null) {
       router.push("/login");
     }
   }, [data, loading, router]);
 
-  if (data?.loggedInUser) {
-    return (
-      <FormPage
-        pageHeading="My Candidate"
-        subHeading="My Candidate"
-        illustrationComponent={<UpdateCandidateIllustration horizontalFlip />}
-        formComponent={
-          <UpdateCandidateForm loggedInUser={data?.loggedInUser} />
-        }
-      />
-    );
-  }
-
-  // if ALREADY authenticated, Loader Spinner Rendering
-  return (
-    <StyledPageMain>
-      <Loader type="Puff" color="white" height={100} width={100} />
-    </StyledPageMain>
-  );
+  return <UpdateCandidatePage loggedInUser={data?.loggedInUser} />;
 };
 
 export async function getServerSideProps() {
