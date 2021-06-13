@@ -1,43 +1,48 @@
 # This file was generated based on ".graphqlconfig". Do not edit manually.
 
 schema {
-    query: Query
-    mutation: Mutation
+  query: Query
+  mutation: Mutation
 }
 
 type Author {
-    booksCount: Int!
-    born: String
-    id: ID!
-    name: String!
+  booksCount: Int!
+  born: String
+  id: ID!
+  name: String!
 }
 
 type Book {
+  author: String!
+  country: String!
+  date: String!
+  genre: String!
+  id: ID!
+  title: String!
+}
+
+type Mutation {
+  addBook(
     author: String!
     country: String!
     date: String!
     genre: String!
-    id: ID!
     title: String!
-}
-
-type Mutation {
-    addBook(author: String!, country: String!, date: String!, genre: String!, title: String!): Book
-    editAuthor(born: String, id: ID!, name: String!): Author
+  ): Book
+  editAuthor(born: String, id: ID!, name: String!): Author
 }
 
 type Query {
-    allAuthors: [Author!]!
-    allBooks(author: String, genre: String): [Book!]!
-    booksCount: Int!
-    findAuthorsNumber: Int!
+  allAuthors: [Author!]!
+  allBooks(author: String, genre: String): [Book!]!
+  booksCount: Int!
+  findAuthorsNumber: Int!
 }
 
 enum CacheControlScope {
-    PRIVATE
-    PUBLIC
+  PRIVATE
+  PUBLIC
 }
-
 
 "The `Upload` scalar type represents a file upload."
 scalar Upload

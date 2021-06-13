@@ -3,7 +3,7 @@ export default {
     type: "website",
     images: [
       {
-        url: "https://cyrilo.dev/images/Cyrilo-meta-image.png",
+        url: "https://president-of-the-world.cyrilo.app/images/banner.svg",
         width: 1200,
         height: 630,
         alt: "Cyrilo Logo",

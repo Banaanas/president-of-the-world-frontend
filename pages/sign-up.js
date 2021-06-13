@@ -21,7 +21,7 @@ const SignUpPage = () => {
     if (isAuthenticated) {
       router.push("/");
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, router]);
 
   // if ALREADY authenticated, Loader Spinner Rendering
   if (isAuthenticated) {

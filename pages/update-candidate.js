@@ -30,11 +30,10 @@ const UpdateCandidate = () => {
       <FormPage
         pageHeading="My Candidate"
         subHeading="My Candidate"
-        illustrationComponent={<UpdateCandidateIllustration />}
+        illustrationComponent={<UpdateCandidateIllustration horizontalFlip />}
         formComponent={
           <UpdateCandidateForm loggedInUser={data?.loggedInUser} />
         }
-        rowReverse
       />
     );
   }

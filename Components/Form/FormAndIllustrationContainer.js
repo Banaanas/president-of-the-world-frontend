@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 
 const FormAndIllustrationContainer = styled.div`
   display: flex;
+  flex-direction: ${({ rowReverse }) => (rowReverse ? "row-reverse" : "row")};
   flex: 1;
-  flex-direction: column;
   align-items: center;
   justify-content: space-around;
   width: 100%;
@@ -14,7 +14,6 @@ const FormAndIllustrationContainer = styled.div`
   }
 
   @media (min-width: 850px) {
-²
     /*  Display Illustration */
     svg {
       display: block;

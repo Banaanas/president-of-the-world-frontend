@@ -10,12 +10,13 @@ const StyledSVG = styled.svg`
   }
 `;
 
-const HomeIllustration = () => {
+const HomeIllustration = ({ horizontalFlip }) => {
   return (
     <StyledSVG
       viewBox="0 0 476 402"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      horizontalflip={horizontalFlip}
     >
       <g clipPath="url(#prefix__clip0)">
         <path

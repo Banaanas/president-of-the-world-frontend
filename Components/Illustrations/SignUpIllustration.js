@@ -1,15 +1,12 @@
-import styled from "@emotion/styled";
+import StyledSVG from "./StyledSVG";
 
-const StyledSVG = styled.svg`
-  width: clamp(320px, 65%, 400px);
-`;
-
-const HomeIllustration = () => {
+const SignUpIllustration = ({ horizontalFlip }) => {
   return (
     <StyledSVG
       viewBox="0 0 640 480"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      horizontalflip={horizontalFlip}
     >
       <g clipPath="url(#prefix__clip0)">
         <path
@@ -130,4 +127,4 @@ const HomeIllustration = () => {
   );
 };
 
-export default HomeIllustration;
+export default SignUpIllustration;

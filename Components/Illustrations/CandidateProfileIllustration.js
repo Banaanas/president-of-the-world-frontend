@@ -1,10 +1,6 @@
-import styled from "@emotion/styled";
+import StyledSVG from "./StyledSVG";
 
-const StyledSVG = styled.svg`
-  width: clamp(320px, 65%, 400px);
-`;
-
-const CandidateProfileIllustration = () => {
+const CandidateProfileIllustration = ({ horizontalFlip }) => {
   return (
     <StyledSVG
       width={640}
@@ -12,6 +8,7 @@ const CandidateProfileIllustration = () => {
       viewBox="0 0 640 480"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      horizontalflip={horizontalFlip}
     >
       <g clipPath="url(#prefix__clip0)">
         <path

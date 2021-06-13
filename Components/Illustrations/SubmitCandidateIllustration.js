@@ -1,15 +1,12 @@
-import styled from "@emotion/styled";
+import StyledSVG from "./StyledSVG";
 
-const StyledSVG = styled.svg`
-  width: clamp(320px, 65%, 400px);
-`;
-
-const SubmitCandidateIllustration = () => {
+const SubmitCandidateIllustration = ({ horizontalFlip }) => {
   return (
     <StyledSVG
       viewBox="0 0 640 480"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      horizontalflip={horizontalFlip}
     >
       <path
         d="M95.379 478.433v-53.225s-20.362 37.734 0 53.225z"
