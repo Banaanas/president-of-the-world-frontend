@@ -1,15 +1,11 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
-import Loader from "react-loader-spinner";
-import FormPage from "../Components/Form/FormPage";
-import UpdateCandidateForm from "../Components/_Pages/UpdateCandidatePage/UpdateCandidateForm";
-import UpdateCandidateIllustration from "../Components/Illustrations/UpdateCandidateIllustration";
 import { addApolloState, initializeApollo } from "../lib/apolloClient";
 import { LOGGED_IN_USER } from "../lib/queries/queries";
-import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
-import MyCandidatePage from "../Components/_Pages/MyCandidatePage/MyCandidatePage";
 import UpdateCandidatePage from "../Components/_Pages/UpdateCandidatePage/UpdateCandidatePage";
+import Head from "next/head";
+import SEO from "../SEO/seo-data";
 
 const UpdateCandidate = () => {
   // Next Router
@@ -28,7 +24,32 @@ const UpdateCandidate = () => {
     }
   }, [data, loading, router]);
 
-  return <UpdateCandidatePage loggedInUser={data?.loggedInUser} />;
+  return (
+    <>
+      <Head>
+        {/* Primary Meta Tags */}
+        <title key="title">{SEO.updateCandidate.title}</title>
+        <meta name="description" content={SEO.updateCandidate.description} />
+        <link
+          rel="canonical"
+          href={`https://cyrilo.dev${router.asPath}`}
+          key="canonical"
+        />
+        {/* Open Graph */}
+        <meta
+          property="og:title"
+          content={SEO.updateCandidate.title}
+          key="og-title"
+        />
+        <meta
+          property="og:url"
+          content={`https://cyrilo.dev${router.asPath}`}
+          key="og-url"
+        />
+      </Head>
+      <UpdateCandidatePage loggedInUser={data?.loggedInUser} />
+    </>
+  );
 };
 
 export async function getServerSideProps() {
