@@ -9,13 +9,8 @@
   ],
   "rules": {
     "plugin/8-point-grid": {
-      "base": 0.5,
+      "base": 4,
       "allowlist": ["1px", "2px", "3px"]
-    }
-  },
-  "@comment rules": {
-    "plugin/8-point-grid": {
-      "base": "Base of 0.5 in order to align with the 8pt Grid and keep using rem, "
     }
   }
 }

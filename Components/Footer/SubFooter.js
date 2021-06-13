@@ -4,9 +4,9 @@ import ContactIcons from "./ContactIcons";
 import appTheme from "../../styles/appTheme";
 
 const StyledAumIcon = styled(AumIcon)`
-  margin: 0 0.5rem;
+  margin: 0 4px;
   color: ${appTheme.colors.tertiary.default};
-  font-size: 1rem;
+  font-size: 16px;
 `;
 
 const StyledSpan = styled.span`
@@ -14,12 +14,11 @@ const StyledSpan = styled.span`
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 0.5rem 0;
-  font-size: 1rem;
-  background-color: ${appTheme.colors.secondary.default};
+  padding: 8px 0;
+  font-size: 16px;
 
   a {
-    margin-right: 0.25rem;
+    margin-right: 4px;
     color: ${appTheme.colors.tertiary.default};
     text-decoration: none;
   }

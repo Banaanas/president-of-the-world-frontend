@@ -31,7 +31,7 @@ const Home = () => {
         exit="initial"
         key={router} /* AnimatePresence Key */
       >
-        <HeroBannerSection />
+        <HeroBannerSection allCandidates={data?.allCandidates} />
         <StyledHR />
         <CounterSection />
         <StyledHR />

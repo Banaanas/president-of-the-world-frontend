@@ -12,6 +12,10 @@ const formStyle = css`
   background-color: ${appTheme.colors.primary.default};
   border-radius: 10px;
   box-shadow: ${appTheme.elevation.xl};
+
+  @media ${appTheme.queries.tabletAndUp} {
+    min-width: 350px;
+  }
 `;
 
 const formHeadingStyle = css`

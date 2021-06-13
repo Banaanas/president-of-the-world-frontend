@@ -9,16 +9,16 @@ const StyledSocialIconsContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  padding-bottom: 0.2rem;
+  padding-bottom: 2px;
   background-color: ${appTheme.colors.secondary.default};
 
   a {
-    margin: 0 0.5rem;
+    margin: 0 8px;
   }
 
   svg {
     color: ${appTheme.colors.primary.light};
-    font-size: 1.2rem;
+    font-size: 19px;
     transform: scale(1);
     opacity: 0.9;
     transition: transform, opacity, 200ms ease;

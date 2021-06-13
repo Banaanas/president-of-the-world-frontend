@@ -4,9 +4,9 @@ import appTheme from "../../styles/appTheme";
 const StyledH1 = styled.h1`
   color: ${appTheme.colors.primary.default};
   font-weight: bolder;
-  font-size: clamp(2rem, 12vw, 2.5rem);
+  font-size: clamp(32px, 12vw, 40px);
   line-height: 1;
-  letter-spacing: 0.4rem;
+  letter-spacing: 6px;
   text-align: center;
   text-transform: uppercase;
   box-shadow: ${appTheme.elevation["4"]};

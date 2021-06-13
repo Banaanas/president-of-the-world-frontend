@@ -53,12 +53,7 @@ const StyledLink = styled.a`
 const CounterSection = () => {
   return (
     <StyledSection>
-      <Container>
-        <Counter />
-        <Link href="/my-candidate" passHref>
-          <StyledLink>Chose Your Own Candidate</StyledLink>
-        </Link>
-      </Container>
+      <Counter />
     </StyledSection>
   );
 };

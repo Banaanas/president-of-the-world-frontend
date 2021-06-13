@@ -12,7 +12,7 @@ import {
   ChakraFormControl,
   ChakraInput,
   ChakraLabel,
-  StyledFormikForm
+  StyledFormikForm,
 } from "../../Form/StyledFormComponents";
 import { UPDATE_CANDIDATE } from "../../../lib/queries/queries";
 import DetailContainer from "../../Form/DetailsContainer";
@@ -40,8 +40,8 @@ const SelectField = styled(Field)`
   width: 100%;
   background: white;
   border: ${appTheme.colors.secondary.lighter} 1px solid;
-  border-radius: 0.375rem; /* = Chakra Input Styling */
-  padding-inline-start: 1rem; /* = Chakra Input Styling */
+  border-radius: 6px; /* = Chakra Input Styling */
+  padding-inline-start: 16px; /* = Chakra Input Styling */
   cursor: pointer;
 
   &:focus {
@@ -60,7 +60,6 @@ const ValidationSchemaYup = object().shape({
 });
 
 const MyCandidateForm = ({ loggedInUser }) => {
-
   // Next Router
   const router = useRouter();
 
