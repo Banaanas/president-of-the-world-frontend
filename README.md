@@ -31,8 +31,8 @@
     </a>
 </p>
 
-<h1 align="center">📰 BlogsList App 👍🏽</h1>
-<h3 align="center">MongoDB - Express - React - Node.js</h3>
+<h1 align="center">🌎 President of 🌍 the World 🌏</h1>
+<h3 align="center">MongoDB - GraphQL - React - Node.js - Next.js</h3>
 
 <p align="center">
     Sophisticated, fluid and elegant Full Stack BlogsList Application.<br/><br/>
