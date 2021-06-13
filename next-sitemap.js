@@ -1,4 +1,5 @@
 module.exports = {
-  siteUrl: "https://urltoreplace.dev",
+  siteUrl: "https://president-of-the-world.cyrilo.app/",
   generateRobotsTxt: true,
+  exclude: ["/my-candidate"],
 };
