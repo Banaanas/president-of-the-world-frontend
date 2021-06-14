@@ -13,10 +13,11 @@ import {
   SubmitButton,
 } from "../../Form/StyledFormComponents";
 import { LOGGED_IN_USER, LOGIN } from "../../../lib/queries/queries";
+import toasts from "../../../utils/toasts";
 
 const LoginForm = () => {
-  const [username, setUsername] = useState("Cyrilo");
-  const [password, setPassword] = useState("jocaste");
+  const [username, setUsername] = useState("Buddha");
+  const [password, setPassword] = useState("jocaste10");
 
   // useDispatch - Redux State
   const dispatch = useDispatch();
@@ -29,23 +30,11 @@ const LoginForm = () => {
     refetchQueries: { query: LOGGED_IN_USER, fetchPolicy: "network-only" },
     onCompleted: () => {
       // Display Success Toast
-      toast({
-        title: "🙂 Login Successful 🏠",
-        description: "You are connected to the Application.",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
+      toast(toasts.login);
     },
     onError: (error) => {
       // Display Error Toast
-      toast({
-        title: "❌ Wrong Credentials ⚠️",
-        description: error.message,
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
+      toast(toasts.error(error));
     },
   });
 
@@ -60,7 +49,7 @@ const LoginForm = () => {
       // Get Authenticated User - Dispatch - Redux State
       dispatch(getAuthenticatedUser(resultLogin.data));
     }
-  }, [resultLogin.data]);
+  }, [dispatch, resultLogin.data]);
 
   // Login - Function
   const handleLogin = async (event) => {

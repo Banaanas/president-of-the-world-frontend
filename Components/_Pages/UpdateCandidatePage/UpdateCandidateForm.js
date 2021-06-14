@@ -18,6 +18,7 @@ import { UPDATE_CANDIDATE } from "../../../lib/queries/queries";
 import DetailContainer from "../../Form/DetailsContainer";
 import { submitButtonStyle } from "../../../styles/css-composition";
 import appTheme from "../../../styles/appTheme";
+import toasts from "../../../utils/toasts";
 
 const marginButtons = "6px";
 
@@ -72,26 +73,14 @@ const MyCandidateForm = ({ loggedInUser }) => {
     {
       onCompleted: () => {
         // Display Success Toast
-        toast({
-          title: "🙂 Candidate Updated 🌠",
-          description: "Your Candidate has been successfully updated.",
-          status: "success",
-          duration: 5000,
-          isClosable: true,
-        });
+        toast(toasts.candidateUpdated);
 
         // Redirect to Home
         router.push("/");
       },
       onError: (error) => {
         // Display Error Toast
-        toast({
-          title: "❌ Something Wrong Happened ⚠️",
-          description: error.message,
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-        });
+        toast(toasts.error(error));
       },
     },
   );

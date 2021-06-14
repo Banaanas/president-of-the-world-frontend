@@ -16,6 +16,7 @@ import {
   SubmitButton,
 } from "../../Form/StyledFormComponents";
 import { CREATE_USER, LOGIN } from "../../../lib/queries/queries";
+import toasts from "../../../utils/toasts";
 
 // Form Validation Schema - Yup
 const ValidationSchemaYup = object().shape({
@@ -51,26 +52,14 @@ const SignUpForm = () => {
   const [login, resultLogin] = useMutation(LOGIN, {
     onCompleted: () => {
       // Display Success Toast
-      toast({
-        title: "🙂 Login Successful 🏠",
-        description: "You are connected to the Application.",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
+      toast(toasts.login);
     },
     onError: () => {
       // Display Error Toast
       // Should NOT be displayed, because the password is supposed to be the
       // exact same one as the one used of the Sign Up Process, so no Error
       // should occur.
-      toast({
-        title: "Wrong Credentials",
-        description: "Invalid Username or Password",
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
+      toast(toasts.errorCredentials);
     },
   });
 
@@ -78,26 +67,14 @@ const SignUpForm = () => {
   const [createUser, resultCreateUser] = useMutation(CREATE_USER, {
     onCompleted: async () => {
       // Display Success Toast
-      toast({
-        title: "🌠 Account Created ✨",
-        description: "You successfully created your Account.",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
+      toast(toasts.signup);
 
       // login - useMutation with username and password states
       await login({ variables: { username, password } });
     },
     onError: (error) => {
       // Display Error Toast
-      toast({
-        title: "❌ Something Wrong Happened ⚠️",
-        description: error.message,
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
+      toast(toasts.error(error));
     },
   });
 

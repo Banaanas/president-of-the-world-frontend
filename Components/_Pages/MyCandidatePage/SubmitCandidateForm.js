@@ -13,6 +13,7 @@ import {
   SubmitButton,
 } from "../../Form/StyledFormComponents";
 import { ADD_CANDIDATE, LOGGED_IN_USER } from "../../../lib/queries/queries";
+import toasts from "../../../utils/toasts";
 
 // Form Validation Schema - Yup
 const ValidationSchemaYup = object().shape({
@@ -43,26 +44,14 @@ const SubmitCandidateForm = () => {
     refetchQueries: [{ query: LOGGED_IN_USER }],
     onCompleted: () => {
       // Display Success Toast
-      toast({
-        title: "🙂 Candidate Submitted 🌠",
-        description: "People can now vote for your Candidate.",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
+      toast(toasts.candidateSubmitted);
 
       // Redirect to Home
       // router.push("/");
     },
     onError: (error) => {
       // Display Error Toast
-      toast({
-        title: "❌ Something Wrong Happened ⚠️",
-        description: error.message,
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
+      toast(toasts.error(error));
     },
   });
 

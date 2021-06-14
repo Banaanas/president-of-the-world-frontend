@@ -12,7 +12,7 @@ const HeroBannerSection = ({ allCandidates }) => (
     {/* If NO candidates yet, link to MyCandidatePageElse.
       Else smooth scroll to Candidates Table. */}
     {allCandidates.length === 0 ? (
-      <Link href="/my-candidate">
+      <Link href="/my-candidate" passHref>
         <LinkButton as="a">Change the World</LinkButton>
       </Link>
     ) : (

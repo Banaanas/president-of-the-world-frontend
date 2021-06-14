@@ -12,6 +12,7 @@ import StyledSection from "../../../StyledComponents/StyledSection";
 import CandidatesRanking from "./CandidatesRanking";
 import LeadingCandidate from "./LeadingCandidate";
 import { rankingSection } from "../../../../utils/smoothScrollTo";
+import toasts from "../../../../utils/toasts";
 
 const Span = styled.span`
   text-align: center;
@@ -74,23 +75,11 @@ const CandidatesRankingSection = ({ allCandidates }) => {
   const [voteCandidate] = useMutation(VOTE_CANDIDATE, {
     onCompleted: () => {
       // Display Success Toast
-      toast({
-        title: "🗳️ Successful Vote 🌠",
-        description: "One more Vote for this candidate.",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
+      toast(toasts.vote);
     },
     onError: (error) => {
       // Display Error Toast
-      toast({
-        title: "❌ Something Wrong Happened ⚠️",
-        description: error.message,
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
+      toast(toasts.error(error));
     },
   });
 

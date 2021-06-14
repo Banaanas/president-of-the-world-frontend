@@ -12,6 +12,7 @@ import { useMutation } from "@apollo/client";
 import styled from "@emotion/styled";
 import appTheme from "../../../styles/appTheme";
 import { DELETE_CANDIDATE, LOGGED_IN_USER } from "../../../lib/queries/queries";
+import toasts from "../../../utils/toasts";
 
 const StyledAlertDialogContent = styled(AlertDialogContent)`
   width: calc(${appTheme.globalMinWidth} - 20px);
@@ -44,26 +45,14 @@ const DeleteAlertDialog = ({
       refetchQueries: [{ query: LOGGED_IN_USER }],
       onCompleted: () => {
         // Display Success Toast
-        toast({
-          title: "✔️ Candidate Deleted ❎",
-          description: "Your Candidate will no longer appear.",
-          status: "success",
-          duration: 5000,
-          isClosable: true,
-        });
+        toast(toasts.candidateDeleted);
 
         // Close Alert Dialog
         onCloseAlertDialog();
       },
       onError: (error) => {
         // Display Error Toast
-        toast({
-          title: "❌ Something Wrong Happened ⚠️",
-          description: error.message,
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-        });
+        toast(toasts.error(error));
       },
     },
   );

@@ -7,6 +7,7 @@ import LogoIcon from "./Illustrations/LogoIcon";
 import appTheme from "../styles/appTheme";
 import { resetAuthenticatedUser } from "../store/slices/authenticationSlice";
 import GitHubBanner from "./GitHubBanner";
+import toasts from "../utils/toasts";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -98,24 +99,11 @@ const Header = () => {
       client.resetStore();
       // Reset Authenticated User - Dispatch - Redux State
       dispatch(resetAuthenticatedUser());
-
       // Display Success Toast
-      toast({
-        title: "👋🏽 Logout Successful 🤟🏽",
-        description: "You are not connected to the Application anymore.",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
+      toast(toasts.logout);
     } catch (error) {
       // Display Error Toast
-      toast({
-        title: "❌ Something Wrong Happened ⚠️",
-        description: error.message,
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
+      toast(toasts.error(error));
     }
   };
 
