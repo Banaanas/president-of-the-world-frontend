@@ -5,6 +5,7 @@ import StyledH1 from "../StyledComponents/StyledH1";
 import StyledPageMain from "../StyledComponents/StyledPageMain";
 import StyledH2 from "../StyledComponents/StyledH2";
 import pageVariants from "../../styles/animations";
+import appTheme from "../../styles/appTheme";
 
 const Container = styled.div`
   display: flex;
@@ -16,7 +17,14 @@ const HeadingContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: 64px;
+  margin-bottom: 16px;
+
+  @media ${appTheme.queries.tabletAndUp} {
+    margin-bottom: 32px;
+  }
+  @media ${appTheme.queries.laptopAndUp} {
+    margin-bottom: 64px;
+  }
 `;
 
 const SubHeading = styled(StyledH2)`
