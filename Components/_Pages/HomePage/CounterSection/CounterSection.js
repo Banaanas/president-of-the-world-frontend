@@ -1,4 +1,3 @@
-import Link from "next/link";
 import styled from "@emotion/styled";
 import Counter from "./Counter";
 import appTheme from "../../../../styles/appTheme";

@@ -4,7 +4,6 @@ import styled from "@emotion/styled";
 import { useToast } from "@chakra-ui/react";
 import { Element as ScrollWrapper } from "react-scroll";
 import Link from "next/link";
-import { keyframes } from "@emotion/react";
 import { VOTE_CANDIDATE } from "../../../../lib/queries/queries";
 import appTheme from "../../../../styles/appTheme";
 import StyledH1 from "../../../StyledComponents/StyledH1";

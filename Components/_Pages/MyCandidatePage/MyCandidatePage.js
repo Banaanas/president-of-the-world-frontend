@@ -1,8 +1,4 @@
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { useQuery } from "@apollo/client";
 import Loader from "react-loader-spinner";
-import { LOGGED_IN_USER } from "../../../lib/queries/queries";
 import FormPage from "../../Form/FormPage";
 import CandidateProfileIllustration from "../../Illustrations/CandidateProfileIllustration";
 import CandidateProfile from "./CandidateProfile";

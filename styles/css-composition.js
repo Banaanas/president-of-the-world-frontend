@@ -19,13 +19,33 @@ const formStyle = css`
 `;
 
 const formHeadingStyle = css`
+  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 200px; /* Fix width to break Heading when too long */
   margin-bottom: 16px;
   font-weight: ${appTheme.fontWeight.bold};
-  font-size: ${appTheme.fontSize.xl2};
+  font-size: ${appTheme.fontSize.xl};
   text-align: center;
   text-transform: uppercase;
   border: ${appTheme.colors.primary.default};
+
+  &::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    display: inline-flex;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      ${appTheme.colors.secondary.default},
+      transparent
+    );
+    border-radius: 5px;
+    content: "";
+  }
 `;
 
 const submitButtonStyle = css`

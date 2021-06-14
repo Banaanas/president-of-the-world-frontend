@@ -20,11 +20,15 @@ const HeadingContainer = styled.div`
   margin-bottom: 16px;
 
   @media ${appTheme.queries.tabletAndUp} {
-    margin-bottom: 32px;
+    margin-bottom: 64px;
   }
   @media ${appTheme.queries.laptopAndUp} {
     margin-bottom: 64px;
   }
+`;
+
+const Heading = styled(StyledH1)`
+  font-size: clamp(16px, 8vw, 40px);
 `;
 
 const SubHeading = styled(StyledH2)`
@@ -51,7 +55,7 @@ const FormPage = ({
     >
       <Container>
         <HeadingContainer>
-          {pageHeading ? <StyledH1>{pageHeading}</StyledH1> : null}
+          {pageHeading ? <Heading>{pageHeading}</Heading> : null}
           {subHeading ? <SubHeading>{subHeading}</SubHeading> : null}
         </HeadingContainer>
         <FormAndIllustrationContainer rowReverse={rowReverse}>

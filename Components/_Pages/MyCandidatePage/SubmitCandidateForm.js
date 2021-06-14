@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import { HStack, Radio, RadioGroup, useToast } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
@@ -33,9 +32,6 @@ const ValidationSchemaYup = object().shape({
 });
 
 const SubmitCandidateForm = () => {
-  // Next Router
-  const router = useRouter();
-
   // Chakra-UI Toast
   const toast = useToast();
 
