@@ -21,7 +21,6 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![MIT License][license-shield]][license-url]
 
-
 <br/>
 <!-- PROJECT LOGO -->
 <br/>
@@ -31,37 +30,35 @@
     </a>
 </p>
 
-<h1 align="center">🌎 President of 🌍 the World 🌏</h1>
+<h1 align="center"> President of the W🌍rld</h1>
 <h3 align="center">MongoDB - GraphQL - React - Node.js - Next.js</h3>
 
 <p align="center">
-    Sophisticated, fluid and elegant Full Stack BlogsList Application.<br/><br/>
+    Performant, elegant and democratic Full Stack World Presidential Election Application.<br/><br/>
     <a href="https://president-of-the-world.cyrilo.app/">:computer: Live Demo :eyes:</a><br/><br/>
 </p>
 
 - [Front-End Repository](https://github.com/Banaanas/president-of-the-world-frontend) - 💻
 - [Back-End Repository](https://github.com/Banaanas/president-of-the-world-backend) - 🤖
 
-
 <!-- TABLE OF CONTENTS -->
 
 ## Table of Contents
 
 - [About the Project](#about-the-project)
-    - [Principal Features](#principal-features)
-    - [Built With](#built-with)
+  - [Principal Features](#principal-features)
+  - [Built With](#built-with)
 - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
 - [License](#license)
 - [Contact](#contact)
-
 
 <!-- ABOUT THE PROJECT -->
 
 ## About the Project
 
-BlogsList Application achieved as part of <a href="https://fullstackopen.com/en/">Full Stack Open - Full Stack JavaScript Curriculum</a>.
+Election Application achieved as part of <a href="https://fullstackopen.com/en/">Full Stack Open - Full Stack JavaScript Curriculum</a>.
 
 <p align="center">
   <a href="https://president-of-the-world.cyrilo.app/">
@@ -69,18 +66,16 @@ BlogsList Application achieved as part of <a href="https://fullstackopen.com/en/
   </a>
 </p>
 
-
 <!-- PRINCIPAL FEATURES -->
 
 #### Principal Features
 
-- Add / Delete Blog ;
-- Vote for a Blog ;
-- Automatic Blogs ordering by number of Votes ;
+- Submit / Update / Delete Candidate ;
+- Vote for a Candidate ;
+- Automatic Candidates Ranking by number of Votes ;
 - User Sign Up / User Login ;
 - JSON Web Token Authentication ;
-- User's Profile ;
-- Blog Details ;
+- Candidate's Profile ;
 - All Users List ;
 - Great User Interface ;
 - Page Transitions ;
@@ -93,38 +88,37 @@ BlogsList Application achieved as part of <a href="https://fullstackopen.com/en/
   </a>
 </p>
 
-
 <!-- BUILT WITH -->
 
 #### Built With
 
-- [axios](https://github.com/axios/axios)
+- [Apollo Server](https://www.apollographql.com/docs/apollo-server/)
+- [Apollo Client](https://www.apollographql.com/docs/react/)
 - [bcrypt](https://github.com/kelektiv/node.bcrypt.js/)
 - [CSS3](https://www.w3.org/Style/CSS/Overview.html)
 - [Chakra UI](https://chakra-ui.com/)
-- [Cypress](https://www.cypress.io/)
 - [ESLint](https://eslint.org/)
 - [Emotion](https://emotion.sh/)
-- [Express](https://expressjs.com/fr/)
 - [Formik](https://formik.org/)
 - [Framer Motion](https://www.framer.com/motion/)
+- [GraphQL](https://graphql.org/)
 - [HTML5](https://www.w3.org/html/)
 - [Husky](https://github.com/typicode/husky)
 - [JSON Web Token](https://github.com/auth0/node-jsonwebtoken)
-- [Jest](https://jestjs.io/)
 - [lint-staged](https://github.com/okonet/lint-staged)
 - [MongoDB](https://www.mongodb.com/)
 - [Mongoose](https://mongoosejs.com/)
+- [Next.js](https://nextjs.org/)
+- [Next SEO](https://github.com/garmeeh/next-seo)
 - [Node.js](https://nodejs.org/)
 - [Prettier](https://prettier.io/)
-- [React Table](https://github.com/tannerlinsley/react-table)
-- [React Testing Library](https://github.com/testing-library/react-testing-library)
 - [React](https://reactjs.org/)
+- [React Loader Spinner](https://github.com/mhnpd/react-loader-spinner)
+- [React Scroll](https://github.com/fisshy/react-scroll)
 - [Redux Toolkit](https://redux-toolkit.js.org/)
 - [Redux](https://redux.js.org/)
 - [stylelint](https://stylelint.io/)
 - [Yup](https://github.com/jquense/yup)
-
 
 <!-- GETTING STARTED -->
 
@@ -142,6 +136,7 @@ BlogsList Application achieved as part of <a href="https://fullstackopen.com/en/
 ```sh
 git https://github.com/Banaanas/blogslist-app-frontend-FSO.git
 ```
+
 ```sh
 git https://github.com/Banaanas/blogslist-app-backend-FSO.git
 ```
@@ -155,7 +150,7 @@ npm install
 3 - Development Server
 
 ```sh
-npm run start
+npm run dev
 ```
 
 4 - Production build
@@ -164,13 +159,11 @@ npm run start
 npm run build
 ```
 
-
 <!-- LICENSE -->
 
 ## License
 
 Distributed under the MIT License. See <a href="./LICENSE">`LICENSE`</a> for more information.
-
 
 <!-- CONTACT -->
 
@@ -180,20 +173,18 @@ Distributed under the MIT License. See <a href="./LICENSE">`LICENSE`</a> for mor
 [![Mail][personal-email-shield]](mailto:cyrilo.dev@gmail.com)
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-
 <!-- PROJECT LINKS -->
 
 ## Project Links
+
 - [Front-End Repository](https://github.com/Banaanas/blogslist-app-frontend-FSO) - 💻
 - [Back-End Repository](https://github.com/Banaanas/blogslist-app-backend-FSO) - 🤖
-
 
 <!-- ACKNOWLEDGEMENTS -->
 
 ## Acknowledgements
 
 - [Full Stack Open](https://fullstackopen.com/en/)
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
