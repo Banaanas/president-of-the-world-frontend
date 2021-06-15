@@ -76,7 +76,7 @@ const Counter = () => {
 
   return (
     <Container>
-      <Heading>Elections end in :</Heading>
+      <Heading>Election ends in :</Heading>
       <CounterContainer>
         <TimeUnitContainer>
           <TimeUnit>

@@ -58,7 +58,7 @@
 
 ## About the Project
 
-Election Application achieved as part of <a href="https://fullstackopen.com/en/">Full Stack Open - Full Stack JavaScript Curriculum</a>.
+World Presidential Election Application achieved as part of <a href="https://fullstackopen.com/en/">Full Stack Open - Full Stack JavaScript Curriculum</a>.
 
 <p align="center">
   <a href="https://president-of-the-world.cyrilo.app/">
