@@ -1,19 +1,11 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
-import { useQuery } from "@apollo/client";
 import SEO from "../SEO/seo-data";
 import LoginPage from "../Components/_Pages/LoginPage/LoginPage";
-import { LOGGED_IN_USER } from "../lib/queries/queries";
 
 const Login = () => {
   // Next Router
   const router = useRouter();
-
-  // The Query uses the NETWORK ONLY and NOT THE CACHE because the Cache
-  // was not updated
-  const { data, error, loading } = useQuery(LOGGED_IN_USER, {
-    fetchPolicy: "network-only",
-  });
 
   return (
     <>

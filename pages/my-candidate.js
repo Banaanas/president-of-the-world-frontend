@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
-import { LOGGED_IN_USER } from "../lib/queries/queries";
-import { addApolloState, initializeApollo } from "../lib/apolloClient";
 import Head from "next/head";
 import { useEffect } from "react";
 import { useQuery } from "@apollo/client";
+import { LOGGED_IN_USER } from "../lib/queries/queries";
+import { addApolloState, initializeApollo } from "../lib/apolloClient";
 import MyCandidatePage from "../Components/_Pages/MyCandidatePage/MyCandidatePage";
 import SEO from "../SEO/seo-data";
 
@@ -13,7 +13,7 @@ const MyCandidate = () => {
 
   // The Query uses the NETWORK ONLY and NOT THE CACHE because the Cache
   // was not updated
-  const { data, error, loading } = useQuery(LOGGED_IN_USER, {
+  const { data, loading } = useQuery(LOGGED_IN_USER, {
     fetchPolicy: "network-only",
   });
 

@@ -12,7 +12,7 @@ import pageVariants from "../styles/animations";
 import SEO from "../SEO/seo-data";
 
 const Home = () => {
-  const { data, error, loading } = useQuery(ALL_CANDIDATES, {
+  const { data } = useQuery(ALL_CANDIDATES, {
     pollInterval: 500,
   });
 

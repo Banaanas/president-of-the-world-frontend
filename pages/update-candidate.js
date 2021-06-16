@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
+import Head from "next/head";
 import { addApolloState, initializeApollo } from "../lib/apolloClient";
 import { LOGGED_IN_USER } from "../lib/queries/queries";
 import UpdateCandidatePage from "../Components/_Pages/UpdateCandidatePage/UpdateCandidatePage";
-import Head from "next/head";
 import SEO from "../SEO/seo-data";
 
 const UpdateCandidate = () => {
@@ -13,7 +13,7 @@ const UpdateCandidate = () => {
 
   // The Query uses the NETWORK ONLY and NOT THE CACHE because the Cache
   // was not updated and the
-  const { data, error, loading } = useQuery(LOGGED_IN_USER, {
+  const { data, loading } = useQuery(LOGGED_IN_USER, {
     fetchPolicy: "network-only",
   });
 

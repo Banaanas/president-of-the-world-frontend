@@ -15,9 +15,11 @@ function MyApp({ Component, pageProps }) {
   return (
     <ReduxProvider store={store}>
       <ApolloProvider client={apolloClient}>
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <DefaultSeo {...SEO} />
         <AnimatePresence initial={false} exitBeforeEnter>
           <Layout>
+            {/* eslint-disable-next-line react/jsx-props-no-spreading */}
             <Component {...pageProps} />
           </Layout>
         </AnimatePresence>
