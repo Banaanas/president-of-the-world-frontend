@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import appTheme from "../styles/appTheme";
 
 const Wrapper = styled.button`
+  width: fit-content;
   padding: 8px 16px;
   color: ${appTheme.colors.secondary.default};
   font-weight: ${appTheme.fontWeight.bold};
@@ -13,7 +14,6 @@ const Wrapper = styled.button`
   transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
 
   @media ${appTheme.queries.tabletAndUp} {
-    padding: 16px 32px;
     font-size: ${appTheme.fontSize.xl};
   }
 
@@ -31,6 +31,7 @@ const LinkButton = ({ href, children, ...delegated }) => {
   const tag = typeof href === "string" ? "a" : "button";
 
   return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
     <Wrapper as={tag} href={href} {...delegated}>
       {children}
     </Wrapper>

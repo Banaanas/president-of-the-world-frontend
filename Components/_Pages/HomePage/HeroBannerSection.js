@@ -17,7 +17,7 @@ const HeroBannerSection = ({ allCandidates }) => (
       </Link>
     ) : (
       <LinkButton onClick={() => smoothScrollTo(rankingSection)}>
-        Change the World
+        Change the World with your Vote
       </LinkButton>
     )}
   </StyledSection>

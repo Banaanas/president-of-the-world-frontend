@@ -1,8 +1,13 @@
 import styled from "@emotion/styled";
+import appTheme from "../../styles/appTheme";
 
 const StyledSVG = styled.svg`
-  width: 48px;
+  width: 40px;
   background-color: transparent;
+
+  @media ${appTheme.queries.tabletAndUp} {
+    width: 48px;
+  }
 `;
 
 const LogoIcon = () => (

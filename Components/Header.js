@@ -22,17 +22,15 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background: transparent;
 `;
 
 const List = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 2px;
 `;
 
-const StyledLi = styled.li`
+const Li = styled.li`
   list-style: none;
 `;
 
@@ -41,7 +39,7 @@ const StyledLink = styled.a`
   z-index: 1;
   display: flex;
   margin: 0 4px;
-  padding: 8px;
+  padding: 2px 8px;
   overflow: hidden;
   color: ${appTheme.colors.secondary.default};
   font-weight: ${appTheme.fontWeight.bold};
@@ -49,11 +47,11 @@ const StyledLink = styled.a`
   list-style: none;
   background: ${appTheme.colors.primary.default};
   border-radius: 8px;
-  box-shadow: ${appTheme.elevation.md};
   transition: opacity 250ms ease;
 
   @media ${appTheme.queries.tabletAndUp} {
     margin: 0 16px;
+    padding: 8px;
   }
 
   ::before {
@@ -73,6 +71,12 @@ const StyledLink = styled.a`
   :hover::before {
     opacity: 1;
   }
+`;
+
+const StyledLiGradient = styled(StyledLink)`
+  color: ${appTheme.colors.secondary.default};
+  list-style: none;
+  background: ${appTheme.colors.tertiary.default};
 `;
 
 const Header = () => {
@@ -109,27 +113,27 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <StyledLi>
+      <Li>
         <Link href="/">
           <a>
             <LogoIcon />
           </a>
         </Link>
-      </StyledLi>
+      </Li>
       <Nav>
         <List>
-          <StyledLi>
+          <Li>
             <Link href="/my-candidate" passHref>
-              <StyledLink>My Candidate</StyledLink>
+              <StyledLiGradient>My Candidate</StyledLiGradient>
             </Link>
-          </StyledLi>
-          <StyledLi>
+          </Li>
+          <Li>
             {isAuthenticated ? (
               <StyledLink as="button" onClick={handleLogout}>
                 Logout
               </StyledLink>
             ) : null}
-          </StyledLi>
+          </Li>
         </List>
       </Nav>
       <GitHubBanner />
