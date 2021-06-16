@@ -107,25 +107,36 @@ const GlobalStyles = () => (
         outline: 5px auto ${appTheme.colors.primary.default};
       }
 
-      /* Scrollbar and Selection styles */
+      /* Selection and Scrollbar styles */
       ::selection {
         color: ${appTheme.colors.selection};
         background-color: ${appTheme.colors.selectionBackground};
       }
 
-      @media (orientation: landscape) {
+      @media (orientation: portrait) {
         ::-webkit-scrollbar {
-          width: 9px;
-          height: 11px;
           background-color: ${appTheme.colors.secondary.darker};
         }
         ::-webkit-scrollbar-track {
+          background-color: transparent;
           border-radius: 3px;
         }
         ::-webkit-scrollbar-thumb {
           background-color: ${appTheme.colors.tertiary.default};
           border: 2px solid ${appTheme.colors.tertiary.default};
           border-radius: 10px;
+        }
+      }
+
+      @media (orientation: landscape) {
+        ::-webkit-scrollbar {
+          width: 8px;
+          height: 16px;
+          background-color: ${appTheme.colors.secondary.darker};
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background-color: ${appTheme.colors.tertiary.default};
         }
       }
 
