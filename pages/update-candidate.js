@@ -18,7 +18,7 @@ const UpdateCandidate = () => {
 
   // if ALREADY authenticated, Redirect
   useEffect(() => {
-    if (data?.loggedInUser === null) {
+    if (loading === false && data?.loggedInUser === null) {
       router.push("/login");
     }
   }, [data, loading, router]);

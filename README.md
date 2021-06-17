@@ -133,11 +133,11 @@ World Presidential Election Application achieved as part of <a href="https://ful
 1 - Clone the Project's repositories
 
 ```sh
-git https://github.com/Banaanas/blogslist-app-frontend-FSO.git
+git https://github.com/Banaanas/president-of-the-world-frontend
 ```
 
 ```sh
-git https://github.com/Banaanas/blogslist-app-backend-FSO.git
+git https://github.com/Banaanas/president-of-the-world-backend
 ```
 
 2 - Install NPM Packages / Dependencies
