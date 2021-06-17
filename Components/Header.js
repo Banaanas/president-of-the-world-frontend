@@ -76,10 +76,7 @@ const StyledLink = styled.a`
 const StyledLiGradient = styled(StyledLink)`
   color: ${appTheme.colors.secondary.default};
   list-style: none;
-  background: linear-gradient(
-    ${appTheme.colors.tertiary.default},
-    ${appTheme.colors.tertiary.lighter}
-  );
+  background: ${appTheme.colors.tertiary.default};
 `;
 
 const Header = () => {

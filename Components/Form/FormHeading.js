@@ -29,7 +29,7 @@ const SubHeadingContainer = styled.div`
     flex-direction: row;
   }
 
-  // Link in SignUp and Login Forms
+  /* Link in SignUp and Login Forms */
   a {
     margin-left: 8px;
     font-weight: ${appTheme.fontWeight.bold};
