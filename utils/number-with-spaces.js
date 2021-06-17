@@ -2,6 +2,7 @@
 const numberWithSpaces = (number) => {
   if (number === undefined) return;
 
+  // eslint-disable-next-line consistent-return
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 };
 

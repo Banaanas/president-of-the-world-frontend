@@ -33,24 +33,6 @@ const CancelLink = styled.a`
   background-color: ${appTheme.colors.error.default};
 `;
 
-/* The Select Tag is Rendered by Formik with an "as='select'" prop.
-The HTML Select element can not have DIV for children. That is why
-ChakraFormControl and ChakraErrorMessage have NOT been used for the Select Tag.
-Its styling needs to be harmonized with ChakraFormControl. */
-const SelectField = styled(Field)`
-  width: 100%;
-  background: white;
-  border: ${appTheme.colors.secondary.lighter} 1px solid;
-  border-radius: 6px; /* = Chakra Input Styling */
-  padding-inline-start: 16px; /* = Chakra Input Styling */
-  cursor: pointer;
-
-  &:focus {
-    border-color: ${appTheme.colors.tertiary.default};
-    box-shadow: 0 0 0 1px ${appTheme.colors.tertiary.default};
-  }
-`;
-
 // Form Validation Schema - Yup
 const ValidationSchemaYup = object().shape({
   country: string()
@@ -68,22 +50,19 @@ const MyCandidateForm = ({ loggedInUser }) => {
   const toast = useToast();
 
   // Login - useMutation
-  const [updateCandidate, resultUpdateCandidate] = useMutation(
-    UPDATE_CANDIDATE,
-    {
-      onCompleted: () => {
-        // Display Success Toast
-        toast(toasts.candidateUpdated);
+  const [updateCandidate] = useMutation(UPDATE_CANDIDATE, {
+    onCompleted: () => {
+      // Display Success Toast
+      toast(toasts.candidateUpdated);
 
-        // Redirect to Home
-        router.push("/");
-      },
-      onError: (error) => {
-        // Display Error Toast
-        toast(toasts.error(error));
-      },
+      // Redirect to Home
+      router.push("/");
     },
-  );
+    onError: (error) => {
+      // Display Error Toast
+      toast(toasts.error(error));
+    },
+  });
 
   // Update Candidate - Function
   const handleUpdateCandidate = async (updatedCandidate) => {
@@ -163,7 +142,7 @@ const MyCandidateForm = ({ loggedInUser }) => {
                     {...rest}
                     defaultValue="Left"
                   >
-                    <HStack spacing="24px">
+                    <HStack justifyContent="center" spacing="24px">
                       <Radio onChange={onChange} value="Left">
                         Left
                       </Radio>
@@ -189,7 +168,7 @@ const MyCandidateForm = ({ loggedInUser }) => {
           </Field>
           <ButtonsContainer>
             <UpdateButton type="submit">SUBMIT</UpdateButton>
-            <Link href="/my-candidate">
+            <Link href="/my-candidate" passHref>
               <CancelLink>CANCEL</CancelLink>
             </Link>
           </ButtonsContainer>

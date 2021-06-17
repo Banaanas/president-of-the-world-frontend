@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 
 const FormAndIllustrationContainer = styled.div`
   display: flex;
-  flex-direction: ${({ rowReverse }) => (rowReverse ? "row-reverse" : "row")};
   flex: 1;
+  flex-direction: ${({ rowReverse }) => (rowReverse ? "row-reverse" : "row")};
   align-items: center;
   justify-content: space-around;
   width: 100%;

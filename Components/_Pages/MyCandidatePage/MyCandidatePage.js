@@ -7,9 +7,11 @@ import SubmitCandidateForm from "./SubmitCandidateForm";
 import StyledPageMain from "../../StyledComponents/StyledPageMain";
 
 const MyCandidate = ({ loggedInUser }) => {
+  // If loggedInUser
   if (loggedInUser) {
     const hasCandidate = loggedInUser?.candidate;
 
+    // If loggedInUser already HAS Candidate
     if (hasCandidate) {
       return (
         <FormPage
@@ -21,6 +23,7 @@ const MyCandidate = ({ loggedInUser }) => {
       );
     }
 
+    // If loggedInUser already does NOT HAVE Candidate
     if (!hasCandidate) {
       return (
         <FormPage
@@ -33,7 +36,7 @@ const MyCandidate = ({ loggedInUser }) => {
     }
   }
 
-  // Loading Spinner
+  // If NO loggedInUser, Loading Spinner
   return (
     <StyledPageMain>
       <Loader type="Puff" color="white" height={100} width={100} />

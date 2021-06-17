@@ -14,7 +14,7 @@ const StyledFormikForm = styled(Form)`
   ${formStyle}
 `;
 
-// For LoginForm - Without Formik
+// For LoginForm - Form Without Formik
 const StyledForm = styled.form`
   ${formStyle};
 `;

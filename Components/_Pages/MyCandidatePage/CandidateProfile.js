@@ -59,11 +59,11 @@ const CandidateProfile = ({ loggedInUser }) => {
       </DetailContainer>
       <DetailContainer>
         <div>Votes</div>
-        <div> {loggedInUser?.candidate?.votes}</div>
+        <div>{loggedInUser?.candidate?.votes}</div>
       </DetailContainer>
       <ButtonsContainer>
-        <Link href="/update-candidate">
-          <UpdateLink passHref>Update</UpdateLink>
+        <Link href="/update-candidate" passHref>
+          <UpdateLink>Update</UpdateLink>
         </Link>
         <DeleteButton onClick={() => setIsOpen(true)}>Delete</DeleteButton>
       </ButtonsContainer>

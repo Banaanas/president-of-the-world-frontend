@@ -36,7 +36,7 @@ const SubmitCandidateForm = () => {
   const toast = useToast();
 
   // Login - useMutation
-  const [createCandidate, resultCreateCandidate] = useMutation(ADD_CANDIDATE, {
+  const [createCandidate] = useMutation(ADD_CANDIDATE, {
     refetchQueries: [{ query: LOGGED_IN_USER }],
     onCompleted: () => {
       // Display Success Toast
@@ -163,7 +163,7 @@ const SubmitCandidateForm = () => {
                     {...rest}
                     defaultValue="Left"
                   >
-                    <HStack spacing="24px">
+                    <HStack justifyContent="center" spacing="24px">
                       <Radio onChange={onChange} value="Left">
                         Left
                       </Radio>
@@ -176,7 +176,7 @@ const SubmitCandidateForm = () => {
                     </HStack>
                   </RadioGroup>
                   {/* If this field has been touched, and it contains an error,
-                display it */}
+                  display it */}
                   {errors.politicalOrientation &&
                   touched.politicalOrientation ? (
                     <ChakraErrorMessage>

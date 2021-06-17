@@ -6,7 +6,7 @@ const StyledSVG = styled.svg`
   background-color: transparent;
 
   @media ${appTheme.queries.tabletAndUp} {
-    width: 48px;
+    width: 56px;
   }
 `;
 

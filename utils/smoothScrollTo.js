@@ -13,7 +13,6 @@ const smoothScrollTo = (name) => {
 };
 
 // Name of the scroll reference
-
 export const rankingSection = "ranking-section";
 
 export default smoothScrollTo;

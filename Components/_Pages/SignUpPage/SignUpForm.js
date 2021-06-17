@@ -64,7 +64,7 @@ const SignUpForm = () => {
   });
 
   // createUser - useMutation
-  const [createUser, resultCreateUser] = useMutation(CREATE_USER, {
+  const [createUser] = useMutation(CREATE_USER, {
     onCompleted: async () => {
       // Display Success Toast
       toast(toasts.signup);

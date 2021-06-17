@@ -54,12 +54,13 @@ const BaseContainer = styled.div`
 `;
 
 const NameContainer = styled(BaseContainer)`
-  /* Space between lastName and firstName */
+  /* First Name */
   span:nth-of-type(1) {
-    margin-right: 4px;
+    margin-right: 4px; /* Space between lastName and firstName */
     text-transform: uppercase;
   }
 
+  /* Last Name */
   span:nth-of-type(2) {
     text-transform: capitalize;
   }

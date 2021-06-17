@@ -29,8 +29,6 @@ const StyledLink = styled.a`
   margin-left: 4px;
 
   /* Hover Effect */
-
-  /* Hover Effect */
   ::after {
     position: absolute;
     left: 0;
@@ -92,7 +90,7 @@ const CandidatesRankingSection = ({ allCandidates }) => {
     });
   };
 
-  // If No Candidates yet
+  // If No Candidates List is EMPTY
   if (allCandidates.length === 0) {
     return (
       <StyledSection>
@@ -107,10 +105,10 @@ const CandidatesRankingSection = ({ allCandidates }) => {
     );
   }
 
-  // If Candidates
+  // If Candidates List is NOT empty
   return (
     <StyledSection>
-      <ScrollWrapper name={rankingSection} />
+      <ScrollWrapper name={rankingSection} /> {/* To Scroll to */}
       <StyledH2>Candidates Ranking</StyledH2>
       <LeadingCandidate
         candidatesArray={allCandidates}

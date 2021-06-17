@@ -3,7 +3,6 @@ import Head from "next/head";
 import { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { LOGGED_IN_USER } from "../lib/queries/queries";
-import { addApolloState, initializeApollo } from "../lib/apolloClient";
 import MyCandidatePage from "../Components/_Pages/MyCandidatePage/MyCandidatePage";
 import SEO from "../SEO/seo-data";
 
@@ -51,17 +50,5 @@ const MyCandidate = () => {
     </>
   );
 };
-
-export async function getServerSideProps() {
-  const apolloClient = initializeApollo();
-
-  await apolloClient.query({
-    query: LOGGED_IN_USER,
-  });
-
-  return addApolloState(apolloClient, {
-    props: {},
-  });
-}
 
 export default MyCandidate;

@@ -24,6 +24,3 @@ const HeroBannerSection = ({ allCandidates }) => (
 );
 
 export default HeroBannerSection;
-
-/*
- */

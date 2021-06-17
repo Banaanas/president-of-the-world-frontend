@@ -39,23 +39,20 @@ const DeleteAlertDialog = ({
   const toast = useToast();
 
   // Delete - useMutation
-  const [deleteCandidate, resultDeleteCandidate] = useMutation(
-    DELETE_CANDIDATE,
-    {
-      refetchQueries: [{ query: LOGGED_IN_USER }],
-      onCompleted: () => {
-        // Display Success Toast
-        toast(toasts.candidateDeleted);
+  const [deleteCandidate] = useMutation(DELETE_CANDIDATE, {
+    refetchQueries: [{ query: LOGGED_IN_USER }],
+    onCompleted: () => {
+      // Display Success Toast
+      toast(toasts.candidateDeleted);
 
-        // Close Alert Dialog
-        onCloseAlertDialog();
-      },
-      onError: (error) => {
-        // Display Error Toast
-        toast(toasts.error(error));
-      },
+      // Close Alert Dialog
+      onCloseAlertDialog();
     },
-  );
+    onError: (error) => {
+      // Display Error Toast
+      toast(toasts.error(error));
+    },
+  });
 
   const handleDeleteCandidate = async (id) => {
     // Delete Blog - useMutation
@@ -66,7 +63,7 @@ const DeleteAlertDialog = ({
     <AlertDialog
       isOpen={isOpen}
       leastDestructiveRef={cancelRef}
-      onCloseAlertDialog={onCloseAlertDialog}
+      onClose={onCloseAlertDialog}
       isCentered
     >
       <AlertDialogOverlay>

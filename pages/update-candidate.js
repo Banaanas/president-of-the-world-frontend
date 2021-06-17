@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
 import Head from "next/head";
-import { addApolloState, initializeApollo } from "../lib/apolloClient";
 import { LOGGED_IN_USER } from "../lib/queries/queries";
 import UpdateCandidatePage from "../Components/_Pages/UpdateCandidatePage/UpdateCandidatePage";
 import SEO from "../SEO/seo-data";
@@ -51,17 +50,5 @@ const UpdateCandidate = () => {
     </>
   );
 };
-
-export async function getServerSideProps() {
-  const apolloClient = initializeApollo();
-
-  await apolloClient.query({
-    query: LOGGED_IN_USER,
-  });
-
-  return addApolloState(apolloClient, {
-    props: {},
-  });
-}
 
 export default UpdateCandidate;

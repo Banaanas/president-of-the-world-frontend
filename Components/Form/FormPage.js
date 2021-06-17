@@ -22,9 +22,6 @@ const HeadingContainer = styled.div`
   @media ${appTheme.queries.tabletAndUp} {
     margin-bottom: 64px;
   }
-  @media ${appTheme.queries.laptopAndUp} {
-    margin-bottom: 64px;
-  }
 `;
 
 const Heading = styled(StyledH1)`

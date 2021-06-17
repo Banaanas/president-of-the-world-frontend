@@ -28,6 +28,8 @@ const Wrapper = styled.button`
 `;
 
 const LinkButton = ({ href, children, ...delegated }) => {
+  // If LinkButton gets href === a
+  // Else, === button
   const tag = typeof href === "string" ? "a" : "button";
 
   return (

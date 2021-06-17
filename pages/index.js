@@ -13,7 +13,7 @@ import SEO from "../SEO/seo-data";
 
 const Home = () => {
   const { data } = useQuery(ALL_CANDIDATES, {
-    pollInterval: 500,
+    pollInterval: 500, // Execute query at specific interval
   });
 
   // AnimatePresence Key

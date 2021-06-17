@@ -1,10 +1,10 @@
 const SEO = {
   index: {
-    title: "President of the World",
+    title: "President of the World.",
     description: "description",
   },
   login: {
-    title: "President of the World | Login",
+    title: "President of the World | Login.",
     description:
       "Log In to President of the World and submit your own Candidate.",
   },
@@ -15,11 +15,11 @@ const SEO = {
   },
   myCandidate: {
     title: " President of the World  | My Candidate",
-    description: "Submit your Candidate to be elected President of the World",
+    description: "Submit your Candidate to be elected President of the World.",
   },
   updateCandidate: {
     title: " President of the World  | Update Candidate",
-    description: "Update your Candidate to be elected President of the World",
+    description: "Update your Candidate to be elected President of the World.",
   },
 };
 

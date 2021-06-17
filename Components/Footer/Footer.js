@@ -14,12 +14,10 @@ const StyledFooter = styled.footer`
   transition: filter, 300ms ease;
 `;
 
-const Footer = () => {
-  return (
-    <StyledFooter>
-      <SubFooter />
-    </StyledFooter>
-  );
-};
+const Footer = () => (
+  <StyledFooter>
+    <SubFooter />
+  </StyledFooter>
+);
 
 export default Footer;
