@@ -62,7 +62,7 @@ World Presidential Election Application achieved as part of <a href="https://ful
 
 <p align="center">
   <a href="https://president-of-the-world.cyrilo.app/">
-    <img src="./src/assets/README/animated-gif-1.gif" alt="Animated Gif" width="455" height="350">
+    <img src="./public/images/README/animated-gif-1.gif" alt="Animated Gif" width="380" height="280">
   </a>
 </p>
 
@@ -83,7 +83,7 @@ World Presidential Election Application achieved as part of <a href="https://ful
 
 <p align="center">
   <a href="https://president-of-the-world.cyrilo.app/">
-    <img src="./src/assets/README/animated-gif-2.gif" alt="Animated Gif" width="240" height="400">
+    <img src="./public/images/README/animated-gif-2.gif" alt="Animated Gif" width="240" height="400">
   </a>
 </p>
 
