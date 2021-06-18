@@ -132,10 +132,12 @@ World Presidential Election Application achieved as part of <a href="https://ful
 
 1 - Clone the Project's repositories
 
+- Front End
 ```sh
 git https://github.com/Banaanas/president-of-the-world-frontend
 ```
 
+- Back End
 ```sh
 git https://github.com/Banaanas/president-of-the-world-backend
 ```
