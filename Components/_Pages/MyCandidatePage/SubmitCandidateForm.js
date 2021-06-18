@@ -65,9 +65,9 @@ const SubmitCandidateForm = () => {
   };
 
   const formikInitialValues = {
-    lastName: "Chavez",
-    firstName: "Hugo",
-    country: "Venezuela",
+    lastName: "",
+    firstName: "",
+    country: "",
     politicalOrientation: "",
   };
 
@@ -97,7 +97,7 @@ const SubmitCandidateForm = () => {
                   {...field}
                   type="text"
                   id="lastName"
-                  placeholder="Chávez"
+                  placeholder="Gandhi"
                 />
                 {/* If this field has been touched, and it contains an error,
                 display it */}
@@ -117,7 +117,7 @@ const SubmitCandidateForm = () => {
                   {...field}
                   type="text"
                   id="firstName"
-                  placeholder="Hugo"
+                  placeholder="Mahatma"
                 />
                 {/* If this field has been touched, and it contains an error,
                 display it */}
@@ -135,7 +135,7 @@ const SubmitCandidateForm = () => {
                   {...field}
                   type="country"
                   id="country"
-                  placeholder="Venezuela"
+                  placeholder="India"
                 />
                 {/* If this field has been touched, and it contains an error,
                 display it */}
