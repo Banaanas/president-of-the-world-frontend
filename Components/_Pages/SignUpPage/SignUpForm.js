@@ -104,9 +104,9 @@ const SignUpForm = () => {
   };
 
   const formikInitialValues = {
-    username: "Jonanas",
-    password: "jocaste",
-    passwordConfirmation: "jocaste",
+    username: "",
+    password: "",
+    passwordConfirmation: "",
   };
 
   return (
@@ -147,7 +147,6 @@ const SignUpForm = () => {
                   {...field}
                   type="text"
                   id="username"
-                  placeholder="Buddha"
                 />
                 {/* If this field has been touched, and it contains an error,
                 display it */}

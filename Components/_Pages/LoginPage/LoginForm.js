@@ -16,8 +16,9 @@ import { LOGGED_IN_USER, LOGIN } from "../../../lib/queries/queries";
 import toasts from "../../../utils/toasts";
 
 const LoginForm = () => {
-  const [username, setUsername] = useState("Buddha");
-  const [password, setPassword] = useState("jocaste10");
+  // Visitor(s) Account - For Users who don't want to Sign Up
+  const [username, setUsername] = useState("visitor-account");
+  const [password, setPassword] = useState("password");
 
   // useDispatch - Redux State
   const dispatch = useDispatch();
