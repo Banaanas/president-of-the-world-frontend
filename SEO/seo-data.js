@@ -1,7 +1,8 @@
 const SEO = {
   index: {
     title: "President of the World.",
-    description: "description",
+    description:
+      "Submit your Candidate and Vote for the President of the World.",
   },
   login: {
     title: "President of the World | Login.",
