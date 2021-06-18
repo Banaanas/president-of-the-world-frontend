@@ -205,8 +205,8 @@ const LeadingCandidate = ({ candidatesArray, handleUpdateCandidate }) => {
       <LeadingCandidateCard>
         <NumberContainer>1</NumberContainer>
         <NameContainer>
-          <span>{leadingCandidate?.firstName}</span>
           <span>{leadingCandidate?.lastName}</span>
+          <span>{leadingCandidate?.firstName}</span>
         </NameContainer>
         <CountryContainer>
           <StyledLocationIcon />
