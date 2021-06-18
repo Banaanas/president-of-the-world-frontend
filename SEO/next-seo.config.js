@@ -6,7 +6,7 @@ export default {
     titleTemplate: "Next SEO | %s",
     images: [
       {
-        url: "https://president-of-the-world.cyrilo.app/images/banner.svg",
+        url: "https://president-of-the-world.cyrilo.app/images/banner.png",
         width: 1200,
         height: 630,
         alt: "Cyrilo Logo",
