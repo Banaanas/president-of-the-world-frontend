@@ -83,7 +83,7 @@ const SignUpForm = () => {
     // If Login works
     if (resultLogin.data) {
       // Retrieve token from GraphQL mutation
-      const token = resultLogin.data.login.value;
+      const { token } = resultLogin.data.login;
       // Set localStorage
       localStorage.setItem(localStorageValue, token);
       // Get Authenticated User - Dispatch - Redux State
@@ -104,9 +104,9 @@ const SignUpForm = () => {
   };
 
   const formikInitialValues = {
-    username: "",
-    password: "",
-    passwordConfirmation: "",
+    username: "Jonanas",
+    password: "jocaste",
+    passwordConfirmation: "jocaste",
   };
 
   return (
