@@ -147,6 +147,7 @@ const SignUpForm = () => {
                   {...field}
                   type="text"
                   id="username"
+                  placeholder="Buddha"
                 />
                 {/* If this field has been touched, and it contains an error,
                 display it */}
