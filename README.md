@@ -148,6 +148,12 @@ npm install
 
 3 - Development Server
 
+- Front End
+```sh
+npm run dev
+```
+
+- Back End
 ```sh
 npm run dev
 ```
@@ -176,8 +182,8 @@ Distributed under the MIT License. See <a href="./LICENSE">`LICENSE`</a> for mor
 
 ## Project Links
 
-- [Front-End Repository](https://github.com/Banaanas/blogslist-app-frontend-FSO) - 💻
-- [Back-End Repository](https://github.com/Banaanas/blogslist-app-backend-FSO) - 🤖
+- [Front-End Repository](https://github.com/Banaanas/president-of-the-world-frontend) - 💻
+- [Back-End Repository](https://github.com/Banaanas/president-of-the-world-backend) - 🤖
 
 <!-- ACKNOWLEDGEMENTS -->
 
