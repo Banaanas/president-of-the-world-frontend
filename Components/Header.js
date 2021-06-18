@@ -113,13 +113,11 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <Li>
-        <Link href="/">
-          <a>
-            <LogoIcon />
-          </a>
-        </Link>
-      </Li>
+      <Link href="/">
+        <a>
+          <LogoIcon />
+        </a>
+      </Link>
       <Nav>
         <List>
           <Li>
