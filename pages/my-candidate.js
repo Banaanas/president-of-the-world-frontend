@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { LOGGED_IN_USER } from "../lib/queries/queries";
 import MyCandidatePage from "../Components/_Pages/MyCandidatePage/MyCandidatePage";
