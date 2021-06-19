@@ -22,7 +22,7 @@ const SignUp = () => {
         <meta property="og:title" content={SEO.signUp.title} key="og-title" />
         <meta
           property="og:url"
-          content={`https://cyrilo.dev${router.asPath}`}
+          content={`https://president-of-the-world.cyrilo.app${router.asPath}`}
           key="og-url"
         />
       </Head>

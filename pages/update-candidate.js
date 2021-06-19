@@ -42,7 +42,7 @@ const UpdateCandidate = () => {
         />
         <meta
           property="og:url"
-          content={`https://cyrilo.dev${router.asPath}`}
+          content={`https://president-of-the-world.cyrilo.app${router.asPath}`}
           key="og-url"
         />
       </Head>
