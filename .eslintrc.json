@@ -8,6 +8,7 @@
     "plugin:eslint-comments/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:react/recommended",
+    "plugin:prettier/recommended",
     "prettier"
   ],
   "parser": "babel-eslint",
@@ -20,6 +21,7 @@
     "testing-library"
   ],
   "rules": {
+    "prettier/prettier": "error", // https://github.com/prettier/eslint-plugin-prettier
     "comma-dangle": [
       "error",
       {
@@ -42,15 +44,7 @@
         "aspects": ["invalidHref", "preferButton"]
       }
     ],
-    "prettier/prettier": "error",
-    // Authorize double-quote use
-    "quotes": [
-      1,
-      "double",
-      {
-        "avoidEscape": true
-      }
-    ],
+
     // Disable forbid-prop-types rule
     "react/prop-types": 0,
     "react/jsx-filename-extension": [
