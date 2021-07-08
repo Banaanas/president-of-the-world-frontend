@@ -44,7 +44,6 @@
         "aspects": ["invalidHref", "preferButton"]
       }
     ],
-
     // Disable forbid-prop-types rule
     "react/prop-types": 0,
     "react/jsx-filename-extension": [
