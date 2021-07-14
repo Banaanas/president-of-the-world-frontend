@@ -65,7 +65,7 @@ const colors = css`
   --color-error-lightest-2: hsl(0, 82%, 98%);
 
   /* Black */
-  --color-black-default: hsla(216, 18%, 16%);
+  --color-black-default: hsl(216, 18%, 16%);
 
   /* White */
   --color-white-default: hsl(0, 0%, 100%);
