@@ -129,7 +129,6 @@ const appTheme = {
     xl7: "var(--font-size-xl7)",
     xl8: "var(--font-size-xl8)",
     xl9: "var(--font-size-xl9)",
-    baseFont: "var(--base-font-size)",
   },
 
   fontFamily: {

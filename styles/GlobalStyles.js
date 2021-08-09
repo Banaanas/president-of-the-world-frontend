@@ -24,14 +24,6 @@ const GlobalStyles = () => (
       html {
         box-sizing: border-box;
         height: 100%;
-
-        /* 16px - Fixed Default Font Size - Because Relative Value (rm / %) would break 
-        the layout if User changed Default Font Size in navigator. So layout will
-        stay the same, if User changes Default Font Size. But Zoom is still
-        possible, whether it's with REM or PX */
-        font-size: ${appTheme.fontSize.baseFont};
-        scroll-behavior: smooth; /* Warning : Some Browsers still don't support CSS "scroll-behavior: smooth",
-        a Library / Polyfill could be used */
       }
 
       body {

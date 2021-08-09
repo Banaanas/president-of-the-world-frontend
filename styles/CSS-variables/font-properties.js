@@ -21,9 +21,6 @@ const fontProperties = css`
   --font-size-xl8: 6rem;
   --font-size-xl9: 8rem;
 
-  /* Base Font Size */
-  --base-font-size: 16px;
-
   /* Font Family */
   --font-family-1: "Roboto";
   --font-family-2: "Open Sans";
