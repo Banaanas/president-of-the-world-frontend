@@ -78,7 +78,7 @@ const GlobalStyles = () => (
 
       p {
         margin-bottom: 1.5em;
-        font-size: 1.125rem;
+        font-size: ${appTheme.fontSize.lg};
       }
 
       em {
