@@ -19,7 +19,7 @@ const MyCandidate = () => {
 
   // if NOT authenticated, Redirect
   useEffect(() => {
-    if (data?.loggedInUser === null) {
+    if (data?.loggedInUser === null && !loading) {
       router.push("/login");
     }
   }, [data, loading, router]);
