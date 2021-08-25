@@ -15,7 +15,7 @@ import Footer from "./Footer/Footer";
 import toasts from "../utils/toasts";
 
 /* isAuthenticated is used here, because redux hooks can only be used inside
- * the Redux Provider, set up in the _app.js file, parent of Layout.js
+ * the Redux Provider, set up in the _app.ts file, parent of Layout.js
  *  */
 
 // Persistent Layout
