@@ -14,6 +14,7 @@ import {
 } from "../../Form/StyledFormComponents";
 import { LOGGED_IN_USER, LOGIN } from "../../../lib/queries/queries";
 import toasts from "../../../utils/toasts";
+import { LoginObject } from "../../../types/types";
 
 const LoginForm = () => {
   // Visitor(s) Account - For Users who don't want to Sign Up
@@ -27,7 +28,7 @@ const LoginForm = () => {
   const toast = useToast();
 
   // Login - useMutation
-  const [login, resultLogin] = useMutation(LOGIN, {
+  const [login, resultLogin] = useMutation<LoginObject>(LOGIN, {
     refetchQueries: [{ query: LOGGED_IN_USER, fetchPolicy: "network-only" }],
     onCompleted: () => {
       // Display Success Toast

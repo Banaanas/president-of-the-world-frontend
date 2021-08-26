@@ -30,3 +30,13 @@ export interface LoggedInUserObject {
 export interface LoggedInUserData {
   loggedInUser: LoggedInUserObject;
 }
+
+/* LOGIN */
+
+export interface Login {
+  token: string;
+  user: User;
+}
+export interface LoginObject {
+  login: Login;
+}
