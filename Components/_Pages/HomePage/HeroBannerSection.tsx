@@ -9,14 +9,14 @@ import { Candidate } from "../../../types/types";
 const HeroBannerSection = ({
   allCandidates,
 }: {
-  allCandidates: Array<Candidate>;
+  allCandidates: Array<Candidate> | undefined;
 }) => (
   <StyledSection>
     <StyledH1>President of the World</StyledH1>
     <HomeIllustration />
     {/* If NO candidates yet, link to MyCandidatePageElse.
       Else smooth scroll to Candidates Table. */}
-    {allCandidates.length === 0 ? (
+    {!allCandidates || allCandidates.length === 0 ? (
       <Link href="/my-candidate" passHref>
         <LinkButton>Change the World</LinkButton>
       </Link>

@@ -1,8 +1,16 @@
 // Add a 0 if Time Unit is < 10
-const setDoubleDigits = (number) => (number < 10 ? "0" : "") + number;
+const setDoubleDigits = (number: number): string =>
+  (number < 10 ? "0" : "") + number.toString();
+
+export interface TimeObject {
+  days: string;
+  hours: string;
+  minutes: string;
+  seconds: string;
+}
 
 // Count Time left until Midnight
-const countdown = () => {
+const countdown = (): TimeObject => {
   const todayMS = new Date().getTime();
 
   // Next Midnight
@@ -25,7 +33,7 @@ const countdown = () => {
 
   // Return Object with Time Units
   return {
-    days: textDays,
+    days: textDays.toString(),
     hours: setDoubleDigits(textHours),
     minutes: setDoubleDigits(textMinutes),
     seconds: setDoubleDigits(textSeconds),

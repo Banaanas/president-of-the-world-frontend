@@ -1,7 +1,11 @@
 import styled from "@emotion/styled";
 import appTheme from "../styles/appTheme";
 
-const StyledHR = styled.hr`
+interface StyledHRProps {
+  width?: string;
+}
+
+const StyledHR = styled.hr<StyledHRProps>`
   all: unset;
   width: ${({ width }) => (width ? width : "80%")};
   height: 4px;

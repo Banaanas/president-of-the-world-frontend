@@ -12,6 +12,7 @@ import CandidatesRanking from "./CandidatesRanking";
 import LeadingCandidate from "./LeadingCandidate";
 import { rankingSection } from "../../../../utils/smoothScrollTo";
 import toasts from "../../../../utils/toasts";
+import { Candidate } from "../../../../types/types";
 
 const Span = styled.span`
   text-align: center;
@@ -61,7 +62,11 @@ const StyledLink = styled.a`
   }
 `;
 
-const CandidatesRankingSection = ({ allCandidates }) => {
+const CandidatesRankingSection = ({
+  allCandidates,
+}: {
+  allCandidates: Array<Candidate> | undefined;
+}) => {
   // Render when allCandidates array changes
   useEffect(() => {}, [allCandidates]);
 
@@ -81,7 +86,7 @@ const CandidatesRankingSection = ({ allCandidates }) => {
   });
 
   // Update Candidate - Function
-  const handleUpdateCandidate = async (candidateID) => {
+  const handleUpdateCandidate = async (candidateID: number) => {
     // updateCandidate - useMutation
     await voteCandidate({
       variables: {
@@ -91,7 +96,7 @@ const CandidatesRankingSection = ({ allCandidates }) => {
   };
 
   // If No Candidates List is EMPTY
-  if (allCandidates.length === 0) {
+  if (!allCandidates || allCandidates.length === 0) {
     return (
       <StyledSection>
         <ScrollWrapper name={rankingSection} />

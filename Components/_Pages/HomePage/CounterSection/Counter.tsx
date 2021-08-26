@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import Loader from "react-loader-spinner";
 import appTheme from "../../../../styles/appTheme";
-import countdown from "../../../../utils/countdown-function";
+import countdown, { TimeObject } from "../../../../utils/countdown-function";
 
 const Container = styled.div`
   display: flex;
@@ -55,7 +55,7 @@ const TimeUnit = styled.div`
 `;
 
 const Counter = () => {
-  const [timeToMidnight, setTimeToMidnight] = useState(null);
+  const [timeToMidnight, setTimeToMidnight] = useState<TimeObject | null>(null);
 
   useEffect(() => {
     const intervalID = setTimeout(() => {
@@ -80,21 +80,25 @@ const Counter = () => {
       <CounterContainer>
         <TimeUnitContainer>
           <TimeUnit>
-            {timeToMidnight?.days > 0 ? timeToMidnight?.days : null}
+            {Number(timeToMidnight?.days) > 0 ? timeToMidnight?.days : null}
           </TimeUnit>
-          <span>{timeToMidnight?.days > 0 ? "days" : null}</span>
+          <span>{Number(timeToMidnight?.days) > 0 ? "days" : null}</span>
         </TimeUnitContainer>
         <TimeUnitContainer>
           <TimeUnit>{timeToMidnight?.hours}</TimeUnit>
-          <span>{timeToMidnight?.hours > 1 ? "hours" : "hour"}</span>
+          <span>{Number(timeToMidnight?.hours) > 1 ? "hours" : "hour"}</span>
         </TimeUnitContainer>
         <TimeUnitContainer>
           <TimeUnit>{timeToMidnight?.minutes}</TimeUnit>
-          <span>{timeToMidnight?.minutes > 1 ? "minutes" : "minute"}</span>
+          <span>
+            {Number(timeToMidnight?.minutes) > 1 ? "minutes" : "minute"}
+          </span>
         </TimeUnitContainer>
         <TimeUnitContainer>
           <TimeUnit>{timeToMidnight?.seconds}</TimeUnit>
-          <span>{timeToMidnight?.seconds > 1 ? "seconds" : "second"}</span>
+          <span>
+            {Number(timeToMidnight?.seconds) > 1 ? "seconds" : "second"}
+          </span>
         </TimeUnitContainer>
       </CounterContainer>
     </Container>
