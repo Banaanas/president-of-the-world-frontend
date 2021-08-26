@@ -6,6 +6,7 @@ import StyledPageMain from "../StyledComponents/StyledPageMain";
 import StyledH2 from "../StyledComponents/StyledH2";
 import pageVariants from "../../styles/animations";
 import appTheme from "../../styles/appTheme";
+import React from "react";
 
 const Container = styled.div`
   display: flex;
@@ -32,13 +33,21 @@ const SubHeading = styled(StyledH2)`
   margin-top: 8px;
 `;
 
+interface FormPageProps {
+  pageHeading?: string;
+  subHeading?: string;
+  illustrationComponent: React.ReactNode;
+  formComponent: React.ReactNode;
+  rowReverse?: boolean;
+}
+
 const FormPage = ({
   pageHeading,
   subHeading,
   illustrationComponent,
   formComponent,
   rowReverse,
-}) => {
+}: FormPageProps) => {
   // Next.js Router
   const router = useRouter();
 

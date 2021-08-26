@@ -5,8 +5,9 @@ import CandidateProfile from "./CandidateProfile";
 import SubmitCandidateIllustration from "../../Illustrations/SubmitCandidateIllustration";
 import SubmitCandidateForm from "./SubmitCandidateForm";
 import StyledPageMain from "../../StyledComponents/StyledPageMain";
+import { LoggedInUserData, LoggedInUserObject } from "../../../types/types";
 
-const MyCandidate = ({ loggedInUser }) => {
+const MyCandidate = ({ loggedInUser }: LoggedInUserData) => {
   // If loggedInUser
   if (loggedInUser) {
     const hasCandidate = loggedInUser?.candidate;

@@ -1,12 +1,16 @@
 import StyledSVG from "./StyledSVG";
 
-const SubmitCandidateIllustration = ({ horizontalFlip }) => {
+const SubmitCandidateIllustration = ({
+  horizontalFlip,
+}: {
+  horizontalFlip?: boolean;
+}) => {
   return (
     <StyledSVG
       viewBox="0 0 640 480"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      horizontalflip={horizontalFlip}
+      horizontalFlip={horizontalFlip}
     >
       <path
         d="M95.379 478.433v-53.225s-20.362 37.734 0 53.225z"

@@ -6,6 +6,7 @@ import StyledPageMain from "../../StyledComponents/StyledPageMain";
 import FormPage from "../../Form/FormPage";
 import LoginIllustration from "../../Illustrations/LoginIllustration";
 import LoginForm from "./LoginForm";
+import { RootState } from "../../../store/store";
 
 const LoginPage = () => {
   // Next Router
@@ -13,13 +14,14 @@ const LoginPage = () => {
 
   // isAuthenticated - Redux State
   const isAuthenticated = useSelector(
-    (state) => state.userAuthentication.isAuthenticated,
+    (state: RootState) => state.userAuthentication.isAuthenticated,
   );
 
   // if ALREADY authenticated, Redirect - With Spinner
   useEffect(() => {
     if (isAuthenticated) {
-      router.push("/");
+      // eslint-disable-next-line no-void
+      void router.push("/");
     }
   }, [isAuthenticated]);
 

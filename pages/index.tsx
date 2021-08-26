@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { useQuery } from "@apollo/client";
+import { GetServerSideProps } from "next";
 import { addApolloState, initializeApollo } from "../lib/apolloClient";
 import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
 import { ALL_CANDIDATES } from "../lib/queries/queries";
@@ -10,9 +11,10 @@ import CandidatesRankingSection from "../Components/_Pages/HomePage/CandidatesRa
 import StyledHR from "../Components/StyledHR";
 import pageVariants from "../styles/animations";
 import SEO from "../SEO/seo-data";
+import { AllCandidatesData } from "../types/types";
 
 const Home = () => {
-  const { data } = useQuery(ALL_CANDIDATES, {
+  const { data } = useQuery<AllCandidatesData>(ALL_CANDIDATES, {
     pollInterval: 500, // Execute query at specific interval
   });
 
@@ -58,7 +60,7 @@ const Home = () => {
 /* Return the apolloClient with data, add it to the Apollo Cache.
  * Then the Component retrieve data from the cache with a query
  * https://github.com/vercel/next.js/tree/canary/examples/with-apollo */
-export async function getServerSideProps() {
+export const getServerSideProps: GetServerSideProps = async () => {
   const apolloClient = initializeApollo();
 
   await apolloClient.query({
@@ -68,6 +70,6 @@ export async function getServerSideProps() {
   return addApolloState(apolloClient, {
     props: {},
   });
-}
+};
 
 export default Home;

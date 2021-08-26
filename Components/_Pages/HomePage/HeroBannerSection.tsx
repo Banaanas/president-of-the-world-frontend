@@ -4,8 +4,13 @@ import HomeIllustration from "../../Illustrations/HomeIllustration";
 import LinkButton from "../../LinkButton";
 import StyledSection from "../../StyledComponents/StyledSection";
 import smoothScrollTo, { rankingSection } from "../../../utils/smoothScrollTo";
+import { Candidate } from "../../../types/types";
 
-const HeroBannerSection = ({ allCandidates }) => (
+const HeroBannerSection = ({
+  allCandidates,
+}: {
+  allCandidates: Array<Candidate>;
+}) => (
   <StyledSection>
     <StyledH1>President of the World</StyledH1>
     <HomeIllustration />
@@ -13,7 +18,7 @@ const HeroBannerSection = ({ allCandidates }) => (
       Else smooth scroll to Candidates Table. */}
     {allCandidates.length === 0 ? (
       <Link href="/my-candidate" passHref>
-        <LinkButton as="a">Change the World</LinkButton>
+        <LinkButton>Change the World</LinkButton>
       </Link>
     ) : (
       <LinkButton onClick={() => smoothScrollTo(rankingSection)}>

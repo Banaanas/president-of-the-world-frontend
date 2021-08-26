@@ -1,6 +1,10 @@
 import styled from "@emotion/styled";
 
-const FormAndIllustrationContainer = styled.div`
+interface FormAndIllustrationContainerProps {
+  rowReverse?: boolean;
+}
+
+const FormAndIllustrationContainer = styled.div<FormAndIllustrationContainerProps>`
   display: flex;
   flex: 1;
   flex-direction: ${({ rowReverse }) => (rowReverse ? "row-reverse" : "row")};

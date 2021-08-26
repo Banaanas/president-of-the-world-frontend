@@ -5,6 +5,7 @@ import { useQuery } from "@apollo/client";
 import { LOGGED_IN_USER } from "../lib/queries/queries";
 import MyCandidatePage from "../Components/_Pages/MyCandidatePage/MyCandidatePage";
 import SEO from "../SEO/seo-data";
+import { LoggedInUserData } from "../types/types";
 
 const MyCandidate = () => {
   // Next Router
@@ -13,14 +14,15 @@ const MyCandidate = () => {
   // The Query uses the NETWORK ONLY and NOT THE CACHE because the Cache
   // was not updated
   // Console Warning --> cf. Note 1
-  const { data, loading } = useQuery(LOGGED_IN_USER, {
+  const { data, loading } = useQuery<LoggedInUserData>(LOGGED_IN_USER, {
     fetchPolicy: "network-only",
   });
 
   // if NOT authenticated, Redirect
   useEffect(() => {
     if (data?.loggedInUser === null && !loading) {
-      router.push("/login");
+      // eslint-disable-next-line no-void
+      void router.push("/login");
     }
   }, [data, loading, router]);
 

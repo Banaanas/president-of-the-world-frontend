@@ -1,7 +1,12 @@
+import React from "react";
 import styled from "@emotion/styled";
 import appTheme from "../styles/appTheme";
 
-const Wrapper = styled.button`
+interface WrapperProps {
+  href: string;
+}
+
+const Wrapper = styled.button<WrapperProps>`
   width: fit-content;
   padding: 8px 16px;
   color: ${appTheme.colors.secondary.default};
@@ -27,14 +32,26 @@ const Wrapper = styled.button`
   }
 `;
 
-const LinkButton = ({ href, children, ...delegated }) => {
+interface LinkButtonProps {
+  href?: string;
+  onClick?: () => void;
+  children: React.ReactNode;
+  delegated?: Array<unknown>;
+}
+
+const LinkButton = ({
+  href,
+  onClick,
+  children,
+  ...delegated
+}: LinkButtonProps) => {
   // If LinkButton gets href === a
   // Else, === button
   const tag = typeof href === "string" ? "a" : "button";
 
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
-    <Wrapper as={tag} href={href} {...delegated}>
+    <Wrapper as={tag} href={href} onClick={onClick} {...delegated}>
       {children}
     </Wrapper>
   );

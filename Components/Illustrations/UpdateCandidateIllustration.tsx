@@ -1,12 +1,16 @@
 import StyledSVG from "./StyledSVG";
 
-const UpdateCandidateIllustration = ({ horizontalFlip }) => {
+const UpdateCandidateIllustration = ({
+  horizontalFlip,
+}: {
+  horizontalFlip?: boolean;
+}) => {
   return (
     <StyledSVG
       viewBox="0 0 640 480"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      horizontalflip={horizontalFlip}
+      horizontalFlip={horizontalFlip}
     >
       <g clipPath="url(#prefix__clip0)">
         <path

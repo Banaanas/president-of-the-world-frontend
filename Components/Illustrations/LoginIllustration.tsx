@@ -1,12 +1,16 @@
 import StyledSVG from "./StyledSVG";
 
-const LoginIllustration = ({ horizontalFlip }) => {
+const LoginIllustration = ({
+  horizontalFlip,
+}: {
+  horizontalFlip?: boolean;
+}) => {
   return (
     <StyledSVG
       viewBox="0 0 640 480"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      horizontalflip={horizontalFlip}
+      horizontalFlip={horizontalFlip}
     >
       <path
         d="M28.1539 328.6C42.8794 343.647 56.3885 360.475 68.4859 378.842C87.4181 407.487 102.738 439.603 113.913 474.072C114.731 476.587 111.476 477.681 110.667 475.195C92.3836 419.176 63.1961 369.801 25.7737 331.586C24.0933 329.87 26.4873 326.898 28.1539 328.6Z"

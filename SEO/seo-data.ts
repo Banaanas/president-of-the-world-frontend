@@ -1,4 +1,17 @@
-const SEO = {
+interface ObjectSEO {
+  title: string;
+  description: string;
+}
+
+interface SEOProps {
+  index: ObjectSEO;
+  login: ObjectSEO;
+  signUp: ObjectSEO;
+  myCandidate: ObjectSEO;
+  updateCandidate: ObjectSEO;
+}
+
+const SEO: SEOProps = {
   index: {
     title: "President of the World",
     description:

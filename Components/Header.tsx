@@ -8,6 +8,7 @@ import appTheme from "../styles/appTheme";
 import { resetAuthenticatedUser } from "../store/slices/authenticationSlice";
 import GitHubBanner from "./GitHubBanner";
 import toasts from "../utils/toasts";
+import { RootState } from "../store/store";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -86,7 +87,7 @@ const StyledLiGradient = styled(StyledLink)`
 const Header = () => {
   // isAuthenticated - Redux State
   const isAuthenticated = useSelector(
-    (state) => state.userAuthentication.isAuthenticated,
+    (state: RootState) => state.userAuthentication.isAuthenticated,
   );
 
   // useDispatch - Redux State
@@ -104,7 +105,8 @@ const Header = () => {
       // Clear localStorage
       localStorage.clear();
       // Reset Apollo Store / Token
-      client.resetStore();
+      // eslint-disable-next-line no-void
+      void client.resetStore();
       // Reset Authenticated User - Dispatch - Redux State
       dispatch(resetAuthenticatedUser());
       // Display Success Toast
