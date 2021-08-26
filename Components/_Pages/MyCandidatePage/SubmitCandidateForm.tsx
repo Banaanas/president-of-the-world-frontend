@@ -1,6 +1,6 @@
 import { useMutation } from "@apollo/client";
 import { HStack, Radio, RadioGroup, useToast } from "@chakra-ui/react";
-import { Field, Formik } from "formik";
+import { Field, Formik, FormikFormProps, FormikProps } from "formik";
 import { object, string } from "yup";
 import FormHeading from "../../Form/FormHeading";
 import {
@@ -13,6 +13,7 @@ import {
 } from "../../Form/StyledFormComponents";
 import { ADD_CANDIDATE, LOGGED_IN_USER } from "../../../lib/queries/queries";
 import toasts from "../../../utils/toasts";
+import { CreatedCandidate } from "../../../types/types";
 
 // Form Validation Schema - Yup
 const ValidationSchemaYup = object().shape({
@@ -31,7 +32,21 @@ const ValidationSchemaYup = object().shape({
   politicalOrientation: string().required("Political Orientation is Required"),
 });
 
-const SubmitCandidateForm = () => {
+interface FormValues {
+  lastName: string;
+  firstName: string;
+  country: string;
+  politicalOrientation: string;
+}
+
+interface InitialFormValues {
+  lastName: string;
+  firstName: string;
+  country: string;
+  politicalOrientation: string;
+}
+
+const SubmitCandidateForm = (props: FormikProps<FormValues>) => {
   // Chakra-UI Toast
   const toast = useToast();
 
@@ -52,7 +67,7 @@ const SubmitCandidateForm = () => {
   });
 
   // Create Candidate - Function
-  const handleCreateCandidate = async (newCandidate) => {
+  const handleCreateCandidate = async (newCandidate: CreatedCandidate) => {
     // createCandidate - useMutation
     await createCandidate({
       variables: {
@@ -64,7 +79,7 @@ const SubmitCandidateForm = () => {
     });
   };
 
-  const formikInitialValues = {
+  const formikInitialValues: InitialFormValues = {
     lastName: "",
     firstName: "",
     country: "",
@@ -79,18 +94,19 @@ const SubmitCandidateForm = () => {
       validateOnMount /* Boolean - Run (also) validation when Formik Component mounts - This way, Submit is disabled on mount */
       onSubmit={(values, { setSubmitting, resetForm }) => {
         // Create Candidate
-        handleCreateCandidate(values);
+        // eslint-disable-next-line no-void
+        void handleCreateCandidate(values);
         setSubmitting(false); // Set Submitting to false - Submit Chakra UI Button (isLoading)
         resetForm(formikInitialValues); // Reset Form Initial Values
       }}
     >
-      {({ isValid, errors, touched, isSubmitting }) => (
+      {({ errors, touched }) => (
         <StyledFormikForm>
           <FormHeading heading="Chose a Candidate" />
           <Field name="lastName">
-            {({ field }) => (
+            {({ field }: { field: FormikFormProps }) => (
               <ChakraFormControl
-                isInvalid={errors.lastName && touched.lastName}
+                isInvalid={Boolean(errors.lastName && touched.lastName)}
               >
                 <ChakraLabel htmlFor="lastName">Last Name</ChakraLabel>
                 <ChakraInput
@@ -108,9 +124,9 @@ const SubmitCandidateForm = () => {
             )}
           </Field>
           <Field name="firstName">
-            {({ field }) => (
+            {({ field }: { field: FormikFormProps }) => (
               <ChakraFormControl
-                isInvalid={errors.firstName && touched.firstName}
+                isInvalid={Boolean(errors.firstName && touched.firstName)}
               >
                 <ChakraLabel htmlFor="firstName">First Name</ChakraLabel>
                 <ChakraInput
@@ -128,8 +144,10 @@ const SubmitCandidateForm = () => {
             )}
           </Field>
           <Field name="country">
-            {({ field }) => (
-              <ChakraFormControl isInvalid={errors.country && touched.country}>
+            {({ field }: { field: FormikFormProps }) => (
+              <ChakraFormControl
+                isInvalid={Boolean(errors.country && touched.country)}
+              >
                 <ChakraLabel htmlFor="country">Country</ChakraLabel>
                 <ChakraInput
                   {...field}
@@ -146,14 +164,14 @@ const SubmitCandidateForm = () => {
             )}
           </Field>
           <Field name="politicalOrientation">
-            {({ field }) => {
+            {({ field }: { field: FormikFormProps }) => {
               const { onChange, ...rest } = field;
               return (
                 <ChakraFormControl
                   id="politicalOrientation"
-                  isInvalid={
-                    errors.politicalOrientation && touched.politicalOrientation
-                  }
+                  isInvalid={Boolean(
+                    errors.politicalOrientation && touched.politicalOrientation,
+                  )}
                 >
                   <ChakraLabel htmlFor="politicalOrientation">
                     Political Orientation

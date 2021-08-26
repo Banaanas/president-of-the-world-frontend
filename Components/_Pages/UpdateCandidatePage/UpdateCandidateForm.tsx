@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import { HStack, Radio, RadioGroup, useToast } from "@chakra-ui/react";
-import { Field, Formik } from "formik";
+import { Field, Formik, FormikFormProps } from "formik";
 import { object, string } from "yup";
 import styled from "@emotion/styled";
 import Link from "next/link";
@@ -107,7 +107,7 @@ const MyCandidateForm = ({ loggedInUser }) => {
           </DetailContainer>
 
           <Field name="country">
-            {({ field }) => (
+            {({ field }: { field: FormikFormProps }) => (
               <ChakraFormControl isInvalid={errors.country && touched.country}>
                 <ChakraLabel htmlFor="country">Country</ChakraLabel>
                 <ChakraInput
@@ -125,14 +125,14 @@ const MyCandidateForm = ({ loggedInUser }) => {
             )}
           </Field>
           <Field name="politicalOrientation">
-            {({ field }) => {
+            {({ field }: { field: FormikFormProps }) => {
               const { onChange, ...rest } = field;
               return (
                 <ChakraFormControl
                   id="politicalOrientation"
-                  isInvalid={
-                    Boolean(errors.politicalOrientation && touched.politicalOrientation)
-                  }
+                  isInvalid={Boolean(
+                    errors.politicalOrientation && touched.politicalOrientation,
+                  )}
                 >
                   <ChakraLabel htmlFor="politicalOrientation">
                     Political Orientation

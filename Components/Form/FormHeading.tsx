@@ -38,7 +38,19 @@ const SubHeadingContainer = styled.div`
   }
 `;
 
-const FormHeading = ({ heading, subHeading, linkText, link }) => {
+interface FormHeadingProps {
+  heading: string;
+  subHeading?: string;
+  linkText?: string;
+  link?: string;
+}
+
+const FormHeading = ({
+  heading,
+  subHeading,
+  linkText,
+  link,
+}: FormHeadingProps) => {
   return (
     <Container>
       <FormTitle>{heading}</FormTitle>

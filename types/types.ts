@@ -5,9 +5,11 @@ export interface Candidate {
   firstName: string;
   country: string;
   politicalOrientation: string;
-  votes: number;
+  votes?: number;
   id: string;
 }
+
+export type CreatedCandidate = Omit<Candidate, "id">;
 
 export interface AllCandidatesData {
   allCandidates: Array<Candidate>;
@@ -28,7 +30,7 @@ export interface LoggedInUserObject {
 }
 
 export interface LoggedInUserData {
-  loggedInUser: LoggedInUserObject;
+  loggedInUser: LoggedInUserObject | undefined;
 }
 
 /* LOGIN */
