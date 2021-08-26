@@ -68,7 +68,8 @@ const Layout = ({ children }) => {
           // Reset Apollo Store / Token
           // client.resetStore() was causing an error. Contrary to resetStore()
           // clearStore doesn't refetch all queries;
-          client.clearStore();
+          // eslint-disable-next-line no-void
+          void client.clearStore();
           // Reset Authenticated User - Dispatch - Redux State
           dispatch(resetAuthenticatedUser());
           // Display Success Toast

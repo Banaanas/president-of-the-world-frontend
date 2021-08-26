@@ -43,7 +43,7 @@ const Home = () => {
         initial="initial"
         animate="animate"
         exit="initial"
-        key={router} /* AnimatePresence Key */
+        key={router.pathname} /* AnimatePresence Key */
       >
         <HeroBannerSection allCandidates={data?.allCandidates} />
         <StyledHR />

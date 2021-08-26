@@ -1,5 +1,10 @@
 import { useMemo } from "react";
-import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
+import {
+  ApolloClient,
+  HttpLink,
+  InMemoryCache,
+  NormalizedCacheObject,
+} from "@apollo/client";
 import { setContext } from "apollo-link-context";
 import { concatPagination } from "@apollo/client/utilities";
 import merge from "deepmerge";
@@ -14,7 +19,7 @@ const GRAPHQL_URI =
     ? "https://server-president-of-the-world.cyrilo.app/" // Production Endpoint
     : "http://localhost:3002"; // Development Endpoint
 
-let apolloClient;
+let apolloClient: ApolloClient<NormalizedCacheObject>;
 
 const authLink = setContext((_, { headers }) => {
   // Get the authentication token from local storage if it exists

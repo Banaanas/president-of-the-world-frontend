@@ -1,7 +1,22 @@
+import { ToastOptions, UseToastOptions } from "@chakra-ui/react";
+import { ApolloError } from "@apollo/client";
+
 const toastsDuration = 5000;
 
+interface Toasts {
+  signup: UseToastOptions;
+  login: UseToastOptions;
+  logout: UseToastOptions;
+  candidateSubmitted: UseToastOptions;
+  candidateUpdated: UseToastOptions;
+  candidateDeleted: UseToastOptions;
+  vote: UseToastOptions;
+  errorCredentials: UseToastOptions;
+  error: (e: ApolloError) => UseToastOptions;
+}
+
 // Object of Chakra Toast Objects
-const toasts = {
+const toasts: Toasts = {
   signup: {
     title: "🌠 Account Created ✨",
     description: "You successfully created your Account.",
