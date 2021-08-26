@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useMutation } from "@apollo/client";
 import { useToast } from "@chakra-ui/react";
@@ -53,7 +53,7 @@ const LoginForm = () => {
   }, [dispatch, resultLogin.data]);
 
   // Login - Function
-  const handleLogin = async (event) => {
+  const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
     // Login - useMutation
     await login({ variables: { username, password } });
@@ -64,12 +64,12 @@ const LoginForm = () => {
   };
 
   // Set Username Login
-  const handleUsernameChange = (event) => {
+  const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
   };
 
   // Set Password Login
-  const handlePasswordChange = (event) => {
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
 
