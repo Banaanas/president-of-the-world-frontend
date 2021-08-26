@@ -28,7 +28,7 @@ const LoginForm = () => {
 
   // Login - useMutation
   const [login, resultLogin] = useMutation(LOGIN, {
-    refetchQueries: { query: LOGGED_IN_USER, fetchPolicy: "network-only" },
+    refetchQueries: [{ query: LOGGED_IN_USER, fetchPolicy: "network-only" }],
     onCompleted: () => {
       // Display Success Toast
       toast(toasts.login);
