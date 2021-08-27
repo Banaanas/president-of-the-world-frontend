@@ -11,6 +11,7 @@ import DetailContainer from "../../Form/DetailsContainer";
 import DeleteAlertDialog from "./DeleteAlertDialog";
 import { ButtonsContainer } from "../../Form/StyledFormComponents";
 import { LoggedInUserData } from "../../../types/types";
+import { FocusableElement } from "@chakra-ui/utils";
 
 const ProfileContainer = styled.div`
   ${formStyle}
@@ -39,7 +40,7 @@ const CandidateProfile = ({ loggedInUser }: LoggedInUserDataAllRequired) => {
   // DeleteAlertDialog - Chakra UI
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const onCloseAlertDialog = () => setIsOpen(false);
-  const cancelRef = useRef<HTMLButtonElement>(null);
+  const cancelRef = useRef<HTMLButtonElement | FocusableElement>(null);
 
   return (
     <ProfileContainer>

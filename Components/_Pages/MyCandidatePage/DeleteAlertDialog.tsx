@@ -14,6 +14,7 @@ import styled from "@emotion/styled";
 import appTheme from "../../../styles/appTheme";
 import { DELETE_CANDIDATE, LOGGED_IN_USER } from "../../../lib/queries/queries";
 import toasts from "../../../utils/toasts";
+import { FocusableElement } from "@chakra-ui/utils";
 
 const StyledAlertDialogContent = styled(AlertDialogContent)`
   width: calc(${appTheme.globalMinWidth} - 20px);
@@ -33,7 +34,10 @@ const StyledAlertDialogHeader = styled(AlertDialogHeader)`
 interface DeleteAlertDialogProps {
   isOpen: boolean;
   onCloseAlertDialog: () => void;
+  cancelRef: React.ForwardedRef<HTMLButtonElement | FocusableElement>;
+  /*
   cancelRef: React.ForwardedRef<HTMLButtonElement>;
+*/
   candidateID: string | undefined;
 }
 const DeleteAlertDialog = ({
