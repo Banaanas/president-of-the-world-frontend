@@ -1,5 +1,5 @@
 import { useMutation } from "@apollo/client";
-import { HStack, Radio, RadioGroup, useToast } from "@chakra-ui/react";
+import { HStack, InputProps, Radio, RadioGroup, RadioProps, useToast } from "@chakra-ui/react";
 import { Field, Formik, FormikFormProps, FormikProps } from "formik";
 import { object, string } from "yup";
 import FormHeading from "../../Form/FormHeading";
@@ -97,14 +97,14 @@ const SubmitCandidateForm = (props: FormikProps<FormValues>) => {
         // eslint-disable-next-line no-void
         void handleCreateCandidate(values);
         setSubmitting(false); // Set Submitting to false - Submit Chakra UI Button (isLoading)
-        resetForm(formikInitialValues); // Reset Form Initial Values
+        resetForm(); // Reset Form Initial Values
       }}
     >
       {({ errors, touched }) => (
         <StyledFormikForm>
           <FormHeading heading="Chose a Candidate" />
           <Field name="lastName">
-            {({ field }: { field: FormikFormProps }) => (
+            {({ field }: { field: InputProps }) => (
               <ChakraFormControl
                 isInvalid={Boolean(errors.lastName && touched.lastName)}
               >
@@ -124,7 +124,7 @@ const SubmitCandidateForm = (props: FormikProps<FormValues>) => {
             )}
           </Field>
           <Field name="firstName">
-            {({ field }: { field: FormikFormProps }) => (
+            {({ field }: { field: InputProps }) => (
               <ChakraFormControl
                 isInvalid={Boolean(errors.firstName && touched.firstName)}
               >
@@ -144,14 +144,14 @@ const SubmitCandidateForm = (props: FormikProps<FormValues>) => {
             )}
           </Field>
           <Field name="country">
-            {({ field }: { field: FormikFormProps }) => (
+            {({ field }: { field: InputProps }) => (
               <ChakraFormControl
                 isInvalid={Boolean(errors.country && touched.country)}
               >
                 <ChakraLabel htmlFor="country">Country</ChakraLabel>
                 <ChakraInput
                   {...field}
-                  type="country"
+                  type="text"
                   id="country"
                   placeholder="India"
                 />
@@ -164,7 +164,7 @@ const SubmitCandidateForm = (props: FormikProps<FormValues>) => {
             )}
           </Field>
           <Field name="politicalOrientation">
-            {({ field }: { field: FormikFormProps }) => {
+            {({ field }: { field: RadioProps }) => {
               const { onChange, ...rest } = field;
               return (
                 <ChakraFormControl
