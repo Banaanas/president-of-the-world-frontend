@@ -1,5 +1,12 @@
 import { useMutation } from "@apollo/client";
-import { HStack, InputProps, Radio, RadioGroup, RadioProps, useToast } from "@chakra-ui/react";
+import {
+  HStack,
+  InputProps,
+  Radio,
+  RadioGroup,
+  RadioProps,
+  useToast,
+} from "@chakra-ui/react";
 import { Field, Formik, FormikFormProps, FormikProps } from "formik";
 import { object, string } from "yup";
 import FormHeading from "../../Form/FormHeading";
@@ -46,7 +53,7 @@ interface InitialFormValues {
   politicalOrientation: string;
 }
 
-const SubmitCandidateForm = (props: FormikProps<FormValues>) => {
+const SubmitCandidateForm = () => {
   // Chakra-UI Toast
   const toast = useToast();
 
