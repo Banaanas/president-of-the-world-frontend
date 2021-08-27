@@ -1,5 +1,5 @@
 // Set space each 3 number
-const numberWithSpaces = (number) => {
+const numberWithSpaces = (number: number) => {
   if (number === undefined) return;
 
   // eslint-disable-next-line consistent-return

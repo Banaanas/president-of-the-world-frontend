@@ -10,7 +10,7 @@ const StyledFooter = styled.footer`
   width: 100%;
   min-height: 48px;
   padding-bottom: 16px;
-  background-color: ${appTheme.colors.secondary.main};
+  background-color: ${appTheme.colors.secondary.default};
   transition: filter, 300ms ease;
 `;
 

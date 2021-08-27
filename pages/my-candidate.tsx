@@ -3,9 +3,11 @@ import Head from "next/head";
 import { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { LOGGED_IN_USER } from "../lib/queries/queries";
+import Loader from "react-loader-spinner";
 import MyCandidatePage from "../Components/_Pages/MyCandidatePage/MyCandidatePage";
 import SEO from "../SEO/seo-data";
 import { LoggedInUserData } from "../types/types";
+import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
 
 const MyCandidate = () => {
   // Next Router
@@ -49,7 +51,14 @@ const MyCandidate = () => {
           key="og-url"
         />
       </Head>
-      <MyCandidatePage loggedInUser={data?.loggedInUser} />
+
+      {data?.loggedInUser && !loading ? (
+        <MyCandidatePage loggedInUser={data?.loggedInUser} />
+      ) : (
+        <StyledPageMain>
+          <Loader type="Puff" color="white" height={100} width={100} />
+        </StyledPageMain>
+      )}
     </>
   );
 };

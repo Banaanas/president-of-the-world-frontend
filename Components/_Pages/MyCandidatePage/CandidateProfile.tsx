@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styled from "@emotion/styled";
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   formHeadingStyle,
   formStyle,
@@ -10,6 +10,7 @@ import appTheme from "../../../styles/appTheme";
 import DetailContainer from "../../Form/DetailsContainer";
 import DeleteAlertDialog from "./DeleteAlertDialog";
 import { ButtonsContainer } from "../../Form/StyledFormComponents";
+import { LoggedInUserData } from "../../../types/types";
 
 const ProfileContainer = styled.div`
   ${formStyle}
@@ -32,11 +33,13 @@ const DeleteButton = styled(UpdateLink)`
   background-color: ${appTheme.colors.error.default};
 `;
 
-const CandidateProfile = ({ loggedInUser }) => {
+type LoggedInUserDataAllRequired = Required<LoggedInUserData>;
+
+const CandidateProfile = ({ loggedInUser }: LoggedInUserDataAllRequired) => {
   // DeleteAlertDialog - Chakra UI
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const onCloseAlertDialog = () => setIsOpen(false);
-  const cancelRef = useRef();
+  const cancelRef = useRef<HTMLButtonElement>(null);
 
   return (
     <ProfileContainer>

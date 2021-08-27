@@ -2,7 +2,7 @@ import * as Scroll from "react-scroll";
 
 // React-Scroll
 // (Smooth) Scroll to Element
-const smoothScrollTo = (name) => {
+const smoothScrollTo = (name: string) => {
   const { scroller } = Scroll;
   scroller.scrollTo(name, {
     duration: 100,

@@ -30,7 +30,7 @@ export interface LoggedInUserObject {
 }
 
 export interface LoggedInUserData {
-  loggedInUser: LoggedInUserObject | undefined;
+  loggedInUser: LoggedInUserObject;
 }
 
 /* LOGIN */
