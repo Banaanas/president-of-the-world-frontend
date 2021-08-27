@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useMutation } from "@apollo/client";
-import { useToast } from "@chakra-ui/react";
+import { InputProps, useToast } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import { object, ref, string } from "yup";
 import { localStorageValue } from "../../../lib/apolloClient";
@@ -17,6 +17,7 @@ import {
 } from "../../Form/StyledFormComponents";
 import { CREATE_USER, LOGIN } from "../../../lib/queries/queries";
 import toasts from "../../../utils/toasts";
+import { LoggedInUserData, LoginObject, NewUser } from "../../../types/types";
 
 // Form Validation Schema - Yup
 const ValidationSchemaYup = object().shape({
@@ -49,7 +50,7 @@ const SignUpForm = () => {
 
   // Login - useMutation
   // Login is used here, just after the Sign Up Process
-  const [login, resultLogin] = useMutation(LOGIN, {
+  const [login, resultLogin] = useMutation<LoginObject>(LOGIN, {
     onCompleted: () => {
       // Display Success Toast
       toast(toasts.login);
@@ -63,8 +64,14 @@ const SignUpForm = () => {
     },
   });
 
+  interface FormValues {
+    username: string;
+    password: string;
+    passwordConfirmation: string;
+  }
+
   // createUser - useMutation
-  const [createUser] = useMutation(CREATE_USER, {
+  const [createUser] = useMutation<LoggedInUserData>(CREATE_USER, {
     onCompleted: async () => {
       // Display Success Toast
       toast(toasts.signup);
@@ -92,7 +99,7 @@ const SignUpForm = () => {
   }, [resultLogin.data]);
 
   // Create User - Function
-  const handleCreateUser = async (newUser) => {
+  const handleCreateUser = async (newUser: NewUser) => {
     // createUser - useMutation
     await createUser({
       variables: {
@@ -103,7 +110,7 @@ const SignUpForm = () => {
     });
   };
 
-  const formikInitialValues = {
+  const formikInitialValues: FormValues = {
     username: "",
     password: "",
     passwordConfirmation: "",
@@ -125,10 +132,10 @@ const SignUpForm = () => {
         // Create User
         handleCreateUser(values);
         setSubmitting(false); // Set Submitting to false - Submit Chakra UI Button (isLoading)
-        resetForm(formikInitialValues); // Reset Form Initial Values
+        resetForm(); // Reset Form Initial Values
       }}
     >
-      {({ isValid, errors, touched, isSubmitting }) => (
+      {({ errors, touched }) => (
         <StyledFormikForm>
           <FormHeading
             heading="Create your Account"
@@ -137,10 +144,10 @@ const SignUpForm = () => {
             link="/login"
           />
           <Field name="username">
-            {({ field }) => (
+            {({ field }: { field: InputProps }) => (
               <ChakraFormControl
                 isRequired
-                isInvalid={errors.username && touched.username}
+                isInvalid={Boolean(errors.username && touched.username)}
               >
                 <ChakraLabel htmlFor="username">Username</ChakraLabel>
                 <ChakraInput
@@ -158,10 +165,10 @@ const SignUpForm = () => {
             )}
           </Field>
           <Field name="password">
-            {({ field }) => (
+            {({ field }: { field: InputProps }) => (
               <ChakraFormControl
                 isRequired
-                isInvalid={errors.password && touched.password}
+                isInvalid={Boolean(errors.password && touched.password)}
               >
                 <ChakraLabel htmlFor="password">Password</ChakraLabel>
                 <ChakraInput
@@ -179,12 +186,12 @@ const SignUpForm = () => {
             )}
           </Field>
           <Field name="passwordConfirmation">
-            {({ field }) => (
+            {({ field }: { field: InputProps }) => (
               <ChakraFormControl
                 isRequired
-                isInvalid={
-                  errors.passwordConfirmation && touched.passwordConfirmation
-                }
+                isInvalid={Boolean(
+                  errors.passwordConfirmation && touched.passwordConfirmation,
+                )}
               >
                 <ChakraLabel htmlFor="passwordConfirmation">
                   Password Confirmation

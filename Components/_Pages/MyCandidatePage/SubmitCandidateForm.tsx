@@ -39,7 +39,7 @@ const ValidationSchemaYup = object().shape({
   politicalOrientation: string().required("Political Orientation is Required"),
 });
 
-interface InitialFormValues {
+interface FormValues {
   lastName: string;
   firstName: string;
   country: string;
@@ -79,7 +79,7 @@ const SubmitCandidateForm = () => {
     });
   };
 
-  const formikInitialValues: InitialFormValues = {
+  const formikInitialValues: FormValues = {
     lastName: "",
     firstName: "",
     country: "",

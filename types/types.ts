@@ -19,9 +19,9 @@ export interface AllCandidatesData {
   allCandidates: Array<RequiredCandidate>;
 }
 
-/* USER */
+/* LOGGED IN USER */
 
-export interface User {
+export interface LoggedInUser {
   candidate: Candidate;
   id: string;
   username: string;
@@ -29,7 +29,7 @@ export interface User {
 
 export interface LoggedInUserObject {
   token: string;
-  user: User;
+  user: LoggedInUser;
   candidate?: Candidate;
 }
 
@@ -41,7 +41,7 @@ export interface LoggedInUserData {
 
 export interface Login {
   token: string;
-  user: User;
+  user: LoggedInUser;
 }
 export interface LoginObject {
   login: Login;
@@ -50,3 +50,10 @@ export interface LoginObject {
 /* POLITICAL ORIENTATION */
 
 export type PoliticalOrientation = "Left" | "Center" | "Right";
+
+/* NEW USER */
+export interface NewUser {
+  username: string;
+  password: string;
+  passwordConfirmation: string;
+}

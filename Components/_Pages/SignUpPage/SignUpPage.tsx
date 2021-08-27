@@ -6,6 +6,7 @@ import StyledPageMain from "../../StyledComponents/StyledPageMain";
 import FormPage from "../../Form/FormPage";
 import SignUpIllustration from "../../Illustrations/SignUpIllustration";
 import SignUpForm from "./SignUpForm";
+import { RootState } from "../../../store/store";
 
 const SignUpPage = () => {
   // Next Router
@@ -13,13 +14,14 @@ const SignUpPage = () => {
 
   // isAuthenticated - Redux State
   const isAuthenticated = useSelector(
-    (state) => state.userAuthentication.isAuthenticated,
+    (state: RootState) => state.userAuthentication.isAuthenticated,
   );
 
   // if ALREADY authenticated, Redirect
   useEffect(() => {
     if (isAuthenticated) {
-      router.push("/");
+      // eslint-disable-next-line no-void
+      void router.push("/");
     }
   }, [isAuthenticated, router]);
 
