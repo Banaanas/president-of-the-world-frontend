@@ -81,7 +81,7 @@ const SubmitCandidateForm = () => {
         // Create Candidate
         handleCreateCandidate(values);
         setSubmitting(false); // Set Submitting to false - Submit Chakra UI Button (isLoading)
-        resetForm(formikInitialValues); // Reset Form Initial Values
+        resetForm(); // Reset Form Initial Values
       }}
     >
       {({ isValid, errors, touched, isSubmitting }) => (
@@ -133,7 +133,7 @@ const SubmitCandidateForm = () => {
                 <ChakraLabel htmlFor="country">Country</ChakraLabel>
                 <ChakraInput
                   {...field}
-                  type="country"
+                  type="text"
                   id="country"
                   placeholder="India"
                 />
