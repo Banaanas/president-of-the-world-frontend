@@ -39,13 +39,6 @@ const ValidationSchemaYup = object().shape({
   politicalOrientation: string().required("Political Orientation is Required"),
 });
 
-interface FormValues {
-  lastName: string;
-  firstName: string;
-  country: string;
-  politicalOrientation: string;
-}
-
 interface InitialFormValues {
   lastName: string;
   firstName: string;

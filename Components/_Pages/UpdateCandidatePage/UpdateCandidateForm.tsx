@@ -1,7 +1,14 @@
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
-import { HStack, Radio, RadioGroup, useToast } from "@chakra-ui/react";
-import { Field, Formik, FormikFormProps } from "formik";
+import {
+  HStack,
+  InputProps,
+  Radio,
+  RadioGroup,
+  RadioProps,
+  useToast,
+} from "@chakra-ui/react";
+import { Field, Formik } from "formik";
 import { object, string } from "yup";
 import styled from "@emotion/styled";
 import Link from "next/link";
@@ -19,6 +26,7 @@ import DetailContainer from "../../Form/DetailsContainer";
 import { submitButtonStyle } from "../../../styles/css-composition";
 import appTheme from "../../../styles/appTheme";
 import toasts from "../../../utils/toasts";
+import { Candidate, LoggedInUserData } from "../../../types/types";
 
 const marginButtons = "6px";
 
@@ -42,21 +50,27 @@ const ValidationSchemaYup = object().shape({
   politicalOrientation: string().required("Political Orientation is Required"),
 });
 
-const MyCandidateForm = ({ loggedInUser }) => {
+type InitialFormValues = {
+  country: string;
+  politicalOrientation: string;
+};
+
+const MyCandidateForm = ({ loggedInUser }: LoggedInUserData) => {
   // Next Router
   const router = useRouter();
 
   // Chakra-UI Toast
   const toast = useToast();
 
-  // Login - useMutation
-  const [updateCandidate] = useMutation(UPDATE_CANDIDATE, {
+  // Update Candidate - useMutation
+  const [updateCandidate] = useMutation<Candidate>(UPDATE_CANDIDATE, {
     onCompleted: () => {
       // Display Success Toast
       toast(toasts.candidateUpdated);
 
       // Redirect to Home
-      router.push("/");
+      // eslint-disable-next-line no-void
+      void router.push("/");
     },
     onError: (error) => {
       // Display Error Toast
@@ -65,7 +79,7 @@ const MyCandidateForm = ({ loggedInUser }) => {
   });
 
   // Update Candidate - Function
-  const handleUpdateCandidate = async (updatedCandidate) => {
+  const handleUpdateCandidate = async (updatedCandidate: Candidate) => {
     // updateCandidate - useMutation
     await updateCandidate({
       variables: {
@@ -76,7 +90,7 @@ const MyCandidateForm = ({ loggedInUser }) => {
     });
   };
 
-  const formikInitialValues = {
+  const formikInitialValues: InitialFormValues = {
     country: loggedInUser?.candidate?.country,
     politicalOrientation: loggedInUser?.candidate?.politicalOrientation,
   };
@@ -87,13 +101,14 @@ const MyCandidateForm = ({ loggedInUser }) => {
       initialValues={formikInitialValues}
       validationSchema={ValidationSchemaYup}
       validateOnMount /* Boolean - Run (also) validation when Formik Component mounts - This way, Submit is disabled on mount */
-      onSubmit={(values, { setSubmitting, resetForm }) => {
+      onSubmit={(values, { setSubmitting }) => {
         // Update Candidate
-        handleUpdateCandidate(values);
+        // eslint-disable-next-line no-void
+        void handleUpdateCandidate(values);
         setSubmitting(false); // Set Submitting to false - Submit Chakra UI Button (isLoading)
       }}
     >
-      {({ isValid, errors, touched, isSubmitting }) => (
+      {({ isValid, errors, touched }) => (
         <StyledFormikForm>
           <FormHeading heading="Update your Candidate" />
 
@@ -107,12 +122,14 @@ const MyCandidateForm = ({ loggedInUser }) => {
           </DetailContainer>
 
           <Field name="country">
-            {({ field }: { field: FormikFormProps }) => (
-              <ChakraFormControl isInvalid={errors.country && touched.country}>
+            {({ field }: { field: InputProps }) => (
+              <ChakraFormControl
+                isInvalid={Boolean(errors.country && touched.country)}
+              >
                 <ChakraLabel htmlFor="country">Country</ChakraLabel>
                 <ChakraInput
                   {...field}
-                  type="country"
+                  type="text"
                   id="country"
                   placeholder="Venezuela"
                 />
@@ -125,7 +142,7 @@ const MyCandidateForm = ({ loggedInUser }) => {
             )}
           </Field>
           <Field name="politicalOrientation">
-            {({ field }: { field: FormikFormProps }) => {
+            {({ field }: { field: RadioProps }) => {
               const { onChange, ...rest } = field;
               return (
                 <ChakraFormControl

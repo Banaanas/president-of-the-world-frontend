@@ -12,7 +12,7 @@ import CandidatesRanking from "./CandidatesRanking";
 import LeadingCandidate from "./LeadingCandidate";
 import { rankingSection } from "../../../../utils/smoothScrollTo";
 import toasts from "../../../../utils/toasts";
-import { Candidate } from "../../../../types/types";
+import { Candidate, RequiredCandidate } from "../../../../types/types";
 
 const Span = styled.span`
   text-align: center;
@@ -65,7 +65,7 @@ const StyledLink = styled.a`
 const CandidatesRankingSection = ({
   allCandidates,
 }: {
-  allCandidates: Array<Candidate> | undefined;
+  allCandidates: Array<RequiredCandidate> | undefined;
 }) => {
   // Render when allCandidates array changes
   useEffect(() => {}, [allCandidates]);
@@ -86,7 +86,7 @@ const CandidatesRankingSection = ({
   });
 
   // Update Candidate - Function
-  const handleUpdateCandidate = async (candidateID: number) => {
+  const handleUpdateCandidate = async (candidateID: string) => {
     // updateCandidate - useMutation
     await voteCandidate({
       variables: {

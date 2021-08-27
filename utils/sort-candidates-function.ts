@@ -1,11 +1,10 @@
 // Sort Candidates in function of Votes Number
-import { Candidate } from "../types/types";
 
-type RequiredCandidates = Required<Candidate>;
+import { RequiredCandidate } from "../types/types";
 
 const sortCandidatesFunction = (
-  arr: Array<RequiredCandidates>,
-): Array<RequiredCandidates> => {
+  arr: Array<RequiredCandidate>,
+): Array<RequiredCandidate> => {
   const sortedArr = [...arr];
 
   // Reverse Array to first display

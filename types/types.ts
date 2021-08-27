@@ -9,10 +9,14 @@ export interface Candidate {
   id: string;
 }
 
+export type RequiredCandidate = Required<Candidate>;
+
 export type CreatedCandidate = Omit<Candidate, "id">;
 
+export type UpdatedCandidate = Omit<Candidate, "lastName" | "firstName">;
+
 export interface AllCandidatesData {
-  allCandidates: Array<Candidate>;
+  allCandidates: Array<RequiredCandidate>;
 }
 
 /* USER */
@@ -42,3 +46,7 @@ export interface Login {
 export interface LoginObject {
   login: Login;
 }
+
+/* POLITICAL ORIENTATION */
+
+export type PoliticalOrientation = "Left" | "Center" | "Right";

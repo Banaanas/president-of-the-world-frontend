@@ -3,8 +3,9 @@ import FormPage from "../../Form/FormPage";
 import UpdateCandidateIllustration from "../../Illustrations/UpdateCandidateIllustration";
 import UpdateCandidateForm from "./UpdateCandidateForm";
 import StyledPageMain from "../../StyledComponents/StyledPageMain";
+import { LoggedInUserData } from "../../../types/types";
 
-const UpdateCandidatePage = ({ loggedInUser }) => {
+const UpdateCandidatePage = ({ loggedInUser }: LoggedInUserData) => {
   if (loggedInUser) {
     return (
       <FormPage

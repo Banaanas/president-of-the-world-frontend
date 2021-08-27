@@ -5,6 +5,7 @@ import appTheme from "../../../../styles/appTheme";
 import numberWithSpaces from "../../../../utils/number-with-spaces";
 import sortCandidatesFunction from "../../../../utils/sort-candidates-function";
 import VoteButton from "./VoteButton";
+import { PoliticalOrientation, RequiredCandidate } from "../../../../types/types";
 
 const tableWidths = {
   rank: "100px",
@@ -40,8 +41,17 @@ const CandidatesTable = styled.div`
   }
 `;
 
+interface CandidateRowProps {
+  secondary: boolean;
+}
+
+// type CandidatePoliticalOrientationProps = Omit<PoliticalOrientation, "Center">;
+interface CandidatePoliticalOrientationProps {
+  politicalOrientation: Omit<PoliticalOrientation, "Center">;
+}
+
 // Candidate Details Row
-const CandidateRow = styled.div`
+const CandidateRow = styled.div<CandidateRowProps>`
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -88,7 +98,9 @@ const CandidateCountry = styled(CandidateRank)`
   width: ${tableWidths.country};
 `;
 
-export const CandidatePoliticalOrientation = styled(CandidateRank)`
+export const CandidatePoliticalOrientation = styled(
+  CandidateRank,
+)<CandidatePoliticalOrientationProps>`
   width: ${tableWidths.politicalOrientation};
 
   /* Political Orientation Span */
@@ -139,7 +151,15 @@ const ButtonAndVotesNumberContainer = styled.div`
   flex-direction: column;
 `;
 
-const CandidatesRanking = ({ candidatesArray, handleUpdateCandidate }) => {
+interface CandidatesRankingProps {
+  candidatesArray: Array<RequiredCandidate>;
+  handleUpdateCandidate: (id: string) => void;
+}
+
+const CandidatesRanking = ({
+  candidatesArray,
+  handleUpdateCandidate,
+}: CandidatesRankingProps) => {
   // Candidates List by Votes Number
   const sortedCandidates = sortCandidatesFunction(candidatesArray);
 
@@ -149,7 +169,7 @@ const CandidatesRanking = ({ candidatesArray, handleUpdateCandidate }) => {
         // Display Candidates List from the second one
         // The Leading Candidate is displayed in its own card
         index >= 1 ? (
-          <CandidateRow key={candidate?.id} secondary={index % 2}>
+          <CandidateRow key={candidate?.id} secondary={Boolean(index % 2)}>
             <CandidateRank>{index + 1}</CandidateRank>
             <ButtonAndVotesNumberContainer>
               <Tooltip

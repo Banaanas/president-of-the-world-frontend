@@ -7,6 +7,7 @@ import numberWithSpaces from "../../../../utils/number-with-spaces";
 import appTheme from "../../../../styles/appTheme";
 import { CandidatePoliticalOrientation } from "./CandidatesRanking";
 import VoteButton from "./VoteButton";
+import { RequiredCandidate } from "../../../../types/types";
 
 const Container = styled.div`
   display: flex;
@@ -196,7 +197,15 @@ const StyledVoteButton = styled(VoteButton)`
   }
 `;
 
-const LeadingCandidate = ({ candidatesArray, handleUpdateCandidate }) => {
+interface LeadingCandidateProps {
+  candidatesArray: Array<RequiredCandidate>;
+  handleUpdateCandidate: (id: string) => void;
+}
+
+const LeadingCandidate = ({
+  candidatesArray,
+  handleUpdateCandidate,
+}: LeadingCandidateProps) => {
   // Most Voted Candidate
   const [leadingCandidate] = sortCandidatesFunction(candidatesArray);
 

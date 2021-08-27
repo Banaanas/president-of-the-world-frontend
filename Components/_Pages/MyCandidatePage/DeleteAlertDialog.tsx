@@ -1,3 +1,4 @@
+import React from "react";
 import {
   AlertDialog,
   AlertDialogBody,
@@ -13,8 +14,6 @@ import styled from "@emotion/styled";
 import appTheme from "../../../styles/appTheme";
 import { DELETE_CANDIDATE, LOGGED_IN_USER } from "../../../lib/queries/queries";
 import toasts from "../../../utils/toasts";
-import { FocusableElement } from "@chakra-ui/utils";
-import React from "react";
 
 const StyledAlertDialogContent = styled(AlertDialogContent)`
   width: calc(${appTheme.globalMinWidth} - 20px);
