@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import appTheme from "../styles/appTheme";
 
 interface WrapperProps {
-  href: string;
+  href?: string;
 }
 
 const Wrapper = styled.button<WrapperProps>`

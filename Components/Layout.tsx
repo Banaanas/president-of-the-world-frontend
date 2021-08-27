@@ -1,6 +1,6 @@
+import React, { useEffect } from "react";
 import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 import { ChakraProvider, useToast } from "@chakra-ui/react";
-import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useApolloClient } from "@apollo/client";
 import { useRouter } from "next/router";
@@ -19,7 +19,7 @@ import toasts from "../utils/toasts";
  *  */
 
 // Persistent Layout
-const Layout = ({ children }) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   // useDispatch - Redux State
   const dispatch = useDispatch();
 

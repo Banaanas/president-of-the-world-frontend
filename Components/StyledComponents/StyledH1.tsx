@@ -9,7 +9,7 @@ const StyledH1 = styled.h1`
   letter-spacing: 6px;
   text-align: center;
   text-transform: uppercase;
-  box-shadow: ${appTheme.elevation["4"]};
+  box-shadow: ${appTheme.elevation.xl};
 `;
 
 export default StyledH1;
