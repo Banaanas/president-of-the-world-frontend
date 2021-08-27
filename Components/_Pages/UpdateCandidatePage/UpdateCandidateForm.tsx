@@ -51,8 +51,8 @@ const ValidationSchemaYup = object().shape({
 });
 
 type InitialFormValues = {
-  country: string;
-  politicalOrientation: string;
+  country: string | undefined;
+  politicalOrientation: string | undefined;
 };
 
 const MyCandidateForm = ({ loggedInUser }: LoggedInUserData) => {
@@ -79,7 +79,7 @@ const MyCandidateForm = ({ loggedInUser }: LoggedInUserData) => {
   });
 
   // Update Candidate - Function
-  const handleUpdateCandidate = async (updatedCandidate: Candidate) => {
+  const handleUpdateCandidate = async (updatedCandidate: InitialFormValues) => {
     // updateCandidate - useMutation
     await updateCandidate({
       variables: {
@@ -108,7 +108,7 @@ const MyCandidateForm = ({ loggedInUser }: LoggedInUserData) => {
         setSubmitting(false); // Set Submitting to false - Submit Chakra UI Button (isLoading)
       }}
     >
-      {({ isValid, errors, touched }) => (
+      {({ errors, touched }) => (
         <StyledFormikForm>
           <FormHeading heading="Update your Candidate" />
 

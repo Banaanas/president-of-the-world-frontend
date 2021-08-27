@@ -2,9 +2,12 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
 import Head from "next/head";
+import Loader from "react-loader-spinner";
 import { LOGGED_IN_USER } from "../lib/queries/queries";
 import UpdateCandidatePage from "../Components/_Pages/UpdateCandidatePage/UpdateCandidatePage";
 import SEO from "../SEO/seo-data";
+import { LoggedInUserData } from "../types/types";
+import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
 
 const UpdateCandidate = () => {
   // Next Router
@@ -12,14 +15,15 @@ const UpdateCandidate = () => {
 
   // The Query uses the NETWORK ONLY and NOT THE CACHE because the Cache
   // was not updated and the
-  const { data, loading } = useQuery(LOGGED_IN_USER, {
+  const { data, loading } = useQuery<LoggedInUserData>(LOGGED_IN_USER, {
     fetchPolicy: "network-only",
   });
 
   // if ALREADY authenticated, Redirect
   useEffect(() => {
-    if (loading === false && data?.loggedInUser === null) {
-      router.push("/login");
+    if (data?.loggedInUser.candidate === null && !loading) {
+      // eslint-disable-next-line no-void
+      void router.push("/login");
     }
   }, [data, loading, router]);
 
@@ -46,7 +50,14 @@ const UpdateCandidate = () => {
           key="og-url"
         />
       </Head>
-      <UpdateCandidatePage loggedInUser={data?.loggedInUser} />
+
+      {data?.loggedInUser.candidate && !loading ? (
+        <UpdateCandidatePage loggedInUser={data?.loggedInUser} />
+      ) : (
+        <StyledPageMain>
+          <Loader type="Puff" color="white" height={100} width={100} />
+        </StyledPageMain>
+      )}
     </>
   );
 };

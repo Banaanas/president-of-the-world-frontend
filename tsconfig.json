@@ -15,5 +15,7 @@
     "jsx": "preserve"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "lib/apolloClient.ts"]
+  "exclude": ["node_modules", "lib/*",
+    "next-sitemap"
+  ]
 }
