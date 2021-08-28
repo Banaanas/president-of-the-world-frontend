@@ -1,5 +1,9 @@
 {
-  "ignorePatterns": "next.config.js",
+  "ignorePatterns": [
+    "next.config.js",
+    "next-sitemap.ts",
+    "lib/apolloClient.ts"
+  ],
   "extends": [
     "airbnb",
     "airbnb/hooks",

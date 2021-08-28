@@ -1,4 +1,3 @@
-// @ts-nocheck
 
 import { useMemo } from "react";
 import {
@@ -62,7 +61,9 @@ function createApolloClient() {
   });
 }
 
-export function initializeApollo(initialState = null) {
+export function initializeApollo(
+  initialState: NormalizedCacheObject | null = null,
+) {
   // eslint-disable-next-line no-underscore-dangle
   const _apolloClient = apolloClient ?? createApolloClient();
 
@@ -94,7 +95,10 @@ export function initializeApollo(initialState = null) {
   return _apolloClient;
 }
 
-export function addApolloState(client, pageProps) {
+export function addApolloState(
+  client: ApolloClient<NormalizedCacheObject>,
+  pageProps,
+) {
   if (pageProps?.props) {
     // eslint-disable-next-line no-param-reassign
     pageProps.props[APOLLO_STATE_PROP_NAME] = client.cache.extract();
@@ -103,7 +107,7 @@ export function addApolloState(client, pageProps) {
   return pageProps;
 }
 
-export function useApollo(pageProps) {
+export function useApollo(pageProps: any) {
   const state = pageProps[APOLLO_STATE_PROP_NAME];
   const store = useMemo(() => initializeApollo(state), [state]);
   return store;

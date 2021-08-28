@@ -61,7 +61,7 @@ const DeleteAlertDialog = ({
     },
   });
 
-  const handleDeleteCandidate = async (id: string) => {
+  const handleDeleteCandidate = async (id: string | undefined) => {
     // Delete Blog - useMutation
     await deleteCandidate({ variables: { id } });
   };
