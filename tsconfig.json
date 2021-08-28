@@ -16,6 +16,6 @@
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "lib/apolloClient.ts",
-    "next-sitemap.ts"
+    "next-sitemap.js"
   ]
 }
