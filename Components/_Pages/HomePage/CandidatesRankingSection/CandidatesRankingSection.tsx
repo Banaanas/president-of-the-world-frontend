@@ -1,0 +1,130 @@
+import { useEffect } from "react";
+import { useMutation } from "@apollo/client";
+import styled from "@emotion/styled";
+import { useToast } from "@chakra-ui/react";
+import { Element as ScrollWrapper } from "react-scroll";
+import Link from "next/link";
+import { VOTE_CANDIDATE } from "../../../../lib/queries/queries";
+import appTheme from "../../../../styles/appTheme";
+import StyledH1 from "../../../StyledComponents/StyledH1";
+import StyledSection from "../../../StyledComponents/StyledSection";
+import CandidatesRanking from "./CandidatesRanking";
+import LeadingCandidate from "./LeadingCandidate";
+import { rankingSection } from "../../../../utils/smoothScrollTo";
+import toasts from "../../../../utils/toasts";
+import { Candidate, RequiredCandidate } from "../../../../types/types";
+
+const Span = styled.span`
+  text-align: center;
+`;
+
+const StyledH2 = styled(StyledH1)`
+  margin-bottom: 32px;
+  font-size: ${appTheme.fontSize.xl2};
+`;
+
+const StyledLink = styled.a`
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4px;
+
+  /* Hover Effect */
+  ::after {
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: ${appTheme.colors.tertiary.default};
+    border-radius: 4px;
+    transform: scaleY(1);
+    opacity: 1;
+    transition: opacity 250ms ease-out;
+    content: "";
+  }
+
+  :hover::after {
+    opacity: 0;
+  }
+
+  ::before {
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: ${appTheme.colors.tertiary.light};
+    border-radius: 4px;
+    transform: scaleY(1);
+    opacity: 1;
+    content: "";
+  }
+`;
+
+const CandidatesRankingSection = ({
+  allCandidates,
+}: {
+  allCandidates: Array<RequiredCandidate> | undefined;
+}) => {
+  // Render when allCandidates array changes
+  useEffect(() => {}, [allCandidates]);
+
+  // Chakra-UI Toast
+  const toast = useToast();
+
+  // Login - useMutation
+  const [voteCandidate] = useMutation(VOTE_CANDIDATE, {
+    onCompleted: () => {
+      // Display Success Toast
+      toast(toasts.vote);
+    },
+    onError: (error) => {
+      // Display Error Toast
+      toast(toasts.error(error));
+    },
+  });
+
+  // Update Candidate - Function
+  const handleUpdateCandidate = async (candidateID: string) => {
+    // updateCandidate - useMutation
+    await voteCandidate({
+      variables: {
+        id: candidateID,
+      },
+    });
+  };
+
+  // If No Candidates List is EMPTY
+  if (!allCandidates || allCandidates.length === 0) {
+    return (
+      <StyledSection>
+        <ScrollWrapper name={rankingSection} />
+        <Span>
+          Candidates List is empty.
+          <Link href="/my-candidate" passHref>
+            <StyledLink>Please chose one Candidate</StyledLink>
+          </Link>
+        </Span>
+      </StyledSection>
+    );
+  }
+
+  // If Candidates List is NOT empty
+  return (
+    <StyledSection>
+      <ScrollWrapper name={rankingSection} /> {/* To Scroll to */}
+      <StyledH2>Candidates Ranking</StyledH2>
+      <LeadingCandidate
+        candidatesArray={allCandidates}
+        handleUpdateCandidate={handleUpdateCandidate}
+      />
+      <CandidatesRanking
+        candidatesArray={allCandidates}
+        handleUpdateCandidate={handleUpdateCandidate}
+      />
+    </StyledSection>
+  );
+};
+
+export default CandidatesRankingSection;

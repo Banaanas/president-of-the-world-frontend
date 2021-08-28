@@ -1,23 +1,30 @@
 {
   "name": "president-of-the-world-frontend",
-  "version": "0.1.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "postbuild": "next-sitemap"
+    "globalLint": "eslint './'",
+    "prettier": "prettier --write .",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged",
+    "stylelint": "npx stylelint \"**/*.{js,jsx,ts,tsx,css,scss,md}\" "
   },
+  "version": "0.1.0",
   "dependencies": {
     "@apollo/client": "^3.4.9",
     "@babel/register": "^7.15.3",
     "@chakra-ui/react": "^1.6.6",
+    "@chakra-ui/utils": "^1.8.2",
     "@emotion/is-prop-valid": "^1.1.0",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@popperjs/core": "^2.9.3",
     "@reduxjs/toolkit": "^1.6.1",
     "@svgr/webpack": "^5.5.0",
+    "@types/yup": "^0.29.13",
     "apollo-link-context": "^1.0.20",
     "deepmerge": "^4.2.2",
     "emotion": "^11.0.0",
@@ -43,11 +50,20 @@
   "devDependencies": {
     "@emotion/babel-plugin": "^11.3.0",
     "@emotion/jest": "^11.3.0",
+    "@next/eslint-plugin-next": "^11.1.0",
     "@testing-library/dom": "^8.2.0",
+    "@types/node": "^16.7.2",
+    "@types/react": "^17.0.19",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-scroll": "^1.8.3",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "apollo": "^2.33.6",
     "babel-eslint": "^10.1.0",
     "babel-plugin-emotion": "^11.0.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-typescript": "^14.0.0",
     "eslint-config-next": "11.1.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-cypress": "^2.11.3",
@@ -55,6 +71,7 @@
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-jest": "^24.4.0",
     "eslint-plugin-jest-formatting": "^3.0.0",
+    "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-react": "^7.24.0",
@@ -70,11 +87,24 @@
     "stylelint-config-recommended": "^5.0.0",
     "stylelint-config-standard": "^22.0.0",
     "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-order": "^4.1.0"
+    "stylelint-order": "^4.1.0",
+    "typescript": "^4.3.5"
   },
   "@comment scripts": {
     "build-static": [
       "next-sitemap generator - Build and Export the Project to a (non default) Build Directory"
+    ],
+    "globalLint": [
+      "ESLint - Personal ESLint configuration"
+    ],
+    "lint": [
+      "ESLint - Next.js ESLint configuration - Automatically run during every build"
+    ],
+    "pre-commit": [
+      "Husky - Pre-Commit Hook - Run Lint Staged (configured in .lintstagedrc file"
+    ],
+    "prettier": [
+      "Prettier"
     ]
   }
 }
