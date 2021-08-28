@@ -1,4 +1,4 @@
-
+// @ts-nocheck
 import { useMemo } from "react";
 import {
   ApolloClient,

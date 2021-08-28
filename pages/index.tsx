@@ -67,6 +67,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     query: ALL_CANDIDATES,
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return addApolloState(apolloClient, {
     props: {},
   });
