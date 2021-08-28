@@ -1,4 +1,3 @@
-
 import { useMemo } from "react";
 import {
   ApolloClient,
@@ -10,6 +9,7 @@ import { setContext } from "apollo-link-context";
 import { concatPagination } from "@apollo/client/utilities";
 import merge from "deepmerge";
 import isEqual from "lodash/isEqual";
+import type { AppProps } from "next/app";
 
 export const APOLLO_STATE_PROP_NAME = "__APOLLO_STATE__";
 export const localStorageValue = "authenticatedUser";
@@ -48,7 +48,7 @@ const httpLink = new HttpLink({
 function createApolloClient() {
   return new ApolloClient({
     ssrMode: typeof window === "undefined",
-    link: authLink.concat(httpLink),
+    link: authLink.concat(httpLink as any) as any,
     cache: new InMemoryCache({
       typePolicies: {
         Query: {
@@ -97,7 +97,7 @@ export function initializeApollo(
 
 export function addApolloState(
   client: ApolloClient<NormalizedCacheObject>,
-  pageProps,
+  pageProps: AppProps["pageProps"],
 ) {
   if (pageProps?.props) {
     // eslint-disable-next-line no-param-reassign
@@ -107,7 +107,7 @@ export function addApolloState(
   return pageProps;
 }
 
-export function useApollo(pageProps: any) {
+export function useApollo(pageProps: AppProps["pageProps"]) {
   const state = pageProps[APOLLO_STATE_PROP_NAME];
   const store = useMemo(() => initializeApollo(state), [state]);
   return store;
