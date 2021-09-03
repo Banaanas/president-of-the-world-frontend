@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 import { ChakraProvider, useToast } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
-import { useApolloClient } from "@apollo/client";
+import { ApolloError, useApolloClient } from "@apollo/client";
 import { useRouter } from "next/router";
 import GlobalStyles from "../styles/GlobalStyles";
 import appTheme from "../styles/appTheme";
@@ -54,10 +54,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           // Display Success Toast
           toast(toasts.login);
           // Reload Page - (To get state synchronized)
+          // @ts-ignore
           window.location.reload(false);
         } catch (error) {
           // Display Error Toast
-          toast(toasts.error(error));
+          toast(toasts.error(error as ApolloError));
         }
       }
       // Logout
@@ -76,7 +77,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           toast(toasts.logout);
         } catch (error) {
           // Display Error Toast
-          toast(toasts.error(error));
+          toast(toasts.error(error as ApolloError));
         }
       }
     });

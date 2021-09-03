@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import { useApolloClient } from "@apollo/client";
+import { ApolloError, useApolloClient } from "@apollo/client";
 import styled from "@emotion/styled";
 import { useToast } from "@chakra-ui/react";
 import LogoIcon from "./Illustrations/LogoIcon";
@@ -113,7 +113,7 @@ const Header = () => {
       toast(toasts.logout);
     } catch (error) {
       // Display Error Toast
-      toast(toasts.error(error));
+      toast(toasts.error(error as ApolloError));
     }
   };
 
