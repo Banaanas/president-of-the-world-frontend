@@ -54,8 +54,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           // Display Success Toast
           toast(toasts.login);
           // Reload Page - (To get state synchronized)
-          // @ts-ignore
-          window.location.reload(false);
+          window.location.reload();
         } catch (error) {
           // Display Error Toast
           toast(toasts.error(error as ApolloError));
