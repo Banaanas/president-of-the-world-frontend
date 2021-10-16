@@ -9,7 +9,7 @@ import SEO from "../SEO/next-seo.config";
 import Layout from "../Components/Layout";
 import store from "../store/store";
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const App = ({ Component, pageProps }: AppProps) => {
   const apolloClient = useApollo(pageProps);
 
   return (
@@ -28,4 +28,4 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   );
 };
 
-export default MyApp;
+export default App;
