@@ -8,7 +8,7 @@ import appTheme from "./appTheme";
 const GlobalStyles = () => (
   <Global
     styles={css`
-      /* CSS RESET - Next.js authorizes Materialize.css (Global CSS) to be imported ONLY
+      /* CSS RESET - Next.js authorizes Normalize.css (Global CSS) to be imported ONLY
         from _app.js */
 
       /* GLOBAL STYLES */
