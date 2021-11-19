@@ -16,7 +16,7 @@ const GlobalStyles = () => (
       *::before,
       *::after {
         box-sizing: inherit;
-        line-height: 1.45;
+        line-height: 1.5;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: auto;
       }
@@ -54,6 +54,23 @@ const GlobalStyles = () => (
         font-weight: ${appTheme.fontWeight.light};
       }
 
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      figure,
+      blockquote,
+      ul,
+      ol,
+      dl,
+      dt,
+      dd {
+        margin: 0;
+      }
       h1,
       h2,
       h3,
@@ -89,14 +106,21 @@ const GlobalStyles = () => (
         font-weight: ${appTheme.fontWeight.bold};
       }
 
-      /* Images - Alt Attribute Text */
-      img {
-        color: white;
-        text-align: center;
-      }
-
       a:focus {
         outline: 5px auto ${appTheme.colors.primary.default};
+      }
+
+      img,
+      picture {
+        max-width: 100%;
+        display: block;
+      }
+
+      input,
+      button,
+      textarea,
+      select {
+        font: inherit;
       }
 
       /* Selection and Scrollbar styles */
