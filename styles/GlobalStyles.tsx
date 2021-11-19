@@ -112,8 +112,8 @@ const GlobalStyles = () => (
 
       img,
       picture {
-        max-width: 100%;
         display: block;
+        max-width: 100%;
       }
 
       input,
