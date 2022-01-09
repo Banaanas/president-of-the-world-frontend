@@ -98,8 +98,10 @@ const appTheme = {
     black: "var(--color-black-default)",
     white: "var(--color-white-default)",
     textDefault: "var(--color-text-default)",
-    selection: "var(--color-selection-background)",
+    selection: "var(--color-selection)",
     selectionBackground: "var(--color-selection-background)",
+    scrollbar: "var(--color-scrollbar)",
+    scrollbarBackground: "var(--color-scrollbar-background)",
   },
 
   elevation: {

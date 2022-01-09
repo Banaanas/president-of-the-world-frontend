@@ -74,8 +74,12 @@ const colors = css`
   --color-text-default: var(--color-primary-default);
 
   /* Selection */
-  --color-selection: var(--color-secondary-lightest-2);
-  --color-selection-background: var(--color-primary-darker);
+  --color-selection: var(--color-secondary-darker);
+  --color-selection-background: var(--color-tertiary-default);
+
+  /* Scrollbar */
+  --color-scrollbar: var(--color-secondary-darker);
+  --color-scrollbar-background: var(--color-secondary-light);
 `;
 
 export default colors;

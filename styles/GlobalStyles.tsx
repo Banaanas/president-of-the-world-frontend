@@ -123,41 +123,39 @@ const GlobalStyles = () => (
         font: inherit;
       }
 
-      /* Selection and Scrollbar styles */
+      /* Selection */
       ::selection {
         color: ${appTheme.colors.selection};
         background-color: ${appTheme.colors.selectionBackground};
       }
 
+      /* Scrollbar */
       @media (orientation: portrait) {
         ::-webkit-scrollbar {
-          background-color: ${appTheme.colors.secondary.darker};
+          background-color: ${appTheme.colors.scrollbarBackground};
         }
         ::-webkit-scrollbar-track {
           background-color: transparent;
           border-radius: 3px;
         }
         ::-webkit-scrollbar-thumb {
-          background-color: ${appTheme.colors.tertiary.default};
-          border: 2px solid ${appTheme.colors.tertiary.default};
+          background-color: ${appTheme.colors.scrollbar};
+          border: 2px solid ${appTheme.colors.scrollbar};
           border-radius: 10px;
         }
       }
-
       @media (orientation: landscape) {
         ::-webkit-scrollbar {
           width: 8px;
           height: 16px;
-          background-color: ${appTheme.colors.secondary.darker};
+          background-color: ${appTheme.colors.scrollbarBackground};
         }
-
         ::-webkit-scrollbar-track {
           background-color: transparent;
           border-radius: 3px;
         }
-
         ::-webkit-scrollbar-thumb {
-          background-color: ${appTheme.colors.tertiary.default};
+          background-color: ${appTheme.colors.scrollbar};
           border-radius: 10px;
         }
       }
