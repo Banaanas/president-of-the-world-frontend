@@ -25,7 +25,7 @@ const Home = () => {
     <>
       <Head>
         {/* Primary Meta Tags */}
-        <title key="title">{SEO.index.title}</title>
+        <title>{SEO.index.title}</title>
         <meta name="description" content={SEO.index.description} />
         <link
           rel="canonical"

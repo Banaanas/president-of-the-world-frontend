@@ -11,7 +11,7 @@ const SignUp = () => {
     <>
       <Head>
         {/* Primary Meta Tags */}
-        <title key="title">{SEO.signUp.title}</title>
+        <title>{SEO.signUp.title}</title>
         <meta name="description" content={SEO.signUp.description} />
         <link
           rel="canonical"

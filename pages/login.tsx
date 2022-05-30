@@ -11,7 +11,7 @@ const Login = () => {
     <>
       <Head>
         {/* Primary Meta Tags */}
-        <title key="title">{SEO.login.title}</title>
+        <title>{SEO.login.title}</title>
         <meta name="description" content={SEO.login.description} />
         <link
           rel="canonical"

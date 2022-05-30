@@ -31,7 +31,7 @@ const UpdateCandidate = () => {
     <>
       <Head>
         {/* Primary Meta Tags */}
-        <title key="title">{SEO.updateCandidate.title}</title>
+        <title>{SEO.updateCandidate.title}</title>
         <meta name="description" content={SEO.updateCandidate.description} />
         <link
           rel="canonical"

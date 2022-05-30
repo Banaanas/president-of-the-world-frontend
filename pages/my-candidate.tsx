@@ -32,7 +32,7 @@ const MyCandidate = () => {
     <>
       <Head>
         {/* Primary Meta Tags */}
-        <title key="title">{SEO.myCandidate.title}</title>
+        <title>{SEO.myCandidate.title}</title>
         <meta name="description" content={SEO.myCandidate.description} />
         <link
           rel="canonical"
