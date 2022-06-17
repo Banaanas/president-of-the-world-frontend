@@ -86,8 +86,8 @@ const CandidateRank = styled.div`
 const CandidateNameContainer = styled(CandidateRank)`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: ${tableWidths.name};
   text-align: center;
 
