@@ -71,6 +71,7 @@ const GlobalStyles = () => (
       dd {
         margin: 0;
       }
+
       h1,
       h2,
       h3,
@@ -134,10 +135,12 @@ const GlobalStyles = () => (
         ::-webkit-scrollbar {
           background-color: ${appTheme.colors.scrollbarBackground};
         }
+
         ::-webkit-scrollbar-track {
           background-color: transparent;
           border-radius: 3px;
         }
+
         ::-webkit-scrollbar-thumb {
           background-color: ${appTheme.colors.scrollbar};
           border: 2px solid ${appTheme.colors.scrollbar};
@@ -150,10 +153,12 @@ const GlobalStyles = () => (
           height: 16px;
           background-color: ${appTheme.colors.scrollbarBackground};
         }
+
         ::-webkit-scrollbar-track {
           background-color: transparent;
           border-radius: 3px;
         }
+
         ::-webkit-scrollbar-thumb {
           background-color: ${appTheme.colors.scrollbar};
           border-radius: 10px;
