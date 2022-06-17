@@ -78,7 +78,7 @@ const colors = css`
   --color-selection-background: var(--color-tertiary-default);
 
   /* Scrollbar */
-  --color-scrollbar: var(--color-secondary-darker);
+  --color-scrollbar: var(--color-tertiary-default);
   --color-scrollbar-background: var(--color-secondary-light);
 `;
 
