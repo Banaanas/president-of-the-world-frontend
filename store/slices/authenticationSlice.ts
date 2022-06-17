@@ -1,7 +1,12 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+interface AuthenticationState {
+  user: string | null;
+  isAuthenticated: boolean;
+}
 
 // Initial State
-const initialState = {
+const initialState: AuthenticationState = {
   user: null,
   isAuthenticated: false,
 };
@@ -11,13 +16,13 @@ const authenticationSlice = createSlice({
   name: "Authentication",
   initialState,
   reducers: {
-    getAuthenticatedUser: (state, action) => {
-      state.isAuthenticated = true;
+    getAuthenticatedUser: (state, action: PayloadAction<string>) => {
       state.user = action.payload;
+      state.isAuthenticated = true;
     },
     resetAuthenticatedUser: (state) => {
-      state.isAuthenticated = false;
       state.user = null;
+      state.isAuthenticated = false;
     },
   },
 });
