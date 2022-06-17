@@ -1,8 +1,9 @@
 import { css, Global } from "@emotion/react";
-import colors from "./CSS-variables/colors";
-import fontProperties from "./CSS-variables/font-properties";
-import elevations from "./CSS-variables/elevations";
+
 import appTheme from "./appTheme";
+import colors from "./CSS-variables/colors";
+import elevations from "./CSS-variables/elevations";
+import fontProperties from "./CSS-variables/font-properties";
 
 // Emotion Global Styles
 const GlobalStyles = () => (

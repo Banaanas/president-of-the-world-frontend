@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 import { FaOm as AumIcon } from "react-icons/fa";
-import ContactIcons from "./ContactIcons";
+
 import appTheme from "../../styles/appTheme";
+import ContactIcons from "./ContactIcons";
 
 const StyledAumIcon = styled(AumIcon)`
   margin: 0 4px;

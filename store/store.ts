@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+
 import authenticatedUserReducer from "./slices/authenticationSlice";
 
 // REDUX STORE

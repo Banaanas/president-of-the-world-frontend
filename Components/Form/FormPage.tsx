@@ -1,12 +1,13 @@
-import { useRouter } from "next/router";
 import styled from "@emotion/styled";
-import FormAndIllustrationContainer from "./FormAndIllustrationContainer";
-import StyledH1 from "../StyledComponents/StyledH1";
-import StyledPageMain from "../StyledComponents/StyledPageMain";
-import StyledH2 from "../StyledComponents/StyledH2";
+import { useRouter } from "next/router";
+import React from "react";
+
 import pageVariants from "../../styles/animations";
 import appTheme from "../../styles/appTheme";
-import React from "react";
+import StyledH1 from "../StyledComponents/StyledH1";
+import StyledH2 from "../StyledComponents/StyledH2";
+import StyledPageMain from "../StyledComponents/StyledPageMain";
+import FormAndIllustrationContainer from "./FormAndIllustrationContainer";
 
 const Container = styled.div`
   display: flex;

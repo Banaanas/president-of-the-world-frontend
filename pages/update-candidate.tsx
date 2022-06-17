@@ -1,13 +1,14 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
 import Head from "next/head";
-import { LOGGED_IN_USER } from "../lib/queries/queries";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+
 import UpdateCandidatePage from "../Components/_Pages/UpdateCandidatePage/UpdateCandidatePage";
+import Loader from "../Components/Common/Loader";
+import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
+import { LOGGED_IN_USER } from "../lib/queries/queries";
 import SEO from "../SEO/seo-data";
 import { LoggedInUserData } from "../types/types";
-import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
-import Loader from "../Components/Common/Loader";
 
 const UpdateCandidate = () => {
   // Next Router

@@ -1,7 +1,7 @@
-import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
-import StyledH1 from "../Components/StyledComponents/StyledH1";
-import LinkButton from "../Components/LinkButton";
 import Page500Illustration from "../Components/Illustrations/Page500Illustration";
+import LinkButton from "../Components/LinkButton";
+import StyledH1 from "../Components/StyledComponents/StyledH1";
+import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
 
 const Custom404 = () => (
   <StyledPageMain>

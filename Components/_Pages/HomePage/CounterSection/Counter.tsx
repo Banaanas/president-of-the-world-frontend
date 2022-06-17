@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
+import { useEffect, useState } from "react";
+
 import appTheme from "../../../../styles/appTheme";
 import countdown, { TimeObject } from "../../../../utils/countdown-function";
 import Loader from "../../../Common/Loader";

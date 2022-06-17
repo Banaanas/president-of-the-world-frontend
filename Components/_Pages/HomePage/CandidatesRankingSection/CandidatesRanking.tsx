@@ -1,14 +1,15 @@
-import styled from "@emotion/styled";
 import { Tooltip } from "@chakra-ui/react";
+import styled from "@emotion/styled";
 import { AiFillStar as StarIcon } from "react-icons/ai";
+
 import appTheme from "../../../../styles/appTheme";
-import numberWithSpaces from "../../../../utils/number-with-spaces";
-import sortCandidatesFunction from "../../../../utils/sort-candidates-function";
-import VoteButton from "./VoteButton";
 import {
   PoliticalOrientation,
   RequiredCandidate,
 } from "../../../../types/types";
+import numberWithSpaces from "../../../../utils/number-with-spaces";
+import sortCandidatesFunction from "../../../../utils/sort-candidates-function";
+import VoteButton from "./VoteButton";
 
 const tableWidths = {
   rank: "100px",

@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { useMutation } from "@apollo/client";
 import { useToast } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+
 import { localStorageValue } from "../../../lib/apolloClient";
+import { LOGGED_IN_USER, LOGIN } from "../../../lib/queries/queries";
 import { getAuthenticatedUser } from "../../../store/slices/authenticationSlice";
+import { LoginObject } from "../../../types/types";
+import toasts from "../../../utils/toasts";
 import FormHeading from "../../Form/FormHeading";
 import {
   ChakraFormControl,
@@ -12,9 +16,6 @@ import {
   StyledForm,
   SubmitButton,
 } from "../../Form/StyledFormComponents";
-import { LOGGED_IN_USER, LOGIN } from "../../../lib/queries/queries";
-import toasts from "../../../utils/toasts";
-import { LoginObject } from "../../../types/types";
 
 const LoginForm = () => {
   // Visitor(s) Account - For Users who don't want to Sign Up

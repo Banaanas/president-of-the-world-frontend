@@ -1,14 +1,15 @@
+import { ApolloError, useApolloClient } from "@apollo/client";
+import { useToast } from "@chakra-ui/react";
+import styled from "@emotion/styled";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import { ApolloError, useApolloClient } from "@apollo/client";
-import styled from "@emotion/styled";
-import { useToast } from "@chakra-ui/react";
-import LogoIcon from "./Illustrations/LogoIcon";
-import appTheme from "../styles/appTheme";
+
 import { resetAuthenticatedUser } from "../store/slices/authenticationSlice";
-import GitHubBanner from "./GitHubBanner";
-import toasts from "../utils/toasts";
 import { RootState } from "../store/store";
+import appTheme from "../styles/appTheme";
+import toasts from "../utils/toasts";
+import GitHubBanner from "./GitHubBanner";
+import LogoIcon from "./Illustrations/LogoIcon";
 
 const HeaderContainer = styled.header`
   display: flex;

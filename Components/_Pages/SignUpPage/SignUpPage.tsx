@@ -1,12 +1,13 @@
-import { useEffect } from "react";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import StyledPageMain from "../../StyledComponents/StyledPageMain";
-import FormPage from "../../Form/FormPage";
-import SignUpIllustration from "../../Illustrations/SignUpIllustration";
-import SignUpForm from "./SignUpForm";
+
 import { RootState } from "../../../store/store";
 import Loader from "../../Common/Loader";
+import FormPage from "../../Form/FormPage";
+import SignUpIllustration from "../../Illustrations/SignUpIllustration";
+import StyledPageMain from "../../StyledComponents/StyledPageMain";
+import SignUpForm from "./SignUpForm";
 
 const SignUpPage = () => {
   // Next Router

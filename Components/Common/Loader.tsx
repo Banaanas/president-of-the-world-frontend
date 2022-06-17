@@ -1,5 +1,6 @@
-import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
+import styled from "@emotion/styled";
+
 import appTheme from "../../styles/appTheme";
 
 const rotateAnimation = keyframes`

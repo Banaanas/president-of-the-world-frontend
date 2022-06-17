@@ -1,18 +1,19 @@
-import { useEffect } from "react";
 import { useMutation } from "@apollo/client";
-import styled from "@emotion/styled";
 import { useToast } from "@chakra-ui/react";
-import { Element as ScrollWrapper } from "react-scroll";
+import styled from "@emotion/styled";
 import Link from "next/link";
+import { useEffect } from "react";
+import { Element as ScrollWrapper } from "react-scroll";
+
 import { VOTE_CANDIDATE } from "../../../../lib/queries/queries";
 import appTheme from "../../../../styles/appTheme";
+import { RequiredCandidate } from "../../../../types/types";
+import { rankingSection } from "../../../../utils/smoothScrollTo";
+import toasts from "../../../../utils/toasts";
 import StyledH1 from "../../../StyledComponents/StyledH1";
 import StyledSection from "../../../StyledComponents/StyledSection";
 import CandidatesRanking from "./CandidatesRanking";
 import LeadingCandidate from "./LeadingCandidate";
-import { rankingSection } from "../../../../utils/smoothScrollTo";
-import toasts from "../../../../utils/toasts";
-import { Candidate, RequiredCandidate } from "../../../../types/types";
 
 const Span = styled.span`
   text-align: center;

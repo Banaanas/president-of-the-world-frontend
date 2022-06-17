@@ -1,5 +1,5 @@
-import Counter from "./Counter";
 import StyledSection from "../../../StyledComponents/StyledSection";
+import Counter from "./Counter";
 
 const CounterSection = () => (
   <StyledSection>

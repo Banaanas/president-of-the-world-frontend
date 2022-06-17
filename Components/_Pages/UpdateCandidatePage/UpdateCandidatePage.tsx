@@ -1,7 +1,7 @@
+import { LoggedInUserData } from "../../../types/types";
 import FormPage from "../../Form/FormPage";
 import UpdateCandidateIllustration from "../../Illustrations/UpdateCandidateIllustration";
 import UpdateCandidateForm from "./UpdateCandidateForm";
-import { LoggedInUserData } from "../../../types/types";
 
 const UpdateCandidatePage = ({ loggedInUser }: LoggedInUserData) => {
   return (

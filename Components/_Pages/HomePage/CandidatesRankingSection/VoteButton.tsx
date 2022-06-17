@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
-import { submitButtonStyle } from "../../../../styles/css-composition";
+
 import appTheme from "../../../../styles/appTheme";
+import { submitButtonStyle } from "../../../../styles/css-composition";
 
 const VoteButton = styled.button`
   ${submitButtonStyle};

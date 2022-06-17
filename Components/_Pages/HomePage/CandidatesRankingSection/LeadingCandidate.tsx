@@ -1,13 +1,14 @@
+import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import { AiFillStar as StarIcon } from "react-icons/ai";
 import { HiOutlineLocationMarker as LocationIcon } from "react-icons/hi";
-import { keyframes } from "@emotion/react";
-import sortCandidatesFunction from "../../../../utils/sort-candidates-function";
-import numberWithSpaces from "../../../../utils/number-with-spaces";
+
 import appTheme from "../../../../styles/appTheme";
+import { RequiredCandidate } from "../../../../types/types";
+import numberWithSpaces from "../../../../utils/number-with-spaces";
+import sortCandidatesFunction from "../../../../utils/sort-candidates-function";
 import { CandidatePoliticalOrientation } from "./CandidatesRanking";
 import VoteButton from "./VoteButton";
-import { RequiredCandidate } from "../../../../types/types";
 
 const Container = styled.div`
   display: flex;

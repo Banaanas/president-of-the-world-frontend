@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+
 import appTheme from "../../styles/appTheme";
 
 const StyledH2 = styled.h2`

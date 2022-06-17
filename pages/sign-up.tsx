@@ -1,7 +1,8 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import SEO from "../SEO/seo-data";
+
 import SignUpPage from "../Components/_Pages/SignUpPage/SignUpPage";
+import SEO from "../SEO/seo-data";
 
 const SignUp = () => {
   // Next Router

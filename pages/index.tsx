@@ -1,16 +1,17 @@
-import { useRouter } from "next/router";
-import Head from "next/head";
 import { useQuery } from "@apollo/client";
 import { GetServerSideProps } from "next";
-import { addApolloState, initializeApollo } from "../lib/apolloClient";
-import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
-import { ALL_CANDIDATES } from "../lib/queries/queries";
-import HeroBannerSection from "../Components/_Pages/HomePage/HeroBannerSection";
-import CounterSection from "../Components/_Pages/HomePage/CounterSection/CounterSection";
+import Head from "next/head";
+import { useRouter } from "next/router";
+
 import CandidatesRankingSection from "../Components/_Pages/HomePage/CandidatesRankingSection/CandidatesRankingSection";
+import CounterSection from "../Components/_Pages/HomePage/CounterSection/CounterSection";
+import HeroBannerSection from "../Components/_Pages/HomePage/HeroBannerSection";
+import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
 import StyledHR from "../Components/StyledHR";
-import pageVariants from "../styles/animations";
+import { addApolloState, initializeApollo } from "../lib/apolloClient";
+import { ALL_CANDIDATES } from "../lib/queries/queries";
 import SEO from "../SEO/seo-data";
+import pageVariants from "../styles/animations";
 import { AllCandidatesData } from "../types/types";
 
 const Home = () => {

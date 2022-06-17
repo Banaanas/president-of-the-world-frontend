@@ -1,16 +1,17 @@
-import Link from "next/link";
 import styled from "@emotion/styled";
+import Link from "next/link";
 import React, { useRef, useState } from "react";
+
+import appTheme from "../../../styles/appTheme";
 import {
   formHeadingStyle,
   formStyle,
   submitButtonStyle,
 } from "../../../styles/css-composition";
-import appTheme from "../../../styles/appTheme";
-import DetailContainer from "../../Form/DetailsContainer";
-import DeleteAlertDialog from "./DeleteAlertDialog";
-import { ButtonsContainer } from "../../Form/StyledFormComponents";
 import { LoggedInUserData } from "../../../types/types";
+import DetailContainer from "../../Form/DetailsContainer";
+import { ButtonsContainer } from "../../Form/StyledFormComponents";
+import DeleteAlertDialog from "./DeleteAlertDialog";
 
 const ProfileContainer = styled.div`
   ${formStyle}

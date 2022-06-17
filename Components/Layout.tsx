@@ -1,18 +1,19 @@
-import React, { useEffect } from "react";
-import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
-import { ChakraProvider, useToast } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
 import { ApolloError, useApolloClient } from "@apollo/client";
+import { ChakraProvider, useToast } from "@chakra-ui/react";
+import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 import { useRouter } from "next/router";
-import GlobalStyles from "../styles/GlobalStyles";
-import appTheme from "../styles/appTheme";
-import Header from "./Header";
-import Footer from "./Footer/Footer";
-import toasts from "../utils/toasts";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+
 import {
   getAuthenticatedUser,
   resetAuthenticatedUser,
 } from "../store/slices/authenticationSlice";
+import appTheme from "../styles/appTheme";
+import GlobalStyles from "../styles/GlobalStyles";
+import toasts from "../utils/toasts";
+import Footer from "./Footer/Footer";
+import Header from "./Header";
 
 /* isAuthenticated is used here, because redux hooks can only be used inside
  * the Redux Provider, set up in the _app.ts file, parent of Layout.js
@@ -80,7 +81,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         }
       }
     });
-  }, [router, dispatch]);
+  }, [router, dispatch, toast, client]);
 
   return (
     <EmotionThemeProvider theme={appTheme}>

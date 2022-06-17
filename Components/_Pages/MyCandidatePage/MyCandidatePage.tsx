@@ -1,9 +1,9 @@
+import { LoggedInUserData } from "../../../types/types";
 import FormPage from "../../Form/FormPage";
 import CandidateProfileIllustration from "../../Illustrations/CandidateProfileIllustration";
-import CandidateProfile from "./CandidateProfile";
 import SubmitCandidateIllustration from "../../Illustrations/SubmitCandidateIllustration";
+import CandidateProfile from "./CandidateProfile";
 import SubmitCandidateForm from "./SubmitCandidateForm";
-import { LoggedInUserData } from "../../../types/types";
 
 const MyCandidate = ({ loggedInUser }: LoggedInUserData) => {
   const hasCandidate = loggedInUser?.candidate;

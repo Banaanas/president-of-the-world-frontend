@@ -1,12 +1,14 @@
 import "../styles/normalize.css"; // Next.js authorizes Normalize.css (Global CSS) to be imported ONLY from _app.js
+
 import { ApolloProvider } from "@apollo/client";
-import { Provider as ReduxProvider } from "react-redux";
 import { AnimatePresence } from "framer-motion";
-import { DefaultSeo } from "next-seo";
 import { AppProps } from "next/app";
+import { DefaultSeo } from "next-seo";
+import { Provider as ReduxProvider } from "react-redux";
+
+import Layout from "../Components/Layout";
 import { useApollo } from "../lib/apolloClient";
 import SEO from "../SEO/next-seo.config";
-import Layout from "../Components/Layout";
 import store from "../store/store";
 
 const App = ({ Component, pageProps }: AppProps) => {

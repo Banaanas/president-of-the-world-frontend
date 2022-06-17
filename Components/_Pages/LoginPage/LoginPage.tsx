@@ -1,12 +1,13 @@
-import { useEffect } from "react";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import StyledPageMain from "../../StyledComponents/StyledPageMain";
-import FormPage from "../../Form/FormPage";
-import LoginIllustration from "../../Illustrations/LoginIllustration";
-import LoginForm from "./LoginForm";
+
 import { RootState } from "../../../store/store";
 import Loader from "../../Common/Loader";
+import FormPage from "../../Form/FormPage";
+import LoginIllustration from "../../Illustrations/LoginIllustration";
+import StyledPageMain from "../../StyledComponents/StyledPageMain";
+import LoginForm from "./LoginForm";
 
 const LoginPage = () => {
   // Next Router
@@ -23,7 +24,7 @@ const LoginPage = () => {
       // eslint-disable-next-line no-void
       void router.push("/");
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, router]);
 
   // if ALREADY authenticated, Loader Spinner Rendering
   if (isAuthenticated) {

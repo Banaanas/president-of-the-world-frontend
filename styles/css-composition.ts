@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+
 import appTheme from "./appTheme";
 
 const formStyle = css`
@@ -65,4 +66,4 @@ const submitButtonStyle = css`
   }
 `;
 
-export { formStyle, formHeadingStyle, submitButtonStyle };
+export { formHeadingStyle, formStyle, submitButtonStyle };

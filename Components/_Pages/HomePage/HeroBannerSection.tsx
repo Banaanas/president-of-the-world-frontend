@@ -1,10 +1,11 @@
 import Link from "next/link";
-import StyledH1 from "../../StyledComponents/StyledH1";
+
+import { Candidate } from "../../../types/types";
+import smoothScrollTo, { rankingSection } from "../../../utils/smoothScrollTo";
 import HomeIllustration from "../../Illustrations/HomeIllustration";
 import LinkButton from "../../LinkButton";
+import StyledH1 from "../../StyledComponents/StyledH1";
 import StyledSection from "../../StyledComponents/StyledSection";
-import smoothScrollTo, { rankingSection } from "../../../utils/smoothScrollTo";
-import { Candidate } from "../../../types/types";
 
 const HeroBannerSection = ({
   allCandidates,

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
+
 import appTheme from "../../styles/appTheme";
 
 // Framer Motion Div

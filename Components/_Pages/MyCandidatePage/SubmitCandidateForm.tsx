@@ -7,8 +7,12 @@ import {
   RadioProps,
   useToast,
 } from "@chakra-ui/react";
-import { Field, Formik, FormikFormProps, FormikProps } from "formik";
+import { Field, Formik } from "formik";
 import { object, string } from "yup";
+
+import { ADD_CANDIDATE, LOGGED_IN_USER } from "../../../lib/queries/queries";
+import { CreatedCandidate } from "../../../types/types";
+import toasts from "../../../utils/toasts";
 import FormHeading from "../../Form/FormHeading";
 import {
   ChakraErrorMessage,
@@ -18,9 +22,6 @@ import {
   StyledFormikForm,
   SubmitButton,
 } from "../../Form/StyledFormComponents";
-import { ADD_CANDIDATE, LOGGED_IN_USER } from "../../../lib/queries/queries";
-import toasts from "../../../utils/toasts";
-import { CreatedCandidate } from "../../../types/types";
 
 // Form Validation Schema - Yup
 const ValidationSchemaYup = object().shape({

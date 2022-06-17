@@ -1,4 +1,4 @@
-import React, { RefObject } from "react";
+import { useMutation } from "@apollo/client";
 import {
   AlertDialog,
   AlertDialogBody,
@@ -9,10 +9,11 @@ import {
   Button,
   useToast,
 } from "@chakra-ui/react";
-import { useMutation } from "@apollo/client";
 import styled from "@emotion/styled";
-import appTheme from "../../../styles/appTheme";
+import React, { RefObject } from "react";
+
 import { DELETE_CANDIDATE, LOGGED_IN_USER } from "../../../lib/queries/queries";
+import appTheme from "../../../styles/appTheme";
 import toasts from "../../../utils/toasts";
 
 const StyledAlertDialogContent = styled(AlertDialogContent)`

@@ -1,11 +1,15 @@
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { useMutation } from "@apollo/client";
 import { InputProps, useToast } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { object, ref, string } from "yup";
+
 import { localStorageValue } from "../../../lib/apolloClient";
+import { CREATE_USER, LOGIN } from "../../../lib/queries/queries";
 import { getAuthenticatedUser } from "../../../store/slices/authenticationSlice";
+import { LoggedInUserData, LoginObject, NewUser } from "../../../types/types";
+import toasts from "../../../utils/toasts";
 import FormHeading from "../../Form/FormHeading";
 import {
   ChakraErrorMessage,
@@ -15,9 +19,6 @@ import {
   StyledFormikForm,
   SubmitButton,
 } from "../../Form/StyledFormComponents";
-import { CREATE_USER, LOGIN } from "../../../lib/queries/queries";
-import toasts from "../../../utils/toasts";
-import { LoggedInUserData, LoginObject, NewUser } from "../../../types/types";
 
 // Form Validation Schema - Yup
 const ValidationSchemaYup = object().shape({
@@ -96,7 +97,7 @@ const SignUpForm = () => {
       // Get Authenticated User - Dispatch - Redux State
       dispatch(getAuthenticatedUser(resultLogin.data.login.token));
     }
-  }, [resultLogin.data]);
+  }, [dispatch, resultLogin.data]);
 
   // Create User - Function
   const handleCreateUser = async (newUser: NewUser) => {

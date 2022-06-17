@@ -1,5 +1,5 @@
-import { ToastOptions, UseToastOptions } from "@chakra-ui/react";
 import { ApolloError } from "@apollo/client";
+import { UseToastOptions } from "@chakra-ui/react";
 
 const toastsDuration = 5000;
 

@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import {
   HStack,
@@ -8,10 +7,18 @@ import {
   RadioProps,
   useToast,
 } from "@chakra-ui/react";
-import { Field, Formik } from "formik";
-import { object, string } from "yup";
 import styled from "@emotion/styled";
+import { Field, Formik } from "formik";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { object, string } from "yup";
+
+import { UPDATE_CANDIDATE } from "../../../lib/queries/queries";
+import appTheme from "../../../styles/appTheme";
+import { submitButtonStyle } from "../../../styles/css-composition";
+import { Candidate, LoggedInUserData } from "../../../types/types";
+import toasts from "../../../utils/toasts";
+import DetailContainer from "../../Form/DetailsContainer";
 import FormHeading from "../../Form/FormHeading";
 import {
   ButtonsContainer,
@@ -21,12 +28,6 @@ import {
   ChakraLabel,
   StyledFormikForm,
 } from "../../Form/StyledFormComponents";
-import { UPDATE_CANDIDATE } from "../../../lib/queries/queries";
-import DetailContainer from "../../Form/DetailsContainer";
-import { submitButtonStyle } from "../../../styles/css-composition";
-import appTheme from "../../../styles/appTheme";
-import toasts from "../../../utils/toasts";
-import { Candidate, LoggedInUserData } from "../../../types/types";
 
 const marginButtons = "6px";
 

@@ -1,4 +1,3 @@
-import styled from "@emotion/styled";
 import {
   FormControl,
   FormErrorMessage,
@@ -6,7 +5,9 @@ import {
   Input,
   Select as ChakraSelect,
 } from "@chakra-ui/react";
+import styled from "@emotion/styled";
 import { Form } from "formik";
+
 import appTheme from "../../styles/appTheme";
 import { formStyle, submitButtonStyle } from "../../styles/css-composition";
 
@@ -53,13 +54,13 @@ const ButtonsContainer = styled.div`
 `;
 
 export {
-  StyledFormikForm,
-  StyledForm,
-  SubmitButton,
-  ChakraFormControl,
-  ChakraLabel,
-  ChakraInput,
-  ChakraErrorMessage,
-  ChakraSelect,
   ButtonsContainer,
+  ChakraErrorMessage,
+  ChakraFormControl,
+  ChakraInput,
+  ChakraLabel,
+  ChakraSelect,
+  StyledForm,
+  StyledFormikForm,
+  SubmitButton,
 };
