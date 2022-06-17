@@ -7,12 +7,12 @@ import { useRouter } from "next/router";
 import GlobalStyles from "../styles/GlobalStyles";
 import appTheme from "../styles/appTheme";
 import Header from "./Header";
+import Footer from "./Footer/Footer";
+import toasts from "../utils/toasts";
 import {
   getAuthenticatedUser,
   resetAuthenticatedUser,
 } from "../store/slices/authenticationSlice";
-import Footer from "./Footer/Footer";
-import toasts from "../utils/toasts";
 
 /* isAuthenticated is used here, because redux hooks can only be used inside
  * the Redux Provider, set up in the _app.ts file, parent of Layout.js

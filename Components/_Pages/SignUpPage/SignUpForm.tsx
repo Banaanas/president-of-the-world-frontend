@@ -94,7 +94,7 @@ const SignUpForm = () => {
       // Set localStorage
       localStorage.setItem(localStorageValue, token);
       // Get Authenticated User - Dispatch - Redux State
-      dispatch(getAuthenticatedUser(resultLogin.data));
+      dispatch(getAuthenticatedUser(resultLogin.data.login.token));
     }
   }, [resultLogin.data]);
 
