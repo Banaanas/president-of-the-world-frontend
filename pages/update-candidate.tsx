@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
 import Head from "next/head";
-import Loader from "react-loader-spinner";
 import { LOGGED_IN_USER } from "../lib/queries/queries";
 import UpdateCandidatePage from "../Components/_Pages/UpdateCandidatePage/UpdateCandidatePage";
 import SEO from "../SEO/seo-data";
 import { LoggedInUserData } from "../types/types";
 import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
+import Loader from "../Components/Common/Loader";
 
 const UpdateCandidate = () => {
   // Next Router
@@ -55,7 +55,7 @@ const UpdateCandidate = () => {
         <UpdateCandidatePage loggedInUser={data?.loggedInUser} />
       ) : (
         <StyledPageMain>
-          <Loader type="Puff" color="white" height={100} width={100} />
+          <Loader />
         </StyledPageMain>
       )}
     </>
