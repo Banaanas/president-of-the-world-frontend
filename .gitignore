@@ -35,6 +35,6 @@ yarn-error.log*
 /.idea/
 
 # sitemap
-./public/robots.txt
-./public/sitemap.xml
-./public/sitemap-0.xml
+/public/robots.txt
+/public/sitemap.xml
+/public/sitemap-0.xml
