@@ -118,19 +118,19 @@ export const CandidatePoliticalOrientation = styled(
     ${({ politicalOrientation }) => {
       if (politicalOrientation === "Left") {
         return `
-        background: red;
+        background-color red;
         color: ${appTheme.colors.textDefault}
     `;
       }
       if (politicalOrientation === "Right") {
         return `
-        background: blue;
+        background-color blue;
         color: ${appTheme.colors.textDefault};
 
     `;
       }
       return `
-        background: lightgray;
+        background-color lightgray;
         color: ${appTheme.colors.secondary.default};
     `;
     }}

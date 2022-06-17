@@ -56,7 +56,7 @@ const submitButtonStyle = css`
   font-weight: ${appTheme.fontWeight.bold};
   text-align: center;
   text-transform: uppercase;
-  background: ${appTheme.colors.warning.default};
+  background-color ${appTheme.colors.warning.default};
   border-radius: 8px;
   cursor: pointer;
   transition: filter 500ms ease;

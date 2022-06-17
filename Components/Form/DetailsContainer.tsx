@@ -12,7 +12,7 @@ const DetailContainer = styled.div`
     padding: 8px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    background: ${appTheme.colors.tertiary.light};
+    background-color ${appTheme.colors.tertiary.light};
     border-radius: 4px;
   }
 `;

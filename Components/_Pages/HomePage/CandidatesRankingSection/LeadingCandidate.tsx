@@ -25,7 +25,7 @@ const LeadingCandidateCard = styled.div`
   justify-content: center;
   margin: 16px 4px;
   padding: 8px 16px;
-  background: ${appTheme.colors.tertiary.darker};
+  background-color ${appTheme.colors.tertiary.darker};
   border-radius: 8px;
 
   & > div {
@@ -45,7 +45,7 @@ const NumberContainer = styled.div`
   justify-content: center;
   padding: 0 8px;
   color: ${appTheme.colors.tertiary.default};
-  background: ${appTheme.colors.primary.default};
+  background-color ${appTheme.colors.primary.default};
   border-radius: 4px;
 `;
 
@@ -81,7 +81,7 @@ const CountryContainer = styled.div`
 `;
 
 const StyledLocationIcon = styled(LocationIcon)`
-  background: ${appTheme.colors.tertiary.default};
+  background-color ${appTheme.colors.tertiary.default};
   border-radius: 50%;
 `;
 
@@ -155,7 +155,7 @@ const StyledVoteButton = styled(VoteButton)`
   position: relative;
   overflow: hidden;
   color: ${appTheme.colors.primary.default};
-  background: ${appTheme.colors.secondary.default};
+  background-color ${appTheme.colors.secondary.default};
   border: 3px solid ${appTheme.colors.primary.default};
 
   /* On small devices, buttonAnimation breaks layout  */
@@ -172,7 +172,7 @@ const StyledVoteButton = styled(VoteButton)`
     left: 0;
     z-index: -1;
     display: block;
-    background: ${appTheme.colors.tertiary.darker};
+    background-color ${appTheme.colors.tertiary.darker};
     opacity: 0;
     transition: opacity 250ms ease;
     content: "";
@@ -187,7 +187,7 @@ const StyledVoteButton = styled(VoteButton)`
     left: 0;
     z-index: -1;
     display: block;
-    background: ${appTheme.colors.tertiary.darker};
+    background-color ${appTheme.colors.tertiary.darker};
     opacity: 1;
     animation: ${afterAnimation} ${coordinatedAnimation};
     content: "";

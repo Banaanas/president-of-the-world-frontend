@@ -47,7 +47,7 @@ const StyledLink = styled.a`
   font-weight: ${appTheme.fontWeight.bold};
   text-decoration: none;
   list-style: none;
-  background: ${appTheme.colors.primary.default};
+  background-color ${appTheme.colors.primary.default};
   border-radius: 8px;
   transition: opacity 250ms ease;
 
@@ -64,7 +64,7 @@ const StyledLink = styled.a`
     left: 0;
     z-index: -1;
     display: block;
-    background: ${appTheme.colors.tertiary.default};
+    background-color ${appTheme.colors.tertiary.default};
     opacity: 0;
     transition: opacity 250ms ease;
     content: "";
@@ -78,7 +78,7 @@ const StyledLink = styled.a`
 const StyledLiGradient = styled(StyledLink)`
   color: ${appTheme.colors.secondary.default};
   list-style: none;
-  background: ${appTheme.colors.tertiary.default};
+  background-color ${appTheme.colors.tertiary.default};
   background: linear-gradient(
     ${appTheme.colors.tertiary.default},
     ${appTheme.colors.tertiary.lighter}
