@@ -43,6 +43,7 @@ export interface Login {
   token: string;
   user: LoggedInUser;
 }
+
 export interface LoginObject {
   login: Login;
 }
