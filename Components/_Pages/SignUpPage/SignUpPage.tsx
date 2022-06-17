@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
-import Loader from "react-loader-spinner";
 import StyledPageMain from "../../StyledComponents/StyledPageMain";
 import FormPage from "../../Form/FormPage";
 import SignUpIllustration from "../../Illustrations/SignUpIllustration";
 import SignUpForm from "./SignUpForm";
 import { RootState } from "../../../store/store";
+import Loader from "../../Common/Loader";
 
 const SignUpPage = () => {
   // Next Router
@@ -29,7 +29,7 @@ const SignUpPage = () => {
   if (isAuthenticated) {
     return (
       <StyledPageMain>
-        <Loader type="Puff" color="white" height={100} width={100} />
+        <Loader />
       </StyledPageMain>
     );
   }

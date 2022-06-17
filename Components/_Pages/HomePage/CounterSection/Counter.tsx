@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
-import Loader from "react-loader-spinner";
 import appTheme from "../../../../styles/appTheme";
 import countdown, { TimeObject } from "../../../../utils/countdown-function";
+import Loader from "../../../Common/Loader";
 
 const Container = styled.div`
   display: flex;
@@ -72,7 +72,7 @@ const Counter = () => {
     !timeToMidnight?.minutes &&
     !timeToMidnight?.seconds
   )
-    return <Loader type="Puff" color="white" height={100} width={100} />;
+    return <Loader />;
 
   return (
     <Container>
