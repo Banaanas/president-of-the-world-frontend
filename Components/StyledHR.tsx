@@ -10,7 +10,7 @@ const StyledHR = styled.hr<StyledHRProps>`
   all: unset;
   width: ${({ width }) => width || "80%"};
   height: 4px;
-  background-color ${appTheme.colors.primary.default};
+  background-color: ${appTheme.colors.primary.default};
   background: linear-gradient(
     to right,
     transparent 0%,

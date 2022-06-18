@@ -6,8 +6,8 @@ import SubFooter from "./SubFooter";
 const StyledFooter = styled.footer`
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   width: 100%;
   min-height: 48px;
   padding-bottom: 16px;

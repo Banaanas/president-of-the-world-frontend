@@ -37,7 +37,7 @@ const StyledLink = styled.a`
     display: block;
     width: 100%;
     height: 3px;
-    background-color ${appTheme.colors.tertiary.default};
+    background-color: ${appTheme.colors.tertiary.default};
     border-radius: 4px;
     transform: scaleY(1);
     opacity: 1;
@@ -55,7 +55,7 @@ const StyledLink = styled.a`
     display: block;
     width: 100%;
     height: 3px;
-    background-color ${appTheme.colors.tertiary.light};
+    background-color: ${appTheme.colors.tertiary.light};
     border-radius: 4px;
     transform: scaleY(1);
     opacity: 1;

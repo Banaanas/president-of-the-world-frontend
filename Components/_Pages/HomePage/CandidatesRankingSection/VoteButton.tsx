@@ -10,7 +10,7 @@ const VoteButton = styled.button`
   margin-top: 0; /* Cancel CSS Composition */
   color: ${appTheme.colors.textDefault};
   text-transform: none;
-  background-color ${appTheme.colors.tertiary.default};
+  background-color: ${appTheme.colors.tertiary.default};
 `;
 
 export default VoteButton;
