@@ -15,7 +15,6 @@
   "version": "0.1.0",
   "dependencies": {
     "@apollo/client": "^3.6.8",
-    "@babel/register": "^7.17.7",
     "@chakra-ui/react": "^2.2.1",
     "@chakra-ui/utils": "^2.0.2",
     "@emotion/is-prop-valid": "^1.1.3",
@@ -45,8 +44,6 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.18.2",
-    "@emotion/babel-plugin": "^11.9.2",
     "@emotion/jest": "^11.9.3",
     "@next/eslint-plugin-next": "^12.1.6",
     "@testing-library/dom": "^8.13.0",
@@ -59,7 +56,6 @@
     "@typescript-eslint/eslint-plugin": "^5.28.0",
     "@typescript-eslint/parser": "^5.28.0",
     "apollo": "^2.34.0",
-    "babel-plugin-emotion": "^11.0.0",
     "eslint": "^8.17.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
