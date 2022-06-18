@@ -1,7 +1,7 @@
 {
   "ignorePatterns": [
     "next.config.js",
-    "next-sitemap.ts",
+    "next-sitemap.js",
     "lib/apolloClient.ts"
   ],
   "extends": [
