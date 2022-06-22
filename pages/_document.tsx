@@ -7,7 +7,8 @@ const Document = () => {
     <Html>
       <Head>
         <meta charSet="utf-8" />
-        <meta name="theme-color" content="var(--color-secondary-default)" />
+        <meta name="msapplication-TileColor" content="#e63371" />
+        <meta name="theme-color" content="#e63371" />
         <link rel="icon" href="/images/favicons/favicon.ico" />
         <link
           rel="icon"
@@ -32,8 +33,6 @@ const Document = () => {
           color="#5bbad5"
         />
         <link rel="manifest" href="/images/favicons/site.webmanifest" />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#0f0e16" />
       </Head>
       <body>
         <Main />
