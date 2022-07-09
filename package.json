@@ -1,13 +1,16 @@
 {
   "name": "president-of-the-world-frontend",
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "dev": "next dev",
+    "fix-all": "npm run lint-fix && npm run prettier-write",
     "lint": "next lint",
-    "globalLint": "eslint './'",
+    "lint-total": "npx eslint ./",
+    "lint-fix": "npx eslint --fix ./",
     "postbuild": "next-sitemap",
-    "prettier": "prettier --write .",
+    "prettier-check": "prettier --check ./",
+    "prettier-write": "prettier --write ./",
+    "start": "next start",
     "stylelint": "npx stylelint \"**/*.{js,jsx,ts,tsx,css,scss,md}\" "
   },
   "version": "0.1.0",
@@ -87,11 +90,11 @@
     "build-static": [
       "next-sitemap generator - Build and Export the Project to a (non default) Build Directory"
     ],
-    "globalLint": [
-      "ESLint - Personal ESLint configuration"
-    ],
     "lint": [
       "ESLint - Next.js ESLint configuration - Automatically run during every build"
+    ],
+    "lint-total": [
+      "ESLint - Personal ESLint configuration - More complete than the Next.js one"
     ],
     "prettier": [
       "Prettier"
