@@ -3,12 +3,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
     "globalLint": "eslint './'",
+    "postbuild": "next-sitemap",
     "prettier": "prettier --write .",
-    "pre-commit": "lint-staged",
     "stylelint": "npx stylelint \"**/*.{js,jsx,ts,tsx,css,scss,md}\" "
   },
   "version": "0.1.0",
