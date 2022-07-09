@@ -8,7 +8,6 @@
     "lint": "next lint",
     "globalLint": "eslint './'",
     "prettier": "prettier --write .",
-    "prepare": "husky install",
     "pre-commit": "lint-staged",
     "stylelint": "npx stylelint \"**/*.{js,jsx,ts,tsx,css,scss,md}\" "
   },
@@ -73,8 +72,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-testing-library": "^5.5.1",
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
     "prettier": "2.7.1",
     "stylelint": "^14.9.1",
     "stylelint-8-point-grid": "^2.1.0",
@@ -96,9 +93,6 @@
     ],
     "lint": [
       "ESLint - Next.js ESLint configuration - Automatically run during every build"
-    ],
-    "pre-commit": [
-      "Husky - Pre-Commit Hook - Run Lint Staged (configured in .lintstagedrc file"
     ],
     "prettier": [
       "Prettier"
