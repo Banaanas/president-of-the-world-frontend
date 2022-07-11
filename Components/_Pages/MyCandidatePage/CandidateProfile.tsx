@@ -69,7 +69,9 @@ const CandidateProfile = ({ loggedInUser }: LoggedInUserDataAllRequired) => {
         <Link href="/update-candidate" passHref>
           <UpdateLink>Update</UpdateLink>
         </Link>
-        <DeleteButton onClick={() => setIsOpen(true)}>Delete</DeleteButton>
+        <DeleteButton as="button" onClick={() => setIsOpen(true)}>
+          Delete
+        </DeleteButton>
       </ButtonsContainer>
       <DeleteAlertDialog
         isOpen={isOpen}

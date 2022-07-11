@@ -1,23 +1,24 @@
 {
   "ignorePatterns": [
+    "lib/apolloClient.ts",
     "next.config.js",
-    "next-sitemap.js",
-    "lib/apolloClient.ts"
+    "next-sitemap.js"
   ],
   "extends": [
     "airbnb",
-    "airbnb/hooks",
     "airbnb-typescript",
+    "airbnb/hooks",
     "next",
     "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:cypress/recommended",
     "plugin:eslint-comments/recommended",
     "plugin:json/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:react/recommended",
     "plugin:prettier/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:react/recommended",
+    "plugin:styled-components-a11y/recommended",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
@@ -34,6 +35,7 @@
     "jest-formatting",
     "prettier",
     "simple-import-sort",
+    "styled-components-a11y",
     "testing-library"
   ],
   "rules": {
