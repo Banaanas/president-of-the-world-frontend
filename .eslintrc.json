@@ -24,8 +24,8 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2020,
-    "sourceType": "module",
-    "project": "./tsconfig.json"
+    "project": "./tsconfig.json",
+    "sourceType": "module"
   },
   "plugins": [
     "@typescript-eslint",
@@ -39,7 +39,7 @@
     "testing-library"
   ],
   "rules": {
-    "@typescript-eslint/no-explicit-any": 2,
+    "@typescript-eslint/no-explicit-any": "error",
     // https://github.com/prettier/eslint-plugin-prettier
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "prettier/prettier": "error",
@@ -54,7 +54,7 @@
       }
     ],
     "react/function-component-definition": [
-      2,
+      "error",
       {
         "namedComponents": "arrow-function",
         "unnamedComponents": "arrow-function"
@@ -62,17 +62,17 @@
     ],
 
     // Disable forbid-prop-types rule
-    "react/prop-types": 0,
-    "react/jsx-props-no-spreading": 0,
-    "react/require-default-props": 0,
+    "react/prop-types": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
     "react/jsx-filename-extension": [
-      1,
+      "warn",
       {
         "extensions": [".js", ".jsx", "tsx"]
       }
     ],
     "react/jsx-pascal-case": [
-      1,
+      "warn",
       {
         "allowAllCaps": false
       }
