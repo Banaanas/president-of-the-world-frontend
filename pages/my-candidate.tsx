@@ -35,22 +35,7 @@ const MyCandidate = () => {
         {/* Primary Meta Tags */}
         <title>{SEO.myCandidate.title}</title>
         <meta name="description" content={SEO.myCandidate.description} />
-        <link
-          rel="canonical"
-          href={`https://president-of-the-world.cyrilo.app${router.asPath}`}
-          key="canonical"
-        />
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content={SEO.myCandidate.title}
-          key="og-title"
-        />
-        <meta
-          property="og:url"
-          content={`https://president-of-the-world.cyrilo.app${router.asPath}`}
-          key="og-url"
-        />
+        {/* Page excluded from sitemap */}
       </Head>
 
       {data?.loggedInUser && !loading ? (
