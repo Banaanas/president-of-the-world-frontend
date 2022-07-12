@@ -11,7 +11,11 @@ const ErrorPage = ({ errorCode }: ErrorPageProps) => {
     <StyledPageMain>
       <StyledErrorPagesContainer>
         <StyledH1>Error</StyledH1>
-        {errorCode === 404 ? <Page404Illustration /> : <Page500Illustration />}
+        {errorCode === "404" ? (
+          <Page404Illustration />
+        ) : (
+          <Page500Illustration />
+        )}
         <LinkButton href={navLinks.home.href}>Home</LinkButton>
       </StyledErrorPagesContainer>
     </StyledPageMain>
@@ -21,5 +25,5 @@ const ErrorPage = ({ errorCode }: ErrorPageProps) => {
 export default ErrorPage;
 
 interface ErrorPageProps {
-  errorCode: 404 | 500;
+  errorCode: "404" | "500";
 }
