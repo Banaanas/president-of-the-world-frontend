@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 
+import { externalLinks } from "../data/externalLinks";
 import appTheme from "../styles/appTheme";
 
 /* Inspired by : https://github.com/tholman/github-corners */
@@ -50,7 +51,7 @@ const StyledDiv = styled.div`
 const GitHubBanner = () => (
   <StyledDiv>
     <a
-      href="https://github.com/Banaanas/president-of-the-world-frontend"
+      href={externalLinks.gitHubRepository.href}
       className="github-corner"
       target="_blank"
       rel="noopener noreferrer"

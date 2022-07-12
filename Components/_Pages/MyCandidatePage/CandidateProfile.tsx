@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import Link from "next/link";
 import React, { useRef, useState } from "react";
 
+import navLinks from "../../../data/navLinks";
 import appTheme from "../../../styles/appTheme";
 import {
   formHeadingStyle,
@@ -66,7 +67,7 @@ const CandidateProfile = ({ loggedInUser }: LoggedInUserDataAllRequired) => {
         <div>{loggedInUser?.candidate?.votes}</div>
       </DetailContainer>
       <ButtonsContainer>
-        <Link href="/update-candidate" passHref>
+        <Link href={navLinks.updateCandidate.href} passHref>
           <UpdateLink>Update</UpdateLink>
         </Link>
         <DeleteButton as="button" onClick={() => setIsOpen(true)}>

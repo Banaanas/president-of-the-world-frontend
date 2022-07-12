@@ -4,6 +4,7 @@ import { ImLinkedin as LinkedInIcon } from "react-icons/im";
 import { IoMdMail as MailIcon } from "react-icons/io";
 import { VscGithubInverted as GitHubIcon } from "react-icons/vsc";
 
+import { externalLinks } from "../../data/externalLinks";
 import appTheme from "../../styles/appTheme";
 
 const StyledSocialIconsContainer = styled.div`
@@ -35,16 +36,16 @@ const ContactIcons = () => (
   <StyledSocialIconsContainer>
     <a
       aria-label="Personal Website"
-      href="https://cyrilo.dev"
+      href={externalLinks.website.href}
       target="_blank"
       rel="noopener noreferrer"
-      title="https://cyrilo.dev"
+      title={externalLinks.website.href}
     >
       <PersonalWebsiteIcon />
     </a>
     <a
       aria-label="GitHub Profile Link"
-      href="https://github.com/Banaanas"
+      href={externalLinks.gitHubProfile.href}
       target="_blank"
       rel="noopener noreferrer"
       title="GitHub Profile"
@@ -53,17 +54,17 @@ const ContactIcons = () => (
     </a>
     <a
       aria-label="Cyrilo Dev Mail"
-      href="mailto:cyrilo.dev@gmail.com"
+      href={externalLinks.mail.href}
       title="cyrilo.dev@gmail.com"
     >
       <MailIcon />
     </a>
     <a
       aria-label="LinkedIn Profile"
-      href="https://www.linkedin.com/in/cyril-dev/"
+      href={externalLinks.linkedIn.href}
       target="_blank"
       rel="noopener noreferrer"
-      title="LinkedIn Profile"
+      title={externalLinks.linkedIn.href}
     >
       <LinkedInIcon />
     </a>

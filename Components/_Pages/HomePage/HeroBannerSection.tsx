@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import navLinks from "../../../data/navLinks";
 import { Candidate } from "../../../types/types";
 import smoothScrollTo, { rankingSection } from "../../../utils/smoothScrollTo";
 import HomeIllustration from "../../Illustrations/HomeIllustration";
@@ -18,7 +19,7 @@ const HeroBannerSection = ({
     {/* If NO candidates yet, link to MyCandidatePageElse.
       Else smooth scroll to Candidates Table. */}
     {!allCandidates || allCandidates.length === 0 ? (
-      <Link href="/my-candidate" passHref>
+      <Link href={navLinks.updateCandidate.href} passHref>
         <LinkButton>Change the World</LinkButton>
       </Link>
     ) : (

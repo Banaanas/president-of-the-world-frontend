@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { FaOm as AumIcon } from "react-icons/fa";
 
+import { externalLinks } from "../../data/externalLinks";
 import appTheme from "../../styles/appTheme";
 import ContactIcons from "./ContactIcons";
 
@@ -31,10 +32,10 @@ const SubFooter = () => (
       <span>
         <a
           aria-label="Personal Website"
-          href="https://cyrilo.dev"
+          href={externalLinks.website.href}
           target="_blank"
           rel="noopener noreferrer"
-          title="https://cyrilo.dev"
+          title={externalLinks.website.href}
         >
           CyrilO
         </a>

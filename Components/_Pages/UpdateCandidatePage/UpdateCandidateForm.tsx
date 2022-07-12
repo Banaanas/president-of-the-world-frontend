@@ -13,6 +13,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { object, string } from "yup";
 
+import navLinks from "../../../data/navLinks";
 import { UPDATE_CANDIDATE } from "../../../lib/queries/queries";
 import appTheme from "../../../styles/appTheme";
 import { submitButtonStyle } from "../../../styles/css-composition";
@@ -186,7 +187,7 @@ const MyCandidateForm = ({ loggedInUser }: LoggedInUserData) => {
           </Field>
           <ButtonsContainer>
             <UpdateButton type="submit">SUBMIT</UpdateButton>
-            <Link href="/my-candidate" passHref>
+            <Link href={navLinks.myCandidate.href} passHref>
               <CancelLink>CANCEL</CancelLink>
             </Link>
           </ButtonsContainer>
