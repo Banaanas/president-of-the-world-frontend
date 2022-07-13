@@ -1,3 +1,4 @@
+// Internal Links - Links that lead to the same page
 export const currentPageLinks: CurrentPageLinks = {
   homePage: {
     rankingSection: "ranking-section",
