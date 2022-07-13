@@ -1,4 +1,4 @@
-const navLinks: NavLinks = {
+const navlinks: NavLinks = {
   home: {
     name: "home",
     href: "/",
@@ -21,7 +21,7 @@ const navLinks: NavLinks = {
   },
 };
 
-export default navLinks;
+export default navlinks;
 
 interface NavLink {
   name: string;

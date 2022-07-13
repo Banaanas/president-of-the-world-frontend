@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { Element as ScrollWrapper } from "react-scroll";
 
-import navLinks from "../../../../data/navLinks";
+import navlinks from "../../../../data/navlinks";
 import { VOTE_CANDIDATE } from "../../../../lib/queries/queries";
 import appTheme from "../../../../styles/appTheme";
 import { RequiredCandidate } from "../../../../types/types";
@@ -104,7 +104,7 @@ const CandidatesRankingSection = ({
         <ScrollWrapper name={rankingSection} />
         <Span>
           Candidates List is empty.
-          <Link href={navLinks.myCandidate.href} passHref>
+          <Link href={navlinks.myCandidate.href} passHref>
             <StyledLink>Please chose one Candidate</StyledLink>
           </Link>
         </Span>
@@ -115,8 +115,7 @@ const CandidatesRankingSection = ({
   // If Candidates List is NOT empty
   return (
     <StyledSection>
-      <ScrollWrapper name={rankingSection} /> {/* To Scroll to */}
-      <StyledH2>Candidates Ranking</StyledH2>
+      <StyledH2 id="ranking-section">Candidates Ranking</StyledH2>
       <LeadingCandidate
         candidatesArray={allCandidates}
         handleUpdateCandidate={handleUpdateCandidate}

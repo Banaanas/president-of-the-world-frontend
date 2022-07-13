@@ -4,7 +4,7 @@ import { ImLinkedin as LinkedInIcon } from "react-icons/im";
 import { IoMdMail as MailIcon } from "react-icons/io";
 import { VscGithubInverted as GitHubIcon } from "react-icons/vsc";
 
-import { externalLinks } from "../../data/externalLinks";
+import { externalLinks } from "../../data/external-links";
 import appTheme from "../../styles/appTheme";
 
 const StyledSocialIconsContainer = styled.div`

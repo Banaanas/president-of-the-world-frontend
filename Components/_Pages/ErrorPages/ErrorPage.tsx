@@ -1,10 +1,10 @@
-import StyledPageMain from "../../StyledComponents/StyledPageMain";
+import navlinks from "../../../data/navlinks";
+import Page404Illustration from "../../Illustrations/Page404Illustration";
+import Page500Illustration from "../../Illustrations/Page500Illustration";
+import LinkButton from "../../LinkButton";
 import StyledErrorPagesContainer from "../../StyledComponents/StyledErrorPagesContainer";
 import StyledH1 from "../../StyledComponents/StyledH1";
-import Page404Illustration from "../../Illustrations/Page404Illustration";
-import LinkButton from "../../LinkButton";
-import navLinks from "../../../data/navLinks";
-import Page500Illustration from "../../Illustrations/Page500Illustration";
+import StyledPageMain from "../../StyledComponents/StyledPageMain";
 
 const ErrorPage = ({ errorCode }: ErrorPageProps) => {
   return (
@@ -16,7 +16,7 @@ const ErrorPage = ({ errorCode }: ErrorPageProps) => {
         ) : (
           <Page500Illustration />
         )}
-        <LinkButton href={navLinks.home.href}>Home</LinkButton>
+        <LinkButton href={navlinks.home.href}>Home</LinkButton>
       </StyledErrorPagesContainer>
     </StyledPageMain>
   );

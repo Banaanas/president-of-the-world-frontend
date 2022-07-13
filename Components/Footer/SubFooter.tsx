@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { FaOm as AumIcon } from "react-icons/fa";
 
-import { externalLinks } from "../../data/externalLinks";
+import { externalLinks } from "../../data/external-links";
 import appTheme from "../../styles/appTheme";
 import ContactIcons from "./ContactIcons";
 

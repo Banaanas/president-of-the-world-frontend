@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import { externalLinks } from "../data/externalLinks";
+import { externalLinks } from "../data/external-links";
 import appTheme from "../styles/appTheme";
 
 /* Inspired by : https://github.com/tholman/github-corners */
