@@ -1,5 +1,6 @@
-import ErrorPage from "../Components/_Pages/ErrorPages/ErrorPage";
 import Head from "next/head";
+
+import ErrorPage from "../Components/_Pages/ErrorPages/ErrorPage";
 import SEO from "../SEO/seo-data";
 
 const Custom500Page = () => (
