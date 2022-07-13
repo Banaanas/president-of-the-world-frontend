@@ -1,8 +1,8 @@
 import Link from "next/link";
 
+import { currentPageLinks } from "../../../data/current-page-links";
 import navLinks from "../../../data/navLinks";
 import { Candidate } from "../../../types/types";
-import smoothScrollTo, { rankingSection } from "../../../utils/smoothScrollTo";
 import HomeIllustration from "../../Illustrations/HomeIllustration";
 import LinkButton from "../../LinkButton";
 import StyledH1 from "../../StyledComponents/StyledH1";
@@ -23,7 +23,7 @@ const HeroBannerSection = ({
         <LinkButton>Change the World</LinkButton>
       </Link>
     ) : (
-      <LinkButton onClick={() => smoothScrollTo(rankingSection)}>
+      <LinkButton href={`#${currentPageLinks.homePage.rankingSection}`}>
         Change the World with your Vote
       </LinkButton>
     )}

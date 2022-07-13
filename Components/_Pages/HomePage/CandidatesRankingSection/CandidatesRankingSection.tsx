@@ -3,13 +3,12 @@ import { useToast } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import Link from "next/link";
 import { useEffect } from "react";
-import { Element as ScrollWrapper } from "react-scroll";
 
+import { currentPageLinks } from "../../../../data/current-page-links";
 import navLinks from "../../../../data/navLinks";
 import { VOTE_CANDIDATE } from "../../../../lib/queries/queries";
 import appTheme from "../../../../styles/appTheme";
 import { RequiredCandidate } from "../../../../types/types";
-import { rankingSection } from "../../../../utils/smoothScrollTo";
 import toasts from "../../../../utils/toasts";
 import StyledH1 from "../../../StyledComponents/StyledH1";
 import StyledSection from "../../../StyledComponents/StyledSection";
@@ -101,7 +100,6 @@ const CandidatesRankingSection = ({
   if (!allCandidates || allCandidates.length === 0) {
     return (
       <StyledSection>
-        <ScrollWrapper name={rankingSection} />
         <Span>
           Candidates List is empty.
           <Link href={navLinks.myCandidate.href} passHref>
@@ -115,7 +113,9 @@ const CandidatesRankingSection = ({
   // If Candidates List is NOT empty
   return (
     <StyledSection>
-      <StyledH2 id="ranking-section">Candidates Ranking</StyledH2>
+      <StyledH2 id={currentPageLinks.homePage.rankingSection}>
+        Candidates Ranking
+      </StyledH2>
       <LeadingCandidate
         candidatesArray={allCandidates}
         handleUpdateCandidate={handleUpdateCandidate}
