@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 
-import navlinks from "../data/navlinks";
+import navLinks from "../data/navLinks";
 import { resetAuthenticatedUser } from "../store/slices/authenticationSlice";
 import { RootState } from "../store/store";
 import appTheme from "../styles/appTheme";
@@ -121,7 +121,7 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <Link href={navlinks.home.href}>
+      <Link href={navLinks.home.href}>
         <a>
           <LogoIcon />
         </a>
@@ -129,7 +129,7 @@ const Header = () => {
       <Nav>
         <List>
           <Li>
-            <Link href={navlinks.myCandidate.href} passHref>
+            <Link href={navLinks.myCandidate.href} passHref>
               <StyledLiGradient>My Candidate</StyledLiGradient>
             </Link>
           </Li>

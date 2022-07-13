@@ -1,4 +1,4 @@
-import navlinks from "../../../data/navlinks";
+import navLinks from "../../../data/navLinks";
 import Page404Illustration from "../../Illustrations/Page404Illustration";
 import Page500Illustration from "../../Illustrations/Page500Illustration";
 import LinkButton from "../../LinkButton";
@@ -16,7 +16,7 @@ const ErrorPage = ({ errorCode }: ErrorPageProps) => {
         ) : (
           <Page500Illustration />
         )}
-        <LinkButton href={navlinks.home.href}>Home</LinkButton>
+        <LinkButton href={navLinks.home.href}>Home</LinkButton>
       </StyledErrorPagesContainer>
     </StyledPageMain>
   );
