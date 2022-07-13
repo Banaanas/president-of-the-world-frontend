@@ -41,7 +41,6 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-redux": "^8.0.2",
-    "react-scroll": "^1.8.7",
     "yup": "^0.32.11"
   },
   "devDependencies": {
@@ -52,7 +51,6 @@
     "@types/node": "^18.0.3",
     "@types/react": "^18.0.01",
     "@types/react-dom": "^18.0.6",
-    "@types/react-scroll": "^1.8.3",
     "@types/yup": "^0.29.14",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
