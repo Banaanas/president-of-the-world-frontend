@@ -44,6 +44,7 @@
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "prettier/prettier": "error",
     "import/extensions": "off",
+    "import/prefer-default-export": "off",
     // Next.js Link
     "jsx-a11y/anchor-is-valid": [
       "error",
@@ -81,6 +82,7 @@
     "react/react-in-jsx-scope": "off",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
+
     // Next.js Link
     "styled-components-a11y/anchor-is-valid": [
       "error",
