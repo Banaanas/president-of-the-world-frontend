@@ -1,41 +1,54 @@
 # This file was generated based on ".graphqlconfig". Do not edit manually.
 
 schema {
-    query: Query
-    mutation: Mutation
+  query: Query
+  mutation: Mutation
 }
 
 type Candidate {
-    country: String!
-    firstName: String!
-    id: ID!
-    lastName: String!
-    politicalOrientation: String!
-    votes: Int!
+  country: String!
+  firstName: String!
+  id: ID!
+  lastName: String!
+  politicalOrientation: String!
+  votes: Int!
 }
 
 type LoggedInUser {
-    token: String!
-    user: User!
+  token: String!
+  user: User!
 }
 
 type Mutation {
-    addCandidate(candidateFirstName: String!, candidateLastName: String!, country: String!, politicalOrientation: String!): Candidate
-    createUser(password: String!, passwordConfirmation: String!, username: String!): User
-    deleteCandidate(id: ID!): User
-    login(password: String!, username: String!): LoggedInUser
-    updateCandidate(country: String, id: ID!, politicalOrientation: String): Candidate
-    voteCandidate(id: ID!): Candidate
+  addCandidate(
+    candidateFirstName: String!
+    candidateLastName: String!
+    country: String!
+    politicalOrientation: String!
+  ): Candidate
+  createUser(
+    password: String!
+    passwordConfirmation: String!
+    username: String!
+  ): User
+  deleteCandidate(id: ID!): User
+  login(password: String!, username: String!): LoggedInUser
+  updateCandidate(
+    country: String
+    id: ID!
+    politicalOrientation: String
+  ): Candidate
+  voteCandidate(id: ID!): Candidate
 }
 
 type Query {
-    allCandidates(candidateLastName: String): [Candidate!]!
-    allCandidatesCount: Int!
-    loggedInUser: User
+  allCandidates(candidateLastName: String): [Candidate!]!
+  allCandidatesCount: Int!
+  loggedInUser: User
 }
 
 type User {
-    candidate: Candidate
-    id: ID!
-    username: String!
+  candidate: Candidate
+  id: ID!
+  username: String!
 }

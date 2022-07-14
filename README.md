@@ -131,11 +131,13 @@ World Presidential Election Application achieved as part of <a href="https://ful
 1 - Clone the Project's repositories
 
 - Front End
+
 ```sh
 git clone https://github.com/Banaanas/president-of-the-world-frontend.git
 ```
 
 - Back End
+
 ```sh
 git clone https://github.com/Banaanas/president-of-the-world-backend.git
 ```
@@ -149,11 +151,13 @@ npm install
 3 - Development Server
 
 - Front End
+
 ```sh
 npm run dev
 ```
 
 - Back End
+
 ```sh
 npm run dev
 ```
@@ -161,11 +165,13 @@ npm run dev
 4 - Production
 
 - Front End
+
 ```sh
 npm run build
 ```
 
 - Back End
+
 ```sh
 npm run start
 ```

@@ -1,49 +1,61 @@
 # This file was generated based on ".graphqlconfig". Do not edit manually.
 
 schema {
-    query: Query
-    mutation: Mutation
+  query: Query
+  mutation: Mutation
 }
 
 type Candidate {
-    country: String!
-    firstName: String!
-    id: ID!
-    lastName: String!
-    politicalOrientation: String!
-    votes: Int!
+  country: String!
+  firstName: String!
+  id: ID!
+  lastName: String!
+  politicalOrientation: String!
+  votes: Int!
 }
 
 type Mutation {
-    addCandidate(candidateFirstName: String!, candidateLastName: String!, country: String!, politicalOrientation: String!): Candidate
-    createUser(password: String!, passwordConfirmation: String!, username: String!): User
-    deleteCandidate(id: ID!): User
-    login(password: String!, username: String!): Token
-    updateCandidate(country: String, id: ID!, politicalOrientation: String): Candidate
-    voteCandidate(id: ID!, name: String!): Candidate
+  addCandidate(
+    candidateFirstName: String!
+    candidateLastName: String!
+    country: String!
+    politicalOrientation: String!
+  ): Candidate
+  createUser(
+    password: String!
+    passwordConfirmation: String!
+    username: String!
+  ): User
+  deleteCandidate(id: ID!): User
+  login(password: String!, username: String!): Token
+  updateCandidate(
+    country: String
+    id: ID!
+    politicalOrientation: String
+  ): Candidate
+  voteCandidate(id: ID!, name: String!): Candidate
 }
 
 type Query {
-    allCandidates(candidateLastName: String): [Candidate!]!
-    allCandidatesCount: Int!
-    loggedInUser: User
+  allCandidates(candidateLastName: String): [Candidate!]!
+  allCandidatesCount: Int!
+  loggedInUser: User
 }
 
 type Token {
-    value: String!
+  value: String!
 }
 
 type User {
-    candidate: Candidate
-    id: ID!
-    username: String!
+  candidate: Candidate
+  id: ID!
+  username: String!
 }
 
 enum CacheControlScope {
-    PRIVATE
-    PUBLIC
+  PRIVATE
+  PUBLIC
 }
-
 
 "The `Upload` scalar type represents a file upload."
 scalar Upload
