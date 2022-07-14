@@ -118,10 +118,12 @@ const CandidatesRankingSection = ({
       </StyledH2>
       <LeadingCandidate
         candidatesArray={allCandidates}
+        /* eslint-disable-next-line @typescript-eslint/no-misused-promises */
         handleUpdateCandidate={handleUpdateCandidate}
       />
       <CandidatesRanking
         candidatesArray={allCandidates}
+        /* eslint-disable-next-line @typescript-eslint/no-misused-promises */
         handleUpdateCandidate={handleUpdateCandidate}
       />
     </StyledSection>

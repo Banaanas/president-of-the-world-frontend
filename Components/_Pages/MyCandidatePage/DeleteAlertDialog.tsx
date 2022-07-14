@@ -91,6 +91,7 @@ const DeleteAlertDialog = ({
               Cancel
             </Button>
             <Button
+              /* eslint-disable-next-line @typescript-eslint/no-misused-promises */
               onClick={() => handleDeleteCandidate(candidateID)}
               background={appTheme.colors.error.default}
               color={appTheme.colors.textDefault}

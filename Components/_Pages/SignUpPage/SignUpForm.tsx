@@ -73,6 +73,7 @@ const SignUpForm = () => {
 
   // createUser - useMutation
   const [createUser] = useMutation<LoggedInUserData>(CREATE_USER, {
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
     onCompleted: async () => {
       // Display Success Toast
       toast(toasts.signup);
@@ -131,7 +132,8 @@ const SignUpForm = () => {
         setPassword(values.password);
 
         // Create User
-        handleCreateUser(values);
+        // eslint-disable-next-line no-void
+        void handleCreateUser(values);
         setSubmitting(false); // Set Submitting to false - Submit Chakra UI Button (isLoading)
         resetForm(); // Reset Form Initial Values
       }}

@@ -76,6 +76,7 @@ const LoginForm = () => {
   };
 
   return (
+    /* eslint-disable-next-line @typescript-eslint/no-misused-promises */
     <StyledForm onSubmit={handleLogin}>
       <FormHeading
         heading="Sign In to your Account"

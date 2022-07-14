@@ -1,3 +1,5 @@
+/* eslint no-param-reassign: 0 */ //
+
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface AuthenticationState {
