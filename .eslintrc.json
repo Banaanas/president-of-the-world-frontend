@@ -31,8 +31,7 @@
     "import",
     "prettier",
     "simple-import-sort",
-    "styled-components-a11y",
-    "testing-library"
+    "styled-components-a11y"
   ],
   "rules": {
     "@typescript-eslint/no-explicit-any": "error",
