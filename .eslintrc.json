@@ -12,7 +12,6 @@
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "plugin:cypress/recommended",
     "plugin:eslint-comments/recommended",
     "plugin:json/recommended",
     "plugin:jsx-a11y/recommended",
@@ -29,10 +28,7 @@
   },
   "plugins": [
     "@typescript-eslint",
-    "cypress",
     "import",
-    "jest",
-    "jest-formatting",
     "prettier",
     "simple-import-sort",
     "styled-components-a11y",
