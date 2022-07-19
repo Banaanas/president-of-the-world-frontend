@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@emotion/jest": "^11.9.4",
+    "@playwright/test": "^1.23.4",
     "@types/apollo-upload-client": "^17.0.1",
     "@types/node": "^18.0.3",
     "@types/react": "^18.0.15",

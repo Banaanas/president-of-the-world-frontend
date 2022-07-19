@@ -14,11 +14,15 @@ import type { AppProps } from "next/app";
 export const APOLLO_STATE_PROP_NAME = "__APOLLO_STATE__";
 export const localStorageValue = "authenticatedUser";
 
+export const productionEndpoint =
+  "https://server-president-of-the-world.cyrilo.app/";
+export const developmentAndTestEndpoint = "http://localhost:3002";
+
 // API Endpoint ( URL must be absolute)
 const GRAPHQL_URI =
   process.env.NODE_ENV === "production"
-    ? "https://server-president-of-the-world.cyrilo.app/" // Production Endpoint
-    : "http://localhost:3002"; // Development Endpoint
+    ? productionEndpoint // Production Endpoint
+    : developmentAndTestEndpoint; // Development Endpoint
 
 let apolloClient: ApolloClient<NormalizedCacheObject>;
 

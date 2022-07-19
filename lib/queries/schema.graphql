@@ -26,18 +26,25 @@ type Mutation {
     country: String!
     politicalOrientation: String!
   ): Candidate
+
   createUser(
     password: String!
     passwordConfirmation: String!
     username: String!
   ): User
+
   deleteCandidate(id: ID!): User
+
   login(password: String!, username: String!): LoggedInUser
+
+  resetAllDocuments: ID
+
   updateCandidate(
     country: String
     id: ID!
     politicalOrientation: String
   ): Candidate
+
   voteCandidate(id: ID!): Candidate
 }
 
