@@ -125,6 +125,13 @@ const DELETE_CANDIDATE = gql`
   }
 `;
 
+// TESTING PURPOSE - E2E
+const RESET_ALL_DOCUMENTS = gql`
+  mutation {
+    resetAllDocuments
+  }
+`;
+
 export {
   ADD_CANDIDATE,
   ALL_CANDIDATES,
@@ -134,5 +141,6 @@ export {
   LOGGED_IN_USER,
   LOGIN,
   UPDATE_CANDIDATE,
+  RESET_ALL_DOCUMENTS,
   VOTE_CANDIDATE,
 };
