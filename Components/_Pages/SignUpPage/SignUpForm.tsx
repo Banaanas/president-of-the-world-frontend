@@ -28,7 +28,7 @@ const ValidationSchemaYup = object().shape({
     .required("Username is Required"),
   password: string()
     .min(5, "Password must be at least 5 characters long")
-    .max(15, "Password can't exceed 10 characters")
+    .max(15, "Password can't exceed 15 characters")
     .required("Password is Required"),
   passwordConfirmation: string()
     .oneOf([ref("password"), null], "Passwords must match")
