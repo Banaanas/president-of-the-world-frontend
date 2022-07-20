@@ -1,6 +1,6 @@
-/* The GQL queries in the queries.ts file aren't retrievable. So, we had to "hardcode" the queries we wanted to use in our tests */
-
 import { faker } from "@faker-js/faker";
+
+/* The GQL queries in the queries.ts file aren't retrievable. So, we had to "hardcode" the queries we wanted to use in our tests */
 
 export const resetAllDocumentsQuery = `
   mutation {
@@ -31,7 +31,6 @@ export const createUserQuery = (
   }
 }`;
 
-
 /** CREATE USER HELPERS **/
 
 // Get random number between two INT
@@ -41,8 +40,7 @@ const randomNumberFromInterval = (min: number, max: number): number => {
 };
 
 // Password length must be between 5 and 15
-const randomPasswordLength = (): number =>
-  randomNumberFromInterval(5, 15);
+const randomPasswordLength = (): number => randomNumberFromInterval(5, 15);
 
 const generateFakeUSer = () => {
   return {
@@ -51,4 +49,4 @@ const generateFakeUSer = () => {
   };
 };
 
-export const fakeUser = generateFakeUSer()
+export const fakeUser = generateFakeUSer();
