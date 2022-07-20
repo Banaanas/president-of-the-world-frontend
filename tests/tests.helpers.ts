@@ -31,7 +31,7 @@ export const createUserQuery = (
   }
 }`;
 
-/** CREATE USER HELPERS **/
+/** CREATE USER HELPERS * */
 
 // Get random number between two INT
 const randomNumberFromInterval = (min: number, max: number): number => {
