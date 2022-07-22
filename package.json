@@ -11,7 +11,8 @@
     "prettier-check": "prettier --check ./",
     "prettier-write": "prettier --write ./",
     "start": "next start",
-    "stylelint": "npx stylelint \"**/*.{js,jsx,ts,tsx,css,scss,md}\""
+    "stylelint": "npx stylelint '**/*.{js,jsx,ts,tsx,css,scss,md}'",
+    "test": "npx playwright test"
   },
   "version": "0.1.0",
   "dependencies": {

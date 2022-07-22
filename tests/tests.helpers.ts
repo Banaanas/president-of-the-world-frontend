@@ -44,7 +44,7 @@ const randomPasswordLength = (): number => randomNumberFromInterval(5, 15);
 
 const generateFakeUSer = () => {
   return {
-    username: faker.name.findName(),
+    username: faker.name.findName().substring(0, 10), // substring in order for the username to NOT exceed 10 characters
     password: faker.internet.password(randomPasswordLength()),
   };
 };
