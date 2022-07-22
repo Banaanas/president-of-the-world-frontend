@@ -189,14 +189,4 @@ test.describe("APP FUNCTIONALITIES", () => {
       "✔️ Candidate Deleted ❎Your Candidate will no longer appear.",
     );
   });
-  test("User can add a candidate", async ({ page }) => {
-    // DELETE CANDIDATE
-    // Visit MyCandidate Page
-    await page.goto(`${localHostURL}/my-candidate`);
-    // Click Delete Button
-    await page.locator("text=Delete").click();
-    await page
-      .locator('section[role="alertdialog"] button:has-text("Delete")')
-      .click();
-  });
 });
